@@ -1,0 +1,904 @@
+{
+    "queries": [
+        {
+            "id": "1",
+            "question": "What is the area of Thailand?",
+            "query_string": "SELECT MONDIAL_COUNTRY.AREA\nFROM MONDIAL_COUNTRY\nWHERE UPPER(MONDIAL_COUNTRY.NAME) LIKE UPPER('%Thailand%')",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "2",
+            "question": "What are the provinces with an area greater than 10000?",
+            "query_string": "SELECT SUM(AREA) AS total_area\nFROM MONDIAL_GPT.MONDIAL_PROVINCE\nWHERE AREA > 10000",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "3",
+            "question": "What are the languages spoken in Poland?",
+            "query_string": "SELECT name\nFROM mondial_gpt.mondial_country\nWHERE UPPER(name) LIKE '%POLAND%'",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "4",
+            "question": "How deep is Lake Kariba?",
+            "query_string": "SELECT DEPTH\nFROM MONDIAL_GPT.MONDIAL_LAKE\nWHERE LOWER(NAME) LIKE '%lake%kariba%'",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "5",
+            "question": "What is the total of provinces of Netherlands?",
+            "query_string": "SELECT COUNT(*) AS total_provinces\nFROM MONDIAL_GPT.MONDIAL_PROVINCE\nWHERE COUNTRY = 'NL';",
+            "type": "complex",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "6",
+            "question": "What is the percentage of religious people are hindu in thailand?",
+            "query_string": "SELECT MONDIAL_RELIGION.PERCENTAGE\nFROM MONDIAL_RELIGION\nWHERE MONDIAL_RELIGION.COUNTRY = 'THA'\n  AND MONDIAL_RELIGION.NAME = 'Hindu';",
+            "type": "complex",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "7",
+            "question": "List the number of provinces each river flows through.",
+            "query_string": "SELECT river,\n       COUNT(province) AS number_of_provinces\nFROM geo_river\nGROUP BY river;",
+            "type": "medium",
+            "similarity": 0.9684684684684685,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "8",
+            "question": "Find all countries that became independent between 8/1/1910 and 8/1/1950.",
+            "query_string": "SELECT name\nFROM mondial_gpt.mondial_country\nWHERE independence BETWEEN TO_DATE('1910-08-01', 'YYYY-MM-DD') AND TO_DATE('1950-08-01', 'YYYY-MM-DD')\nORDER BY name NULLS LAST;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "9",
+            "question": "What are the cities of Cuba?",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_CITY.NAME\nFROM MONDIAL_GPT.MONDIAL_CITY\nWHERE MONDIAL_GPT.MONDIAL_CITY.COUNTRY = 'Cuba'",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "10",
+            "question": "What is the capital of Georgia?",
+            "query_string": "SELECT CAPITAL\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nWHERE UPPER(NAME) LIKE '%GEORGIA%'",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "11",
+            "question": "How many provinces have areas greater than 1000 in Niger?",
+            "query_string": "SELECT COUNT(*)\nFROM MONDIAL_GPT.MONDIAL_PROVINCE\nWHERE AREA > 1000\n  AND COUNTRY = 'NG'",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "12",
+            "question": "Tell me about the country with the area largest.",
+            "query_string": "SELECT MAX(AREA)\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nWHERE UPPER(NAME) LIKE UPPER('%Thailand%')",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "13",
+            "question": "What is the host province and year of establishment of the organization International Energy Agency?",
+            "query_string": "SELECT MONDIAL_ORGANIZATION.PROVINCE,\n       EXTRACT(YEAR FROM MONDIAL_ORGANIZATION.ESTABLISHED) AS YEAR_ESTABLISHED\nFROM MONDIAL_ORGANIZATION\nWHERE MONDIAL_ORGANIZATION.NAME = 'International Energy Agency';",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 0.5,
+            "result": false
+        },
+        {
+            "id": "14",
+            "question": "Find the name of all mountains whose elevation is higher than 1000.",
+            "query_string": "SELECT name\nFROM MONDIAL_GPT.MONDIAL_MOUNTAIN\nWHERE elevation > 1000;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "15",
+            "question": "Tell me the economy of the Caribbean Sea.",
+            "query_string": "SELECT MONDIAL_ECONOMY.GDP\nFROM MONDIAL_ECONOMY\nINNER JOIN MONDIAL_GEO_SEA ON MONDIAL_ECONOMY.COUNTRY = MONDIAL_GEO_SEA.COUNTRY\nWHERE MONDIAL_GEO_SEA.SEA = 'Caribbean Sea'",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "16",
+            "question": "Show the cities with longitude between 0 and 6.",
+            "query_string": "SELECT NAME\nFROM MONDIAL_GPT.MONDIAL_CITY\nWHERE LONGITUDE BETWEEN 0 AND 6;",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "17",
+            "question": "Select cities whose population is greater than 100000, altitude greater than 2500, and the country you belong to has population growth greater than 1.",
+            "query_string": "SELECT MONDIAL_CITY.NAME\nFROM MONDIAL_CITY\nINNER JOIN MONDIAL_COUNTRY ON MONDIAL_CITY.COUNTRY = MONDIAL_COUNTRY.CODE\nINNER JOIN MONDIAL_POPULATION ON MONDIAL_COUNTRY.CODE = MONDIAL_POPULATION.COUNTRY\nWHERE MONDIAL_CITY.POPULATION > 100000\n  AND MONDIAL_CITY.ELEVATION > 2500\n  AND MONDIAL_POPULATION.POPULATION_GROWTH > 1;",
+            "type": "complex",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "18",
+            "question": "Show all the different types of government.",
+            "query_string": "SELECT DISTINCT MONDIAL_POLITICS.GOVERNMENT\nFROM MONDIAL_POLITICS\nWHERE MONDIAL_POLITICS.COUNTRY = 'THA'\nORDER BY CASE WHEN MONDIAL_POLITICS.GOVERNMENT IS NULL THEN 1 ELSE 0 END, MONDIAL_POLITICS.GOVERNMENT;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "19",
+            "question": "List all provinces in Germany",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_PROVINCE.name\nFROM MONDIAL_GPT.MONDIAL_PROVINCE\nWHERE MONDIAL_GPT.MONDIAL_PROVINCE.country = 'Germany'\nORDER BY CASE WHEN MONDIAL_GPT.MONDIAL_PROVINCE.name IS NULL THEN 1 ELSE 0 END, MONDIAL_GPT.MONDIAL_PROVINCE.name;",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "20",
+            "question": "What is the percentage of mulatto ethnicity in Brazil?",
+            "query_string": "SELECT MONDIAL_ETHNICGROUP.PERCENTAGE\nFROM MONDIAL_ETHNICGROUP\nWHERE MONDIAL_ETHNICGROUP.COUNTRY = 'BR'\n  AND UPPER(MONDIAL_ETHNICGROUP.NAME) LIKE UPPER('%mulatto%')",
+            "type": "complex",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "21",
+            "question": "How many cities have populations less than 1000?",
+            "query_string": "SELECT COUNT(*)\nFROM MONDIAL_CITY\nWHERE POPULATION < 1000;",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "22",
+            "question": "What is the average elevation of airports in America?",
+            "query_string": "SELECT AVG(ELEVATION) AS average_elevation\nFROM MONDIAL_AIRPORT\nWHERE UPPER(COUNTRY) LIKE '%AMERICA%';",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "23",
+            "question": "How many countries are adjacent to (or ecompassed by) the Caribbean Sea?",
+            "query_string": "SELECT COUNT(DISTINCT MONDIAL_GEO_SEA.COUNTRY) AS adjacent_countries\nFROM MONDIAL_GEO_SEA\nWHERE MONDIAL_GEO_SEA.SEA = 'Caribbean Sea';",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "24",
+            "question": "How much area do the countries that are adjacent to (or encompassed by) the Caribbean Sea cover in total?",
+            "query_string": "SELECT MONDIAL_COUNTRY.name, SUM(MONDIAL_COUNTRY.population) AS total_population FROM MONDIAL_COUNTRY JOIN MONDIAL_GEO_SEA ON MONDIAL_COUNTRY.code = MONDIAL_GEO_SEA.country WHERE MONDIAL_GEO_SEA.sea = 'Caribbean Sea' GROUP BY MONDIAL_COUNTRY.name ORDER BY total_population DESC NULLS LAST;\n",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "25",
+            "question": "For all countries, give the sum of the population of all its neighbors",
+            "query_string": "SELECT MONDIAL_COUNTRY.name, SUM(MONDIAL_COUNTRY.population) AS total_population FROM MONDIAL_COUNTRY JOIN MONDIAL_BORDERS ON (MONDIAL_COUNTRY.code = MONDIAL_BORDERS.country1 OR MONDIAL_COUNTRY.code = MONDIAL_BORDERS.country2) GROUP BY MONDIAL_COUNTRY.name ORDER BY total_population DESC NULLS LAST;",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "26",
+            "question": "What mountains are on the island of Borneo?",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_MOUNTAINONISLAND.MOUNTAIN\nFROM MONDIAL_GPT.MONDIAL_MOUNTAINONISLAND\nWHERE MONDIAL_GPT.MONDIAL_MOUNTAINONISLAND.ISLAND = 'Borneo'\nORDER BY CASE WHEN MONDIAL_GPT.MONDIAL_MOUNTAINONISLAND.MOUNTAIN IS NULL THEN 1 ELSE 0 END, MONDIAL_GPT.MONDIAL_MOUNTAINONISLAND.MOUNTAIN;",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "27",
+            "question": "Provide the name and total population of the country with the smallest area.",
+            "query_string": "SELECT name, population \nFROM MONDIAL_COUNTRY \nWHERE LOWER(name) LIKE LOWER('%Thailand%') \nORDER BY NVL(area,0) ASC \nFETCH FIRST 1 ROWS ONLY;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "28",
+            "question": "The codes of all countries for which at least one river that originates in this country has its estuary in a neighboring country.",
+            "query_string": "SELECT e.COUNTRY\nFROM MONDIAL_GEO_ESTUARY e\nWHERE e.RIVER IN\n    (SELECT r.RIVER\n     FROM MONDIAL_GEO_RIVER r\n     WHERE r.COUNTRY = 'THA');",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "29",
+            "question": "The codes of all countries where at least one mountain is located in each of their provinces",
+            "query_string": "SELECT MONDIAL_COUNTRY.CODE\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_GEO_MOUNTAIN ON MONDIAL_COUNTRY.CODE = MONDIAL_GEO_MOUNTAIN.COUNTRY\nGROUP BY MONDIAL_COUNTRY.CODE;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "30",
+            "question": "The code and total border lengths of all countries with at least one border.",
+            "query_string": "SELECT MONDIAL_BORDERS.COUNTRY1, \n       SUM(MONDIAL_BORDERS.LENGTH) AS total_border_length\nFROM MONDIAL_BORDERS\nGROUP BY MONDIAL_BORDERS.COUNTRY1\nHAVING COUNT(MONDIAL_BORDERS.COUNTRY1) >= 1;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "31",
+            "question": "The names and codes of all countries in which at least one river originates.",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_COUNTRY.NAME,\n       MONDIAL_GPT.MONDIAL_COUNTRY.CODE\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nWHERE UPPER(MONDIAL_GPT.MONDIAL_COUNTRY.NAME) LIKE UPPER('%Thailand%')",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "32",
+            "question": "What is the area and country of the Chatanga River?",
+            "query_string": "SELECT AREA\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nWHERE UPPER(NAME) LIKE UPPER('%Thailand%')",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "33",
+            "question": "Show the Airports with elevation more than 3000",
+            "query_string": "SELECT COUNT(*)\nFROM MONDIAL_GPT.MONDIAL_AIRPORT\nWHERE ELEVATION > 3000",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "34",
+            "question": "What are the religions practiced in Mexico?",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_RELIGION.NAME\nFROM MONDIAL_GPT.MONDIAL_RELIGION\nWHERE MONDIAL_GPT.MONDIAL_RELIGION.COUNTRY = 'MEX'",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "35",
+            "question": "Show all rivers that do not flow into the sea.",
+            "query_string": "SELECT NAME\nFROM MONDIAL_GPT.MONDIAL_RIVER\nWHERE SEA IS NULL;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "36",
+            "question": "List African countries by number of neighbors.",
+            "query_string": "SELECT MONDIAL_COUNTRY.name, \n       COUNT(DISTINCT MONDIAL_BORDERS.country2) AS neighbor_count \nFROM MONDIAL_COUNTRY \nJOIN MONDIAL_BORDERS ON MONDIAL_COUNTRY.code = MONDIAL_BORDERS.country1 \nWHERE MONDIAL_COUNTRY.continent = 'Africa' \nGROUP BY MONDIAL_COUNTRY.name \nORDER BY CASE WHEN neighbor_count IS NULL THEN 1 ELSE 0 END, neighbor_count DESC;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "37",
+            "question": "What is the average infant mortality rate for each continent?",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_CONTINENT.name,\n       AVG(MONDIAL_GPT.MONDIAL_POPULATION.infant_mortality) AS average_infant_mortality\nFROM MONDIAL_GPT.MONDIAL_CONTINENT\nJOIN MONDIAL_GPT.MONDIAL_ENCOMPASSES ON MONDIAL_GPT.MONDIAL_CONTINENT.name = MONDIAL_GPT.MONDIAL_ENCOMPASSES.continent\nJOIN MONDIAL_GPT.MONDIAL_POPULATION ON MONDIAL_GPT.MONDIAL_ENCOMPASSES.country = MONDIAL_GPT.MONDIAL_POPULATION.country\nGROUP BY MONDIAL_GPT.MONDIAL_CONTINENT.name\nORDER BY AVG(MONDIAL_GPT.MONDIAL_POPULATION.infant_mortality) DESC NULLS LAST;",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "38",
+            "question": "What is the average mortality rate of the countries in America without considering Brazil?",
+            "query_string": "SELECT AVG(MONDIAL_POPULATION.INFANT_MORTALITY) AS average_mortality_rate\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_ENCOMPASSES ON MONDIAL_COUNTRY.CODE = MONDIAL_ENCOMPASSES.COUNTRY\nWHERE MONDIAL_COUNTRY.CONTINENT = 'America'\n  AND MONDIAL_COUNTRY.NAME<> 'Brazil';",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "39",
+            "question": "List seas with area greater than 8000 and depth less than 100.",
+            "query_string": "SELECT AREA\nFROM MONDIAL_GPT.MONDIAL_SEA\nWHERE AREA > 8000\n  AND DEPTH < 100",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "40",
+            "question": "How many mountains are there in Asia?",
+            "query_string": "SELECT COUNT(*)\nFROM mondial_geo_mountain\nWHERE country = 'AS';",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "41",
+            "question": "How many countries that are close to the Mediterranean Sea?",
+            "query_string": "SELECT COUNT(DISTINCT MONDIAL_COUNTRY.COUNTRY) AS number_of_countries\nFROM MONDIAL_COUNTRY\nINNER JOIN MONDIAL_GEO_SEA ON MONDIAL_COUNTRY.COUNTRY = MONDIAL_GEO_SEA.COUNTRY\nWHERE MONDIAL_GEO_SEA.SEA = 'Mediterranean Sea';",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "42",
+            "question": "Show the total for each type of government.",
+            "query_string": "SELECT MONDIAL_POLITICS.GOVERNMENT,\n       COUNT(*) AS COUNT\nFROM MONDIAL_POLITICS\nWHERE MONDIAL_POLITICS.COUNTRY = 'THA'\nGROUP BY MONDIAL_POLITICS.GOVERNMENT\nORDER BY COUNT(*) DESC;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "43",
+            "question": "Which province has the largest desert in the world?",
+            "query_string": "SELECT MONDIAL_GEO_DESERT.PROVINCE\nFROM MONDIAL_GEO_DESERT\nWHERE MONDIAL_GEO_DESERT.DESERT = 'Desert'\nORDER BY DECODE(MONDIAL_GEO_DESERT.AREA, NULL, 1, 0), MONDIAL_GEO_DESERT.AREA DESC\nFETCH FIRST 1 ROWS ONLY;",
+            "type": "simple",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "44",
+            "question": "What is the largest desert in the world?",
+            "query_string": "SELECT MAX(AREA)\nFROM MONDIAL_GPT.MONDIAL_DESERT;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "45",
+            "question": "List, for all continents, the amount of deserts on each.",
+            "query_string": "SELECT mgd.continent,\n       COUNT(mgd.desert) AS NUMBER_OF_DESERTS\nFROM mondial_geo_desert mgd\nGROUP BY mgd.continent;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "46",
+            "question": "What are the neighboring seas of the Banda Sea?",
+            "query_string": "SELECT SEA2\nFROM MONDIAL_GPT.MERGESWITH\nWHERE UPPER(SEA1) LIKE UPPER('%Banda%Sea%')",
+            "type": "medium",
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "47",
+            "question": "List all the capitals of European countries.",
+            "query_string": "SELECT MONDIAL_COUNTRY.CAPITAL\nFROM MONDIAL_COUNTRY\nWHERE MONDIAL_COUNTRY.CONTINENT = 'Europe'\nORDER BY CASE WHEN MONDIAL_COUNTRY.CAPITAL IS NULL THEN 1 ELSE 0 END, MONDIAL_COUNTRY.CAPITAL;",
+            "type": "medium",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "48",
+            "question": "What percentage of people speak French in Andorra?",
+            "query_string": "SELECT MONDIAL_LANGUAGE.PERCENTAGE\nFROM MONDIAL_LANGUAGE\nWHERE MONDIAL_LANGUAGE.COUNTRY = 'AD'\n  AND MONDIAL_LANGUAGE.NAME = 'French'",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "49",
+            "question": "Which rivers are longer than 1000 kilometers?",
+            "query_string": "SELECT RIVER\nFROM MONDIAL_GPT.MONDIAL_RIVER\nWHERE LENGTH > 1000",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "50",
+            "question": "Which country had the lowest population growth?",
+            "query_string": "SELECT MONDIAL_COUNTRY.name\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_POPULATION ON MONDIAL_COUNTRY.code = MONDIAL_POPULATION.country\nORDER BY NVL(MONDIAL_POPULATION.population_growth, -9999999) ASC\nFETCH FIRST 1 ROWS ONLY;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "51",
+            "question": "List the name of capital cities for which we do not have data about the city in located",
+            "query_string": "SELECT MONDIAL_COUNTRY.CAPITAL\nFROM MONDIAL_COUNTRY\nLEFT JOIN MONDIAL_LOCATED ON MONDIAL_COUNTRY.CAPITAL = MONDIAL_LOCATED.CITY\nWHERE MONDIAL_LOCATED.CITY IS NULL;",
+            "type": "complex",
+            "similarity": 0.9846153846153847,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "52",
+            "question": "What is the capital of the provice Andaluc\u00eda?",
+            "query_string": "SELECT CAPITAL\nFROM MONDIAL_GPT.MONDIAL_PROVINCE\nWHERE UPPER(NAME) LIKE UPPER('%Andaluc\u00eda%')",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "53",
+            "question": "What is the abbreviation for the organization whose name is General Confederation of Trade Unions?",
+            "query_string": "SELECT ABBREVIATION\nFROM MONDIAL_GPT.MONDIAL_ORGANIZATION\nWHERE UPPER(NAME) LIKE UPPER('%General%Confederation%of%Trade%Unions%')",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "54",
+            "question": "In which city is the organization with the abbreviation UPU ?",
+            "query_string": "SELECT MONDIAL_ORGANIZATION.CITY\nFROM MONDIAL_ORGANIZATION\nWHERE MONDIAL_ORGANIZATION.ABBREVIATION = 'UPU'",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "55",
+            "question": "List the names of countries which are members of only one organization",
+            "query_string": "SELECT MONDIAL_COUNTRY.name\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_ISMEMBER ON MONDIAL_COUNTRY.code = MONDIAL_ISMEMBER.country\nGROUP BY MONDIAL_COUNTRY.name\nHAVING COUNT(DISTINCT MONDIAL_ISMEMBER.organization) = 1;",
+            "type": "complex",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "56",
+            "question": "List the name of countries which are not a member of NATO.",
+            "query_string": "SELECT MONDIAL_COUNTRY.name\nFROM MONDIAL_COUNTRY\nWHERE MONDIAL_COUNTRY.name NOT IN\n    (SELECT MONDIAL_ISMEMBER.COUNTRY\n     FROM MONDIAL_ISMEMBER\n     WHERE MONDIAL_ISMEMBER.ORGANIZATION = 'NATO');",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "57",
+            "question": "List the name of countries which are a member of NATO.",
+            "query_string": "SELECT MONDIAL_COUNTRY.name\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_ISMEMBER ON MONDIAL_COUNTRY.code = MONDIAL_ISMEMBER.country\nWHERE MONDIAL_ISMEMBER.organization = 'NATO'\nORDER BY CASE WHEN MONDIAL_COUNTRY.name IS NULL THEN 1 ELSE 0 END, MONDIAL_COUNTRY.name;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "58",
+            "question": "List the rivers with length less than 50",
+            "query_string": "SELECT NAME\nFROM MONDIAL_GPT.MONDIAL_RIVER\nWHERE LENGTH < 50",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "59",
+            "question": "What are the area, elevation and type of lakes in country Italy?",
+            "query_string": "SELECT LAKE,\n       COUNTRY,\n       PROVINCE,\n       META_REPCOL\nFROM MONDIAL_GPT.MONDIAL_GEO_LAKE\nWHERE UPPER(COUNTRY) LIKE '%ITALY%'",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "60",
+            "question": "List the names of capital cities which are the base for organizations in alphabetical order",
+            "query_string": "SELECT MONDIAL_COUNTRY.CAPITAL\nFROM MONDIAL_COUNTRY\nWHERE MONDIAL_COUNTRY.COUNTRY = 'THA'\nORDER BY MONDIAL_COUNTRY.CAPITAL ASC;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "61",
+            "question": "List the name of organizations that do not have countries with an area smaller than 4000 and of the member type",
+            "query_string": "SELECT mondial_gpt.mondial_organization.name\nFROM mondial_gpt.mondial_organization\nJOIN mondial_gpt.mondial_ismember ON mondial_gpt.mondial_organization.name = mondial_gpt.mondial_ismember.organization\nJOIN mondial_gpt.mondial_country ON mondial_gpt.mondial_ismember.country = mondial_gpt.mondial_country.code\nWHERE mondial_gpt.mondial_country.area < 4000\n  AND UPPER(mondial_gpt.mondial_ismember.type) LIKE UPPER('%member%')\nORDER BY mondial_gpt.mondial_organization.name NULLS LAST;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "62",
+            "question": "List the name of organizations that do not have countries with  an area greater than 10000 and population smaller than 3000 and of the member type",
+            "query_string": "SELECT MONDIAL_ORGANIZATION.NAME\nFROM MONDIAL_ORGANIZATION\nJOIN MONDIAL_ISMEMBER ON MONDIAL_ORGANIZATION.ORGANIZATION = MONDIAL_ISMEMBER.ORGANIZATION\nJOIN MONDIAL_COUNTRY ON MONDIAL_ISMEMBER.COUNTRY = MONDIAL_COUNTRY.CODE\nWHERE MONDIAL_COUNTRY.AREA > 10000\n  AND MONDIAL_COUNTRY.POPULATION < 3000\n  AND MONDIAL_ISMEMBER.TYPE ='member'\nORDER BY NULLIF(MONDIAL_ORGANIZATION.NAME, MONDIAL_ORGANIZATION.NAME) DESC, MONDIAL_ORGANIZATION.NAME;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "63",
+            "question": "Show the inflation rate sorted of countries that are washed by the Arabian Sea",
+            "query_string": "SELECT MONDIAL_ECONOMY.COUNTRY,\n       MONDIAL_ECONOMY.INFLATION\nFROM MONDIAL_ECONOMY\nJOIN MONDIAL_GEO_SEA ON MONDIAL_ECONOMY.COUNTRY = MONDIAL_GEO_SEA.COUNTRY\nWHERE MONDIAL_GEO_SEA.SEA = 'Arabian Sea'\nORDER BY CASE WHEN MONDIAL_ECONOMY.INFLATION IS NULL THEN 1 ELSE 0 END, MONDIAL_ECONOMY.INFLATION DESC;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "64",
+            "question": "List all the capitals of the countries that belong to the continent Africa?",
+            "query_string": "SELECT MONDIAL_COUNTRY.CAPITAL\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_ENCOMPASSES ON MONDIAL_COUNTRY.CODE = MONDIAL_ENCOMPASSES.COUNTRY\nWHERE MONDIAL_ENCOMPASSES.CONTINENT = 'Africa'",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "65",
+            "question": "Show the inflation rate of the countries bathed by the Arabian Sea and there is no inflation with null value",
+            "query_string": "SELECT MONDIAL_ECONOMY.INFLATION\nFROM MONDIAL_ECONOMY\nJOIN MONDIAL_GEO_SEA ON MONDIAL_ECONOMY.COUNTRY = MONDIAL_GEO_SEA.COUNTRY\nWHERE MONDIAL_GEO_SEA.SEA = 'Arabian Sea'\n  AND MONDIAL_ECONOMY.INFLATION IS NOT NULL;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "66",
+            "question": "How many countries are in Africa?",
+            "query_string": "SELECT COUNT(DISTINCT MONDIAL_COUNTRY.CONTINENT) AS number_of_continents\nFROM MONDIAL_COUNTRY\nWHERE MONDIAL_COUNTRY.CONTINENT = 'Africa';",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "67",
+            "question": "List the name of countries that are not members of NATO and UNESCO",
+            "query_string": "SELECT country.name\nFROM country\nWHERE country.code NOT IN\n    (SELECT ismember.country\n     FROM ismember\n     WHERE ismember.organization IN ('NATO',\n                                     'UNESCO'));",
+            "type": "complex",
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "68",
+            "question": "What is the area of the continent Europe?",
+            "query_string": "SELECT MONDIAL_CONTINENT.AREA\nFROM MONDIAL_CONTINENT\nWHERE MONDIAL_CONTINENT.NAME = 'Europe'",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "69",
+            "question": "What is the area of continent America?",
+            "query_string": "SELECT MONDIAL_CONTINENT.AREA\nFROM MONDIAL_CONTINENT\nWHERE MONDIAL_CONTINENT.NAME = 'America';",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "70",
+            "question": "What is the area of continent Asia?",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_CONTINENT.AREA\nFROM MONDIAL_GPT.MONDIAL_CONTINENT\nWHERE MONDIAL_GPT.MONDIAL_CONTINENT.NAME = 'Asia'",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "71",
+            "question": "What is the area of Africa?",
+            "query_string": "SELECT MONDIAL_CONTINENT.AREA\nFROM MONDIAL_CONTINENT\nWHERE MONDIAL_CONTINENT.NAME = 'Africa';",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "72",
+            "question": "How many countries are in America?",
+            "query_string": "SELECT COUNT(*)\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nWHERE UPPER(CONTINENT) LIKE '%AMERICA%'",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "73",
+            "question": "What area is the largest continent?",
+            "query_string": "SELECT MAX(AREA)\nFROM MONDIAL_GPT.MONDIAL_CONTINENT\nWHERE UPPER(NAME) LIKE UPPER('%Thailand%')",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "74",
+            "question": "List the countries that belong to the continent with the largest area",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_CONTINENT.NAME\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nJOIN MONDIAL_GPT.MONDIAL_ENCOMPASSES ON MONDIAL_GPT.MONDIAL_COUNTRY.CODE = MONDIAL_GPT.MONDIAL_ENCOMPASSES.COUNTRY\nWHERE MONDIAL_GPT.MONDIAL_COUNTRY.NAME = 'Thailand'\nGROUP BY MONDIAL_GPT.MONDIAL_CONTINENT.NAME\nORDER BY MONDIAL_GPT.MONDIAL_CONTINENT.AREA DESC NULLS LAST\nFETCH FIRST 1 ROWS ONLY;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "75",
+            "question": "List the countries that belong to the continent with the largest area and whose language is English",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_CONTINENT.NAME\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nJOIN MONDIAL_GPT.MONDIAL_ENCOMPASSES ON MONDIAL_GPT.MONDIAL_COUNTRY.CODE = MONDIAL_GPT.MONDIAL_ENCOMPASSES.COUNTRY\nJOIN MONDIAL_GPT.MONDIAL_LANGUAGE ON MONDIAL_GPT.MONDIAL_COUNTRY.CODE = MONDIAL_GPT.MONDIAL_LANGUAGE.COUNTRY\nWHERE MONDIAL_GPT.MONDIAL_LANGUAGE.NAME = 'English'\nGROUP BY MONDIAL_GPT.MONDIAL_CONTINENT.NAME\nORDER BY MONDIAL_GPT.MONDIAL_CONTINENT.AREA DESC NULLS LAST\nFETCH FIRST 1 ROWS ONLY;",
+            "type": "complex",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "76",
+            "question": "List the names of cities, along with the name of their country for cities with a population greater than 5 million.  Display the results in descending order by population.",
+            "query_string": "SELECT MONDIAL_CITY.NAME,\n       MONDIAL_CITY.COUNTRY,\n       MONDIAL_CITY.POPULATION\nFROM MONDIAL_CITY\nWHERE MONDIAL_CITY.POPULATION > 5000000\nORDER BY MONDIAL_CITY.POPULATION DESC;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 0.5,
+            "result": false
+        },
+        {
+            "id": "77",
+            "question": "Show the name of the deserts in the province of Algeria",
+            "query_string": "SELECT name\nFROM mondial_gpt_desert\nWHERE UPPER(province) LIKE '%ALGERIA%'",
+            "type": "simple",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "78",
+            "question": "Show the name and area of the deserts in the province of California",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_DESERT.name,\n   MONDIAL_GPT.MONDIAL_DESERT.area\nFROM MONDIAL_GPT.MONDIAL_GEO_DESERT\nWHERE MONDIAL_GPT.MONDIAL_GEO_DESERT.province = 'California'\nORDER BY NVL(MONDIAL_GPT.MONDIAL_DESERT.area, 0) DESC;",
+            "type": "simple",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "79",
+            "question": "List the country names and percentage of use of language where  French are used as languages.",
+            "query_string": "SELECT MONDIAL_COUNTRY.NAME,\n       SUM(MONDIAL_LANGUAGE.PERCENTAGE) AS total_percentage\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_LANGUAGE ON MONDIAL_COUNTRY.CODE = MONDIAL_LANGUAGE.COUNTRY\nWHERE MONDIAL_LANGUAGE.NAME = 'French'\nGROUP BY MONDIAL_COUNTRY.NAME;",
+            "type": "simple",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "80",
+            "question": "What are the cities where \ufffdPortuguese\ufffd is spoken?",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_COUNTRY.AREA\nFROM MONDIAL_GPT.MONDIAL_LANGUAGE\nWHERE UPPER(MONDIAL_GPT.MONDIAL_LANGUAGE.NAME) LIKE UPPER('%Portuguese%')",
+            "type": "medium",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "81",
+            "question": "What is the total area of the provinces in Canada?",
+            "query_string": "SELECT SUM(AREA) AS total_area\nFROM MONDIAL_GPT.MONDIAL_PROVINCE\nWHERE UPPER(COUNTRY) LIKE '%CANADA%';",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "82",
+            "question": "What is the length of the Tigres River?",
+            "query_string": "SELECT LENGTH\nFROM MONDIAL_GPT.MONDIAL_RIVER\nWHERE UPPER(RIVER) LIKE '%TIGRES%RIVER%'",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "83",
+            "question": "List the Airports with elevation more than 1000",
+            "query_string": "SELECT NAME,\n       IATACODE,\n       COUNTRY,\n       CITY,\n       PROVINCE,\n       ISLAND,\n       LATITUDE,\n       LONGITUDE,\n       ELEVATION,\n       GMTOFFSET,\n       META_REPCOL\nFROM MONDIAL_GPT.MONDIAL_AIRPORT\nWHERE ELEVATION > '1000'\nORDER BY DECODE(ELEVATION, NULL, 1, 0), ELEVATION DESC;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "84",
+            "question": "List airports in the United States with an elevation below 200 feet",
+            "query_string": "SELECT NAME\nFROM MONDIAL_GPT.MONDIAL_AIRPORT\nWHERE UPPER(COUNTRY) LIKE '%UNITED%STATES%'\n  AND ELEVATION < 200\nORDER BY ELEVATION NULLS LAST;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "85",
+            "question": "What are the mountains with altitudes above 8000 meters?",
+            "query_string": "SELECT MOUNTAINS\nFROM MONDIAL_GPT.MONDIAL_MOUNTAIN\nWHERE ELEVATION > 8000",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "86",
+            "question": "What are the 3 airports with the largest name?",
+            "query_string": "SELECT NAME\nFROM MONDIAL_GPT.MONDIAL_AIRPORT\nORDER BY NAME DESC NULLS LAST\nFETCH FIRST 3 ROWS ONLY;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "87",
+            "question": "List lakes with an area of less than 5000 square kilometers.",
+            "query_string": "SELECT NAME,\n       AREA\nFROM MONDIAL_GPT.MONDIAL_LAKE\nWHERE AREA < '5000'\nORDER BY NULLS LAST AREA;",
+            "type": "medium",
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "88",
+            "question": "What is the total area of the seas with a depth greater than 1000 meters?",
+            "query_string": "SELECT SUM(AREA) AS total_area\nFROM MONDIAL_GPT.MONDIAL_SEA\nWHERE DEPTH > 1000;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "89",
+            "question": "Find the countries whose name starts with the letter B and have a population greater than 10 million",
+            "query_string": "SELECT MONDIAL_COUNTRY.name\nFROM MONDIAL_COUNTRY\nWHERE UPPER(MONDIAL_COUNTRY.name) LIKE 'B%'\n  AND MONDIAL_COUNTRY.population > 1000000;",
+            "type": "complex",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "90",
+            "question": "List cities with another name in Brazil",
+            "query_string": "SELECT MONDIAL_CITYOTHERNAME.OTHERNAME\nFROM MONDIAL_CITYOTHERNAME\nWHERE MONDIAL_CITYOTHERNAME.COUNTRY = 'BR';",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "91",
+            "question": "List all cities that are at a latitude greater than 45 degrees.",
+            "query_string": "SELECT NAME\nFROM MONDIAL_GPT.MONDIAL_CITY\nWHERE LATITUDE > 45",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "92",
+            "question": "Show the number of cities with another name in countries with an area greater than 30000",
+            "query_string": "SELECT COUNT(DISTINCT MONDIAL_CITYOTHERNAME.CITY) AS number_of_cities\nFROM MONDIAL_CITYOTHERNAME\nJOIN MONDIAL_COUNTRY ON MONDIAL_CITYOTHERNAME.COUNTRY = MONDIAL_COUNTRY.CODE\nWHERE MONDIAL_COUNTRY.AREA > 30000;",
+            "type": "medium",
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "93",
+            "question": "Show the deserts with area greater than 10000",
+            "query_string": "SELECT AREA\nFROM MONDIAL_GPT.MONDIAL_DESERT\nWHERE AREA > 10000",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "94",
+            "question": "List the islands that belong to a lake with an elevation greater than 100",
+            "query_string": "SELECT lake.name\nFROM lake\nWHERE lake.elevation > 100;",
+            "type": "simple",
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "95",
+            "question": "List all mountains located on islands with an area greater than 100,000 square kilometers",
+            "query_string": "SELECT mondial_gpt.mondial_island.area\nFROM mondial_gpt.mondial_island\nWHERE LOWER(mondial_gpt.mondial_island.name) LIKE '%thailand%'",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "96",
+            "question": "List the countries and the sum of their provincial areas.",
+            "query_string": "SELECT MONDIAL_GPT.MONDIAL_COUNTRY.PROVINCE,\n       SUM(MONDIAL_GPT.MONDIAL_COUNTRY.AREA) AS total_area\nFROM MONDIAL_GPT.MONDIAL_COUNTRY\nWHERE MONDIAL_GPT.MONDIAL_COUNTRY.NAME = 'Thailand'\nGROUP BY MONDIAL_GPT.MONDIAL_COUNTRY.PROVINCE;",
+            "type": "simple",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "97",
+            "question": "Show the name of the countries, the average elevation and sum of the population of their cities",
+            "query_string": "SELECT MONDIAL_COUNTRY.name,\n       AVG(MONDIAL_CITY.elevation) AS average_elevation,\n       SUM(MONDIAL_CITY.population) AS total_population\nFROM MONDIAL_COUNTRY\nJOIN MONDIAL_CITY ON MONDIAL_COUNTRY.code = MONDIAL_CITY.country\nWHERE LOWER(MONDIAL_COUNTRY.name) LIKE '%thailand%'\nGROUP BY MONDIAL_COUNTRY.name;",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "98",
+            "question": "What was Germany's inflation?",
+            "query_string": "SELECT MONDIAL_ECONOMY.INFLATION\nFROM MONDIAL_ECONOMY\nWHERE MONDIAL_ECONOMY.COUNTRY = 'DEU'",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "99",
+            "question": "What type of government is Iran?",
+            "query_string": "SELECT MONDIAL_POLITICS.GOVERNMENT\nFROM MONDIAL_POLITICS\nWHERE MONDIAL_POLITICS.COUNTRY = 'IRN'",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "100",
+            "question": "What is the percentage of industries in relation to Japan's economy?",
+            "query_string": "SELECT industry /\n  (SELECT industry\n   FROM mondial_gpt.mondial_economy\n   WHERE country = 'Japan') * 100 AS percentage\nFROM mondial_gpt.mondial_economy\nWHERE country = 'Japan';",
+            "type": "medium",
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        }
+    ]
+}

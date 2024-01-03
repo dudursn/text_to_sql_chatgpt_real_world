@@ -1,0 +1,3604 @@
+{
+    "queries": [
+        {
+            "id": "1",
+            "question": "What is the area of Thailand?",
+            "query_string": "SELECT country.area FROM country WHERE country.name = 'Thailand'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5951,
+                    "total_cost": 0.017931000000000002,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 78
+                },
+                "classification": {
+                    "total_tokens": 3671,
+                    "total_cost": 0.011109999999999998,
+                    "prompt_tokens": 3574,
+                    "completion_tokens": 97
+                },
+                "sql_generation": {
+                    "total_tokens": 1788,
+                    "total_cost": 0.005377,
+                    "prompt_tokens": 1775,
+                    "completion_tokens": 13
+                },
+                "self_correction": {
+                    "total_tokens": 2193,
+                    "total_cost": 0.006595,
+                    "prompt_tokens": 2177,
+                    "completion_tokens": 16
+                }
+            },
+            "time": 5.807813882827759,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "2",
+            "question": "What are the provinces with an area greater than 10000?",
+            "query_string": "SELECT province.name FROM province WHERE province.area > 10000",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5986,
+                    "total_cost": 0.018065,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 107
+                },
+                "classification": {
+                    "total_tokens": 3689,
+                    "total_cost": 0.01117,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 103
+                },
+                "sql_generation": {
+                    "total_tokens": 1799,
+                    "total_cost": 0.005409,
+                    "prompt_tokens": 1787,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2198,
+                    "total_cost": 0.006608999999999999,
+                    "prompt_tokens": 2183,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 6.193645715713501,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "3",
+            "question": "What are the languages spoken in Poland?",
+            "query_string": "SELECT T1.name  FROM  language T1  JOIN  country T2  ON T1.country = T2.code  WHERE T2.name = 'Poland'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5981,
+                    "total_cost": 0.01805,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 107
+                },
+                "classification": {
+                    "total_tokens": 3685,
+                    "total_cost": 0.011156000000000001,
+                    "prompt_tokens": 3584,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 3116,
+                    "total_cost": 0.009437999999999998,
+                    "prompt_tokens": 3026,
+                    "completion_tokens": 90
+                },
+                "self_correction": {
+                    "total_tokens": 2234,
+                    "total_cost": 0.006736000000000001,
+                    "prompt_tokens": 2200,
+                    "completion_tokens": 34
+                }
+            },
+            "time": 9.364501953125,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "4",
+            "question": "How deep is Lake Kariba?",
+            "query_string": "SELECT depth FROM lake WHERE name = 'Lake Kariba'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5973,
+                    "total_cost": 0.018019000000000004,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 100
+                },
+                "classification": {
+                    "total_tokens": 3619,
+                    "total_cost": 0.010895,
+                    "prompt_tokens": 3581,
+                    "completion_tokens": 38
+                },
+                "sql_generation": {
+                    "total_tokens": 1796,
+                    "total_cost": 0.005402,
+                    "prompt_tokens": 1782,
+                    "completion_tokens": 14
+                },
+                "self_correction": {
+                    "total_tokens": 2193,
+                    "total_cost": 0.006594,
+                    "prompt_tokens": 2178,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 6.530895948410034,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "5",
+            "question": "What is the total of provinces of Netherlands?",
+            "query_string": "SELECT count(*)  FROM province  WHERE country = (SELECT code FROM country WHERE name = 'Netherlands')",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5986,
+                    "total_cost": 0.018069,
+                    "prompt_tokens": 5875,
+                    "completion_tokens": 111
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011173,
+                    "prompt_tokens": 3587,
+                    "completion_tokens": 103
+                },
+                "sql_generation": {
+                    "total_tokens": 3123,
+                    "total_cost": 0.009463,
+                    "prompt_tokens": 3029,
+                    "completion_tokens": 94
+                },
+                "self_correction": {
+                    "total_tokens": 2213,
+                    "total_cost": 0.00666,
+                    "prompt_tokens": 2192,
+                    "completion_tokens": 21
+                }
+            },
+            "time": 8.253130197525024,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "6",
+            "question": "What is the percentage of religious people are hindu in thailand?",
+            "query_string": "SELECT percentage FROM religion WHERE name = 'Hindu' AND country = (SELECT code FROM country WHERE name = 'Thailand')",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6023,
+                    "total_cost": 0.018212,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 143
+                },
+                "classification": {
+                    "total_tokens": 3708,
+                    "total_cost": 0.011233000000000002,
+                    "prompt_tokens": 3599,
+                    "completion_tokens": 109
+                },
+                "sql_generation": {
+                    "total_tokens": 3158,
+                    "total_cost": 0.009590999999999999,
+                    "prompt_tokens": 3041,
+                    "completion_tokens": 117
+                },
+                "self_correction": {
+                    "total_tokens": 2237,
+                    "total_cost": 0.006742,
+                    "prompt_tokens": 2206,
+                    "completion_tokens": 31
+                }
+            },
+            "time": 9.998612880706787,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "7",
+            "question": "List the number of provinces each river flows through.",
+            "query_string": "SELECT T1.name, COUNT(DISTINCT T3.name) AS num_provinces FROM river T1 JOIN located T2 ON T1.name = T2.river JOIN province AS T3 ON T2.province = T3.name GROUP BY T1.name",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5984,
+                    "total_cost": 0.01806,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 108
+                },
+                "classification": {
+                    "total_tokens": 3689,
+                    "total_cost": 0.011173000000000002,
+                    "prompt_tokens": 3583,
+                    "completion_tokens": 106
+                },
+                "sql_generation": {
+                    "total_tokens": 3159,
+                    "total_cost": 0.009611,
+                    "prompt_tokens": 3025,
+                    "completion_tokens": 134
+                },
+                "self_correction": {
+                    "total_tokens": 2280,
+                    "total_cost": 0.0068969999999999995,
+                    "prompt_tokens": 2223,
+                    "completion_tokens": 57
+                }
+            },
+            "time": 10.411965370178223,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "8",
+            "question": "Find all countries that became independent between 8/1/1910 and 8/1/1950.",
+            "query_string": "SELECT T1.name  FROM      country T1      JOIN politics T2 ON T1.code = T2.country  WHERE      T2.independence >= TO_DATE('8/1/1910', 'MM/DD/YYYY')      AND T2.independence <= TO_DATE('8/1/1950', 'MM/DD/YYYY')",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6046,
+                    "total_cost": 0.018295000000000002,
+                    "prompt_tokens": 5889,
+                    "completion_tokens": 157
+                },
+                "classification": {
+                    "total_tokens": 3726,
+                    "total_cost": 0.011294,
+                    "prompt_tokens": 3610,
+                    "completion_tokens": 116
+                },
+                "sql_generation": {
+                    "total_tokens": 3177,
+                    "total_cost": 0.009656000000000001,
+                    "prompt_tokens": 3052,
+                    "completion_tokens": 125
+                },
+                "self_correction": {
+                    "total_tokens": 2301,
+                    "total_cost": 0.006973999999999999,
+                    "prompt_tokens": 2230,
+                    "completion_tokens": 71
+                }
+            },
+            "time": 10.050328493118286,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "9",
+            "question": "What are the cities of Cuba?",
+            "query_string": "SELECT city.name FROM city WHERE city.country = 'Cuba'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5968,
+                    "total_cost": 0.017999,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 95
+                },
+                "classification": {
+                    "total_tokens": 3684,
+                    "total_cost": 0.011153000000000001,
+                    "prompt_tokens": 3583,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 3095,
+                    "total_cost": 0.009355,
+                    "prompt_tokens": 3025,
+                    "completion_tokens": 70
+                },
+                "self_correction": {
+                    "total_tokens": 2195,
+                    "total_cost": 0.006600999999999999,
+                    "prompt_tokens": 2179,
+                    "completion_tokens": 16
+                }
+            },
+            "time": 6.964538097381592,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "10",
+            "question": "What is the capital of Georgia?",
+            "query_string": "SELECT capital FROM country WHERE name = 'Georgia'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5957,
+                    "total_cost": 0.017955000000000002,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 84
+                },
+                "classification": {
+                    "total_tokens": 3674,
+                    "total_cost": 0.011119,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 97
+                },
+                "sql_generation": {
+                    "total_tokens": 1790,
+                    "total_cost": 0.0053820000000000005,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2189,
+                    "total_cost": 0.006580000000000001,
+                    "prompt_tokens": 2176,
+                    "completion_tokens": 13
+                }
+            },
+            "time": 5.888046979904175,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "11",
+            "question": "How many provinces have areas greater than 1000 in Niger?",
+            "query_string": "SELECT COUNT(name)  FROM province  WHERE area > 1000  AND country = 'Niger'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6003,
+                    "total_cost": 0.018133,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 124
+                },
+                "classification": {
+                    "total_tokens": 3701,
+                    "total_cost": 0.01121,
+                    "prompt_tokens": 3594,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3124,
+                    "total_cost": 0.00946,
+                    "prompt_tokens": 3036,
+                    "completion_tokens": 88
+                },
+                "self_correction": {
+                    "total_tokens": 2212,
+                    "total_cost": 0.006657,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 21
+                }
+            },
+            "time": 8.946211576461792,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "12",
+            "question": "Tell me about the country with the area largest.",
+            "query_string": "SELECT country.* FROM country ORDER BY country.area DESC FETCH FIRST 1 ROWS ONLY",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5959,
+                    "total_cost": 0.01796,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 83
+                },
+                "classification": {
+                    "total_tokens": 3677,
+                    "total_cost": 0.011131,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 100
+                },
+                "sql_generation": {
+                    "total_tokens": 1795,
+                    "total_cost": 0.0054020000000000006,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 17
+                },
+                "self_correction": {
+                    "total_tokens": 2205,
+                    "total_cost": 0.006635,
+                    "prompt_tokens": 2185,
+                    "completion_tokens": 20
+                }
+            },
+            "time": 6.7555224895477295,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "13",
+            "question": "What is the host province and year of establishment of the organization \"International Energy Agency\"?",
+            "query_string": "SELECT T1.province, T1.established FROM organization T1 JOIN ismember T2 ON T1.abbreviation = T2.organization WHERE T1.name = 'International Energy Agency'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6017,
+                    "total_cost": 0.018184000000000002,
+                    "prompt_tokens": 5884,
+                    "completion_tokens": 133
+                },
+                "classification": {
+                    "total_tokens": 3716,
+                    "total_cost": 0.011261,
+                    "prompt_tokens": 3603,
+                    "completion_tokens": 113
+                },
+                "sql_generation": {
+                    "total_tokens": 3165,
+                    "total_cost": 0.009615,
+                    "prompt_tokens": 3045,
+                    "completion_tokens": 120
+                },
+                "self_correction": {
+                    "total_tokens": 2262,
+                    "total_cost": 0.006827000000000001,
+                    "prompt_tokens": 2221,
+                    "completion_tokens": 41
+                }
+            },
+            "time": 9.72368597984314,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "14",
+            "question": "Find the name of all mountains whose elevation is higher than 1000.",
+            "query_string": "SELECT name FROM mountain WHERE elevation > 1000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6001,
+                    "total_cost": 0.018123000000000004,
+                    "prompt_tokens": 5881,
+                    "completion_tokens": 120
+                },
+                "classification": {
+                    "total_tokens": 3696,
+                    "total_cost": 0.011194,
+                    "prompt_tokens": 3590,
+                    "completion_tokens": 106
+                },
+                "sql_generation": {
+                    "total_tokens": 1803,
+                    "total_cost": 0.0054210000000000005,
+                    "prompt_tokens": 1791,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2200,
+                    "total_cost": 0.006615,
+                    "prompt_tokens": 2185,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 7.369399785995483,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "15",
+            "question": "Tell me the economy of the Caribbean Sea.",
+            "query_string": "SELECT e.* FROM economy e JOIN sea s ON e.country = s.country WHERE s.name = 'Caribbean Sea'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5959,
+                    "total_cost": 0.017961,
+                    "prompt_tokens": 5875,
+                    "completion_tokens": 84
+                },
+                "classification": {
+                    "total_tokens": 3677,
+                    "total_cost": 0.011131,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 100
+                },
+                "sql_generation": {
+                    "total_tokens": 1800,
+                    "total_cost": 0.005422000000000001,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 22
+                },
+                "self_correction": {
+                    "total_tokens": 2216,
+                    "total_cost": 0.0066760000000000005,
+                    "prompt_tokens": 2188,
+                    "completion_tokens": 28
+                }
+            },
+            "time": 6.7543840408325195,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "16",
+            "question": "Show the cities with longitude between 0 and 6.",
+            "query_string": "SELECT city.name FROM city WHERE city.longitude BETWEEN 0 AND 6",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5987,
+                    "total_cost": 0.01807,
+                    "prompt_tokens": 5878,
+                    "completion_tokens": 109
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011172000000000001,
+                    "prompt_tokens": 3588,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 1803,
+                    "total_cost": 0.005423,
+                    "prompt_tokens": 1789,
+                    "completion_tokens": 14
+                },
+                "self_correction": {
+                    "total_tokens": 2201,
+                    "total_cost": 0.006620000000000001,
+                    "prompt_tokens": 2184,
+                    "completion_tokens": 17
+                }
+            },
+            "time": 6.653170108795166,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "17",
+            "question": "Select cities whose population is greater than 100000, altitude greater than 2500, and the country you belong to has population growth greater than 1.",
+            "query_string": "SELECT city.name  FROM  city  JOIN  country ON city.country = country.code  WHERE  city.population > 100000  AND city.elevation > 2500  AND country.population_growth > 1",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6089,
+                    "total_cost": 0.018458,
+                    "prompt_tokens": 5898,
+                    "completion_tokens": 191
+                },
+                "classification": {
+                    "total_tokens": 3750,
+                    "total_cost": 0.011375999999999999,
+                    "prompt_tokens": 3624,
+                    "completion_tokens": 126
+                },
+                "sql_generation": {
+                    "total_tokens": 3179,
+                    "total_cost": 0.009649999999999999,
+                    "prompt_tokens": 3066,
+                    "completion_tokens": 113
+                },
+                "self_correction": {
+                    "total_tokens": 2269,
+                    "total_cost": 0.006848999999999999,
+                    "prompt_tokens": 2227,
+                    "completion_tokens": 42
+                }
+            },
+            "time": 10.809916734695435,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "18",
+            "question": "Show all the different types of government.",
+            "query_string": "SELECT DISTINCT government FROM politics",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5959,
+                    "total_cost": 0.017962,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 85
+                },
+                "classification": {
+                    "total_tokens": 3676,
+                    "total_cost": 0.011127000000000001,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 99
+                },
+                "sql_generation": {
+                    "total_tokens": 1785,
+                    "total_cost": 0.0053620000000000004,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 7
+                },
+                "self_correction": {
+                    "total_tokens": 2179,
+                    "total_cost": 0.006543,
+                    "prompt_tokens": 2173,
+                    "completion_tokens": 6
+                }
+            },
+            "time": 6.740927457809448,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "19",
+            "question": "List all provinces in Germany",
+            "query_string": "SELECT province.name FROM province WHERE province.country = 'Germany'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5974,
+                    "total_cost": 0.018024,
+                    "prompt_tokens": 5872,
+                    "completion_tokens": 102
+                },
+                "classification": {
+                    "total_tokens": 3680,
+                    "total_cost": 0.011139000000000001,
+                    "prompt_tokens": 3581,
+                    "completion_tokens": 99
+                },
+                "sql_generation": {
+                    "total_tokens": 3091,
+                    "total_cost": 0.009341,
+                    "prompt_tokens": 3023,
+                    "completion_tokens": 68
+                },
+                "self_correction": {
+                    "total_tokens": 2192,
+                    "total_cost": 0.0065910000000000005,
+                    "prompt_tokens": 2177,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 8.350717067718506,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "20",
+            "question": "What is the percentage of mulatto ethnicity in Brazil?",
+            "query_string": "SELECT percentage FROM ethnicgroup WHERE country = (SELECT code FROM country WHERE name = 'Brazil') AND name = 'mulatto'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5995,
+                    "total_cost": 0.018103,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 118
+                },
+                "classification": {
+                    "total_tokens": 3694,
+                    "total_cost": 0.011187,
+                    "prompt_tokens": 3589,
+                    "completion_tokens": 105
+                },
+                "sql_generation": {
+                    "total_tokens": 3148,
+                    "total_cost": 0.009561,
+                    "prompt_tokens": 3031,
+                    "completion_tokens": 117
+                },
+                "self_correction": {
+                    "total_tokens": 2231,
+                    "total_cost": 0.006722,
+                    "prompt_tokens": 2202,
+                    "completion_tokens": 29
+                }
+            },
+            "time": 9.102340936660767,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "21",
+            "question": "How many cities have populations less than 1000?",
+            "query_string": "SELECT COUNT(*)  FROM city  WHERE population < 1000",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5984,
+                    "total_cost": 0.018059000000000002,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 107
+                },
+                "classification": {
+                    "total_tokens": 3685,
+                    "total_cost": 0.011156000000000001,
+                    "prompt_tokens": 3584,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 1798,
+                    "total_cost": 0.0054069999999999995,
+                    "prompt_tokens": 1785,
+                    "completion_tokens": 13
+                },
+                "self_correction": {
+                    "total_tokens": 2194,
+                    "total_cost": 0.006594,
+                    "prompt_tokens": 2182,
+                    "completion_tokens": 12
+                }
+            },
+            "time": 6.576874732971191,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "22",
+            "question": "What is the average elevation of airports in America?",
+            "query_string": "SELECT avg(airport.elevation)  FROM  airport  JOIN  country ON airport.country = country.code  WHERE  country.name = 'America'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5988,
+                    "total_cost": 0.018076000000000002,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 112
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011174,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 3117,
+                    "total_cost": 0.00944,
+                    "prompt_tokens": 3028,
+                    "completion_tokens": 89
+                },
+                "self_correction": {
+                    "total_tokens": 2220,
+                    "total_cost": 0.006689,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 29
+                }
+            },
+            "time": 8.411096572875977,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "23",
+            "question": "How many countries are adjacent to (or ecompassed by) the Caribbean Sea?",
+            "query_string": "SELECT count(DISTINCT T1.name)  FROM country T1  JOIN borders T2 ON T1.code = T2.country1  JOIN sea T3 ON T2.country2 = T3.name  WHERE T3.name = 'Caribbean Sea'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6041,
+                    "total_cost": 0.018281000000000002,
+                    "prompt_tokens": 5883,
+                    "completion_tokens": 158
+                },
+                "classification": {
+                    "total_tokens": 3713,
+                    "total_cost": 0.01125,
+                    "prompt_tokens": 3602,
+                    "completion_tokens": 111
+                },
+                "sql_generation": {
+                    "total_tokens": 3180,
+                    "total_cost": 0.009675999999999999,
+                    "prompt_tokens": 3044,
+                    "completion_tokens": 136
+                },
+                "self_correction": {
+                    "total_tokens": 2282,
+                    "total_cost": 0.006898,
+                    "prompt_tokens": 2230,
+                    "completion_tokens": 52
+                }
+            },
+            "time": 10.903433799743652,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "24",
+            "question": "How much area do the countries that are adjacent to (or encompassed by) the Caribbean Sea cover in total?",
+            "query_string": "SELECT sum(area)  FROM      country  WHERE      code IN (         SELECT              country1          FROM              borders          WHERE              country2 IN (                 SELECT                      code                  FROM                      country                  WHERE                      name IN (                         SELECT                              country                          FROM                              located                          WHERE                              sea = 'Caribbean Sea'                     )                      OR name IN (                         SELECT                              country                          FROM                              locatedon                          WHERE                              sea = 'Caribbean Sea'                     )                      OR name IN (                         SELECT                              country                          FROM                              encompasses                          WHERE                              continent = 'Caribbean Sea'                     )             )     )",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6065,
+                    "total_cost": 0.018371000000000002,
+                    "prompt_tokens": 5889,
+                    "completion_tokens": 176
+                },
+                "classification": {
+                    "total_tokens": 3742,
+                    "total_cost": 0.011348,
+                    "prompt_tokens": 3620,
+                    "completion_tokens": 122
+                },
+                "sql_generation": {
+                    "total_tokens": 3254,
+                    "total_cost": 0.009954,
+                    "prompt_tokens": 3062,
+                    "completion_tokens": 192
+                },
+                "self_correction": {
+                    "total_tokens": 2384,
+                    "total_cost": 0.007299000000000001,
+                    "prompt_tokens": 2237,
+                    "completion_tokens": 147
+                }
+            },
+            "time": 13.8205726146698,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "25",
+            "question": "For all countries, give the sum of the population of all its neighbors",
+            "query_string": "SELECT C1.name, SUM(C2.population)  FROM  country C1  JOIN borders B ON C1.code = B.country1 OR C1.code = B.country2  JOIN country C2 ON (C2.code = B.country1 AND C1.code != C2.code) OR (C2.code = B.country2 AND C1.code != C2.code)  GROUP BY C1.name",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6015,
+                    "total_cost": 0.018179,
+                    "prompt_tokens": 5881,
+                    "completion_tokens": 134
+                },
+                "classification": {
+                    "total_tokens": 3709,
+                    "total_cost": 0.011237,
+                    "prompt_tokens": 3599,
+                    "completion_tokens": 110
+                },
+                "sql_generation": {
+                    "total_tokens": 4663,
+                    "total_cost": 0.014170000000000002,
+                    "prompt_tokens": 4482,
+                    "completion_tokens": 181
+                },
+                "self_correction": {
+                    "total_tokens": 2315,
+                    "total_cost": 0.007027,
+                    "prompt_tokens": 2233,
+                    "completion_tokens": 82
+                }
+            },
+            "time": 11.591270446777344,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "26",
+            "question": "What mountains are on the island of Borneo?",
+            "query_string": "SELECT mountain.name FROM mountain JOIN mountainonisland ON mountain.name = mountainonisland.mountain WHERE mountainonisland.island = 'Borneo'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6012,
+                    "total_cost": 0.018171,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 135
+                },
+                "classification": {
+                    "total_tokens": 3704,
+                    "total_cost": 0.011219,
+                    "prompt_tokens": 3597,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3132,
+                    "total_cost": 0.009489000000000001,
+                    "prompt_tokens": 3039,
+                    "completion_tokens": 93
+                },
+                "self_correction": {
+                    "total_tokens": 2234,
+                    "total_cost": 0.006737,
+                    "prompt_tokens": 2199,
+                    "completion_tokens": 35
+                }
+            },
+            "time": 9.699341058731079,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "27",
+            "question": "Provide the name and total population of the country with the smallest area.",
+            "query_string": "SELECT name, SUM(population) AS total_population FROM country GROUP BY name ORDER BY area ASC FETCH FIRST 1 ROWS ONLY",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5991,
+                    "total_cost": 0.018084,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 111
+                },
+                "classification": {
+                    "total_tokens": 3691,
+                    "total_cost": 0.011177000000000001,
+                    "prompt_tokens": 3587,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 1807,
+                    "total_cost": 0.0054399999999999995,
+                    "prompt_tokens": 1788,
+                    "completion_tokens": 19
+                },
+                "self_correction": {
+                    "total_tokens": 2220,
+                    "total_cost": 0.006689,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 29
+                }
+            },
+            "time": 6.984514236450195,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "28",
+            "question": "The codes of all countries for which at least one river that originates in this country has its estuary in a neighboring country.",
+            "query_string": "SELECT DISTINCT T1.code  FROM country T1  JOIN river T2 ON T1.code = T2.country  JOIN geo_estuary T3 ON T2.name = T3.river  WHERE T1.code != T3.country",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6052,
+                    "total_cost": 0.018317,
+                    "prompt_tokens": 5891,
+                    "completion_tokens": 161
+                },
+                "classification": {
+                    "total_tokens": 3734,
+                    "total_cost": 0.011332,
+                    "prompt_tokens": 3604,
+                    "completion_tokens": 130
+                },
+                "sql_generation": {
+                    "total_tokens": 4675,
+                    "total_cost": 0.014197,
+                    "prompt_tokens": 4503,
+                    "completion_tokens": 172
+                },
+                "self_correction": {
+                    "total_tokens": 2277,
+                    "total_cost": 0.0068790000000000006,
+                    "prompt_tokens": 2229,
+                    "completion_tokens": 48
+                }
+            },
+            "time": 12.251185655593872,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "29",
+            "question": "The codes of all countries where at least one mountain is located in each of their provinces",
+            "query_string": "SELECT country.code FROM country WHERE country.code IN ( SELECT located.country FROM located JOIN mountain ON located.river = mountain.name GROUP BY located.country HAVING COUNT(DISTINCT located.province) = ( SELECT COUNT(DISTINCT province) FROM mountain ) )",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6053,
+                    "total_cost": 0.018328,
+                    "prompt_tokens": 5884,
+                    "completion_tokens": 169
+                },
+                "classification": {
+                    "total_tokens": 3716,
+                    "total_cost": 0.011269000000000001,
+                    "prompt_tokens": 3595,
+                    "completion_tokens": 121
+                },
+                "sql_generation": {
+                    "total_tokens": 4639,
+                    "total_cost": 0.01407,
+                    "prompt_tokens": 4486,
+                    "completion_tokens": 153
+                },
+                "self_correction": {
+                    "total_tokens": 2278,
+                    "total_cost": 0.006900000000000001,
+                    "prompt_tokens": 2212,
+                    "completion_tokens": 66
+                }
+            },
+            "time": 10.299372434616089,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "30",
+            "question": "The code and total border lengths of all countries with at least one border.",
+            "query_string": "SELECT country.code, sum(borders.length)  FROM country  JOIN borders ON country.code = borders.country1 OR country.code = borders.country2  GROUP BY country.code",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6022,
+                    "total_cost": 0.018207,
+                    "prompt_tokens": 5881,
+                    "completion_tokens": 141
+                },
+                "classification": {
+                    "total_tokens": 3708,
+                    "total_cost": 0.011233000000000002,
+                    "prompt_tokens": 3599,
+                    "completion_tokens": 109
+                },
+                "sql_generation": {
+                    "total_tokens": 3146,
+                    "total_cost": 0.009543,
+                    "prompt_tokens": 3041,
+                    "completion_tokens": 105
+                },
+                "self_correction": {
+                    "total_tokens": 2239,
+                    "total_cost": 0.00675,
+                    "prompt_tokens": 2206,
+                    "completion_tokens": 33
+                }
+            },
+            "time": 10.27163553237915,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "31",
+            "question": "The names and codes of all countries in which at least one river originates.",
+            "query_string": "SELECT country.name, country.code FROM country JOIN river ON river.source = country.code",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6006,
+                    "total_cost": 0.018143000000000003,
+                    "prompt_tokens": 5881,
+                    "completion_tokens": 125
+                },
+                "classification": {
+                    "total_tokens": 3702,
+                    "total_cost": 0.011214,
+                    "prompt_tokens": 3594,
+                    "completion_tokens": 108
+                },
+                "sql_generation": {
+                    "total_tokens": 3109,
+                    "total_cost": 0.0094,
+                    "prompt_tokens": 3036,
+                    "completion_tokens": 73
+                },
+                "self_correction": {
+                    "total_tokens": 2208,
+                    "total_cost": 0.006643,
+                    "prompt_tokens": 2189,
+                    "completion_tokens": 19
+                }
+            },
+            "time": 9.519883394241333,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "32",
+            "question": "What is the area and country of the Chatanga River?",
+            "query_string": "SELECT river.area, country.name FROM river JOIN country ON river.country = country.code WHERE river.name = 'Chatanga'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5980,
+                    "total_cost": 0.018042,
+                    "prompt_tokens": 5878,
+                    "completion_tokens": 102
+                },
+                "classification": {
+                    "total_tokens": 3687,
+                    "total_cost": 0.011163000000000001,
+                    "prompt_tokens": 3585,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 1801,
+                    "total_cost": 0.005418,
+                    "prompt_tokens": 1786,
+                    "completion_tokens": 15
+                },
+                "self_correction": {
+                    "total_tokens": 2213,
+                    "total_cost": 0.006668,
+                    "prompt_tokens": 2184,
+                    "completion_tokens": 29
+                }
+            },
+            "time": 7.726309061050415,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "33",
+            "question": "Show the Airports with elevation more than 3000",
+            "query_string": "SELECT airport.* FROM airport WHERE airport.elevation > 3000",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5989,
+                    "total_cost": 0.018078,
+                    "prompt_tokens": 5878,
+                    "completion_tokens": 111
+                },
+                "classification": {
+                    "total_tokens": 3688,
+                    "total_cost": 0.011166,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 1799,
+                    "total_cost": 0.005409,
+                    "prompt_tokens": 1787,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2197,
+                    "total_cost": 0.006606,
+                    "prompt_tokens": 2182,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 6.395531177520752,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "34",
+            "question": "What are the religions practiced in Mexico?",
+            "query_string": "SELECT T1.name  FROM  religion T1  JOIN  country T2 ON T1.country = T2.code  WHERE  T2.name = 'Mexico'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5974,
+                    "total_cost": 0.018022,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 100
+                },
+                "classification": {
+                    "total_tokens": 3689,
+                    "total_cost": 0.01117,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 103
+                },
+                "sql_generation": {
+                    "total_tokens": 3117,
+                    "total_cost": 0.00944,
+                    "prompt_tokens": 3028,
+                    "completion_tokens": 89
+                },
+                "self_correction": {
+                    "total_tokens": 2233,
+                    "total_cost": 0.006732999999999999,
+                    "prompt_tokens": 2199,
+                    "completion_tokens": 34
+                }
+            },
+            "time": 8.644360542297363,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "35",
+            "question": "Show all rivers that do not flow into the sea.",
+            "query_string": "SELECT river.name FROM river WHERE river.sea IS NULL",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5980,
+                    "total_cost": 0.018043,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 103
+                },
+                "classification": {
+                    "total_tokens": 3681,
+                    "total_cost": 0.011142,
+                    "prompt_tokens": 3582,
+                    "completion_tokens": 99
+                },
+                "sql_generation": {
+                    "total_tokens": 4522,
+                    "total_cost": 0.013636,
+                    "prompt_tokens": 4452,
+                    "completion_tokens": 70
+                },
+                "self_correction": {
+                    "total_tokens": 2193,
+                    "total_cost": 0.006592999999999999,
+                    "prompt_tokens": 2179,
+                    "completion_tokens": 14
+                }
+            },
+            "time": 7.8400421142578125,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "36",
+            "question": "List African countries by number of neighbors.",
+            "query_string": "SELECT T1.name FROM country T1 JOIN borders T2 ON T1.code = T2.country1 OR T1.code = T2.country2 WHERE T1.continent = 'Africa' GROUP BY T1.name ORDER BY COUNT(DISTINCT T2.country1, T2.country2) DESC",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6010,
+                    "total_cost": 0.018165999999999998,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 136
+                },
+                "classification": {
+                    "total_tokens": 3693,
+                    "total_cost": 0.011181000000000002,
+                    "prompt_tokens": 3591,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 3197,
+                    "total_cost": 0.009755,
+                    "prompt_tokens": 3033,
+                    "completion_tokens": 164
+                },
+                "self_correction": {
+                    "total_tokens": 2300,
+                    "total_cost": 0.006965,
+                    "prompt_tokens": 2235,
+                    "completion_tokens": 65
+                }
+            },
+            "time": 10.833621501922607,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "37",
+            "question": "What is the average infant mortality rate for each continent?",
+            "query_string": "SELECT T2.name, AVG(T1.infant_mortality)  FROM population T1  JOIN country T2 ON T1.country = T2.code  JOIN encompasses T3 ON T2.code = T3.country  JOIN continent T4 ON T3.continent = T4.name  GROUP BY T4.name",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5982,
+                    "total_cost": 0.018051,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 105
+                },
+                "classification": {
+                    "total_tokens": 3689,
+                    "total_cost": 0.011172000000000001,
+                    "prompt_tokens": 3584,
+                    "completion_tokens": 105
+                },
+                "sql_generation": {
+                    "total_tokens": 3124,
+                    "total_cost": 0.00947,
+                    "prompt_tokens": 3026,
+                    "completion_tokens": 98
+                },
+                "self_correction": {
+                    "total_tokens": 2271,
+                    "total_cost": 0.006876999999999999,
+                    "prompt_tokens": 2207,
+                    "completion_tokens": 64
+                }
+            },
+            "time": 9.510496377944946,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "38",
+            "question": "What is the average mortality rate of the countries in America without considering Brazil?",
+            "query_string": "SELECT avg(infant_mortality)  FROM      population  WHERE      country IN (SELECT country FROM encompasses WHERE continent = 'America')      AND country != 'Brazil'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6041,
+                    "total_cost": 0.018283000000000004,
+                    "prompt_tokens": 5881,
+                    "completion_tokens": 160
+                },
+                "classification": {
+                    "total_tokens": 3726,
+                    "total_cost": 0.011292,
+                    "prompt_tokens": 3612,
+                    "completion_tokens": 114
+                },
+                "sql_generation": {
+                    "total_tokens": 4623,
+                    "total_cost": 0.013998,
+                    "prompt_tokens": 4494,
+                    "completion_tokens": 129
+                },
+                "self_correction": {
+                    "total_tokens": 2243,
+                    "total_cost": 0.006764999999999999,
+                    "prompt_tokens": 2207,
+                    "completion_tokens": 36
+                }
+            },
+            "time": 10.752493619918823,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "39",
+            "question": "List seas with area greater than 8000 and depth less than 100.",
+            "query_string": "SELECT name FROM sea WHERE area > 8000 AND depth < 100",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6036,
+                    "total_cost": 0.018261999999999997,
+                    "prompt_tokens": 5882,
+                    "completion_tokens": 154
+                },
+                "classification": {
+                    "total_tokens": 3708,
+                    "total_cost": 0.01123,
+                    "prompt_tokens": 3602,
+                    "completion_tokens": 106
+                },
+                "sql_generation": {
+                    "total_tokens": 1820,
+                    "total_cost": 0.005477,
+                    "prompt_tokens": 1803,
+                    "completion_tokens": 17
+                },
+                "self_correction": {
+                    "total_tokens": 2209,
+                    "total_cost": 0.006645,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 18
+                }
+            },
+            "time": 7.2328574657440186,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "40",
+            "question": "How many mountains are there in Asia?",
+            "query_string": "SELECT count(*) FROM mountain JOIN encompasses ON mountain.name = encompasses.country WHERE encompasses.continent = 'Asia'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5988,
+                    "total_cost": 0.018078,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 114
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011174,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 3114,
+                    "total_cost": 0.009428,
+                    "prompt_tokens": 3028,
+                    "completion_tokens": 86
+                },
+                "self_correction": {
+                    "total_tokens": 2219,
+                    "total_cost": 0.0066820000000000004,
+                    "prompt_tokens": 2194,
+                    "completion_tokens": 25
+                }
+            },
+            "time": 8.316160917282104,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "41",
+            "question": "How many countries that are close to the Mediterranean Sea?",
+            "query_string": "SELECT count(DISTINCT T1.name)  FROM      country T1      JOIN located T2 ON T1.code = T2.country      JOIN sea AS T3 ON T2.sea = T3.name  WHERE      T3.name = 'Mediterranean Sea'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6003,
+                    "total_cost": 0.018132,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 123
+                },
+                "classification": {
+                    "total_tokens": 3707,
+                    "total_cost": 0.011228,
+                    "prompt_tokens": 3600,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3166,
+                    "total_cost": 0.009622,
+                    "prompt_tokens": 3042,
+                    "completion_tokens": 124
+                },
+                "self_correction": {
+                    "total_tokens": 2290,
+                    "total_cost": 0.0069299999999999995,
+                    "prompt_tokens": 2230,
+                    "completion_tokens": 60
+                }
+            },
+            "time": 26.350414276123047,
+            "similarity": -1,
+            "column_matching_index": -1,
+            "result": false
+        },
+        {
+            "id": "42",
+            "question": "Show the total for each type of government.",
+            "query_string": "SELECT government, COUNT(*)  FROM politics  GROUP BY government",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5962,
+                    "total_cost": 0.017973000000000003,
+                    "prompt_tokens": 5875,
+                    "completion_tokens": 87
+                },
+                "classification": {
+                    "total_tokens": 3678,
+                    "total_cost": 0.011134,
+                    "prompt_tokens": 3578,
+                    "completion_tokens": 100
+                },
+                "sql_generation": {
+                    "total_tokens": 1791,
+                    "total_cost": 0.005385,
+                    "prompt_tokens": 1779,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2190,
+                    "total_cost": 0.006580999999999999,
+                    "prompt_tokens": 2179,
+                    "completion_tokens": 11
+                }
+            },
+            "time": 6.160586595535278,
+            "similarity": 0.975609756097561,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "43",
+            "question": "Which province has the largest desert in the world?",
+            "query_string": "SELECT province.name FROM province JOIN geo_desert ON province.country = geo_desert.country AND province.name = geo_desert.province JOIN desert ON geo_desert.desert = desert.name ORDER BY desert.area DESC FETCH FIRST 1 ROWS ONLY",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5980,
+                    "total_cost": 0.018044,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 104
+                },
+                "classification": {
+                    "total_tokens": 3684,
+                    "total_cost": 0.011155,
+                    "prompt_tokens": 3581,
+                    "completion_tokens": 103
+                },
+                "sql_generation": {
+                    "total_tokens": 3164,
+                    "total_cost": 0.009633000000000001,
+                    "prompt_tokens": 3023,
+                    "completion_tokens": 141
+                },
+                "self_correction": {
+                    "total_tokens": 2273,
+                    "total_cost": 0.006873,
+                    "prompt_tokens": 2219,
+                    "completion_tokens": 54
+                }
+            },
+            "time": 9.27733039855957,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "44",
+            "question": "What is the largest desert in the world?",
+            "query_string": "SELECT name FROM desert ORDER BY area DESC FETCH FIRST 1 ROWS ONLY",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5956,
+                    "total_cost": 0.017949000000000003,
+                    "prompt_tokens": 5875,
+                    "completion_tokens": 81
+                },
+                "classification": {
+                    "total_tokens": 3677,
+                    "total_cost": 0.011131,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 100
+                },
+                "sql_generation": {
+                    "total_tokens": 1795,
+                    "total_cost": 0.0054020000000000006,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 17
+                },
+                "self_correction": {
+                    "total_tokens": 2204,
+                    "total_cost": 0.006632000000000001,
+                    "prompt_tokens": 2184,
+                    "completion_tokens": 20
+                }
+            },
+            "time": 5.549283742904663,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "45",
+            "question": "List, for all continents, the amount of deserts on each.",
+            "query_string": "SELECT T1.name AS continent, COUNT(DISTINCT T3.name) AS desert_count FROM continent T1 JOIN geo_desert T2 ON T1.name = T2.continent JOIN desert T3 ON T2.desert = T3.name GROUP BY T1.name",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5987,
+                    "total_cost": 0.018068,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 107
+                },
+                "classification": {
+                    "total_tokens": 3694,
+                    "total_cost": 0.011191000000000001,
+                    "prompt_tokens": 3585,
+                    "completion_tokens": 109
+                },
+                "sql_generation": {
+                    "total_tokens": 3164,
+                    "total_cost": 0.009629,
+                    "prompt_tokens": 3027,
+                    "completion_tokens": 137
+                },
+                "self_correction": {
+                    "total_tokens": 2282,
+                    "total_cost": 0.006904000000000001,
+                    "prompt_tokens": 2224,
+                    "completion_tokens": 58
+                }
+            },
+            "time": 12.411763429641724,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "46",
+            "question": "What are the neighboring seas of the Banda Sea?",
+            "query_string": "SELECT sea2 FROM mergeswith WHERE sea1 = 'Banda Sea'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5999,
+                    "total_cost": 0.018119,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 122
+                },
+                "classification": {
+                    "total_tokens": 3703,
+                    "total_cost": 0.011216,
+                    "prompt_tokens": 3596,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3119,
+                    "total_cost": 0.009437999999999998,
+                    "prompt_tokens": 3038,
+                    "completion_tokens": 81
+                },
+                "self_correction": {
+                    "total_tokens": 2201,
+                    "total_cost": 0.006619,
+                    "prompt_tokens": 2185,
+                    "completion_tokens": 16
+                }
+            },
+            "time": 9.133943319320679,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "47",
+            "question": "List all the capitals of European countries.",
+            "query_string": "SELECT country.capital FROM country WHERE country.continent = 'Europe'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5956,
+                    "total_cost": 0.017949999999999997,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 82
+                },
+                "classification": {
+                    "total_tokens": 3674,
+                    "total_cost": 0.01112,
+                    "prompt_tokens": 3576,
+                    "completion_tokens": 98
+                },
+                "sql_generation": {
+                    "total_tokens": 1789,
+                    "total_cost": 0.005379,
+                    "prompt_tokens": 1777,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2194,
+                    "total_cost": 0.006599000000000001,
+                    "prompt_tokens": 2177,
+                    "completion_tokens": 17
+                }
+            },
+            "time": 6.008409738540649,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "48",
+            "question": "What percentage of people speak French in Andorra?",
+            "query_string": "SELECT percentage FROM ethnicgroup WHERE country = 'AND' AND name = 'French'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5999,
+                    "total_cost": 0.01812,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 123
+                },
+                "classification": {
+                    "total_tokens": 3695,
+                    "total_cost": 0.011189000000000001,
+                    "prompt_tokens": 3591,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 3127,
+                    "total_cost": 0.009474999999999999,
+                    "prompt_tokens": 3033,
+                    "completion_tokens": 94
+                },
+                "self_correction": {
+                    "total_tokens": 2211,
+                    "total_cost": 0.006653,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 20
+                }
+            },
+            "time": 8.563197374343872,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "49",
+            "question": "Which rivers are longer than 1000 kilometers?",
+            "query_string": "SELECT river.name FROM river WHERE river.length > 1000",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5982,
+                    "total_cost": 0.018052000000000002,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 106
+                },
+                "classification": {
+                    "total_tokens": 3683,
+                    "total_cost": 0.011149000000000001,
+                    "prompt_tokens": 3583,
+                    "completion_tokens": 100
+                },
+                "sql_generation": {
+                    "total_tokens": 1796,
+                    "total_cost": 0.0054,
+                    "prompt_tokens": 1784,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2195,
+                    "total_cost": 0.006600000000000001,
+                    "prompt_tokens": 2180,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 6.167845964431763,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "50",
+            "question": "Which country had the lowest population growth?",
+            "query_string": "SELECT country.name FROM country ORDER BY population.population_growth ASC FETCH FIRST 1 ROWS ONLY",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5955,
+                    "total_cost": 0.017946,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 81
+                },
+                "classification": {
+                    "total_tokens": 3676,
+                    "total_cost": 0.011129,
+                    "prompt_tokens": 3575,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 3092,
+                    "total_cost": 0.009351,
+                    "prompt_tokens": 3017,
+                    "completion_tokens": 75
+                },
+                "self_correction": {
+                    "total_tokens": 2206,
+                    "total_cost": 0.006640000000000001,
+                    "prompt_tokens": 2184,
+                    "completion_tokens": 22
+                }
+            },
+            "time": 7.0000410079956055,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "51",
+            "question": "List the name of capital cities for which we do not have data about the city in located",
+            "query_string": "SELECT city.name FROM city LEFT JOIN located ON city.name = located.city WHERE located.city IS NULL",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6016,
+                    "total_cost": 0.018179,
+                    "prompt_tokens": 5885,
+                    "completion_tokens": 131
+                },
+                "classification": {
+                    "total_tokens": 3702,
+                    "total_cost": 0.011219,
+                    "prompt_tokens": 3589,
+                    "completion_tokens": 113
+                },
+                "sql_generation": {
+                    "total_tokens": 3104,
+                    "total_cost": 0.009385000000000001,
+                    "prompt_tokens": 3031,
+                    "completion_tokens": 73
+                },
+                "self_correction": {
+                    "total_tokens": 2215,
+                    "total_cost": 0.006668,
+                    "prompt_tokens": 2192,
+                    "completion_tokens": 23
+                }
+            },
+            "time": 8.408504962921143,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "52",
+            "question": "What is the capital of the provice Andaluc\ufffda?",
+            "query_string": "SELECT province.capital FROM province WHERE province.name = 'Andaluc\u00eda'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5995,
+                    "total_cost": 0.018099999999999998,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 115
+                },
+                "classification": {
+                    "total_tokens": 3692,
+                    "total_cost": 0.011178,
+                    "prompt_tokens": 3590,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 1806,
+                    "total_cost": 0.005433,
+                    "prompt_tokens": 1791,
+                    "completion_tokens": 15
+                },
+                "self_correction": {
+                    "total_tokens": 2205,
+                    "total_cost": 0.006633999999999999,
+                    "prompt_tokens": 2186,
+                    "completion_tokens": 19
+                }
+            },
+            "time": 6.892559289932251,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "53",
+            "question": "What is the abbreviation for the organization whose name is \"General Confederation of Trade Unions\"?",
+            "query_string": "SELECT abbreviation FROM organization WHERE name = 'General Confederation of Trade Unions'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6021,
+                    "total_cost": 0.018198,
+                    "prompt_tokens": 5886,
+                    "completion_tokens": 135
+                },
+                "classification": {
+                    "total_tokens": 3709,
+                    "total_cost": 0.011237,
+                    "prompt_tokens": 3599,
+                    "completion_tokens": 110
+                },
+                "sql_generation": {
+                    "total_tokens": 1818,
+                    "total_cost": 0.005472,
+                    "prompt_tokens": 1800,
+                    "completion_tokens": 18
+                },
+                "self_correction": {
+                    "total_tokens": 2212,
+                    "total_cost": 0.006653,
+                    "prompt_tokens": 2195,
+                    "completion_tokens": 17
+                }
+            },
+            "time": 6.927083969116211,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "54",
+            "question": "In which city is the organization with the abbreviation \"UPU\" ?",
+            "query_string": "SELECT city FROM organization WHERE abbreviation = 'UPU'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6001,
+                    "total_cost": 0.018123999999999998,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 121
+                },
+                "classification": {
+                    "total_tokens": 3692,
+                    "total_cost": 0.01118,
+                    "prompt_tokens": 3588,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 1802,
+                    "total_cost": 0.005419,
+                    "prompt_tokens": 1789,
+                    "completion_tokens": 13
+                },
+                "self_correction": {
+                    "total_tokens": 2198,
+                    "total_cost": 0.006608,
+                    "prompt_tokens": 2184,
+                    "completion_tokens": 14
+                }
+            },
+            "time": 6.793410062789917,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "55",
+            "question": "List the names of countries which are members of only one organization",
+            "query_string": "SELECT country.name FROM country WHERE country.code IN ( SELECT ismember.country FROM ismember GROUP BY ismember.country HAVING count(*) = 1 )",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5994,
+                    "total_cost": 0.018097,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 115
+                },
+                "classification": {
+                    "total_tokens": 3692,
+                    "total_cost": 0.011181000000000002,
+                    "prompt_tokens": 3587,
+                    "completion_tokens": 105
+                },
+                "sql_generation": {
+                    "total_tokens": 3121,
+                    "total_cost": 0.009455,
+                    "prompt_tokens": 3029,
+                    "completion_tokens": 92
+                },
+                "self_correction": {
+                    "total_tokens": 2237,
+                    "total_cost": 0.006752000000000001,
+                    "prompt_tokens": 2196,
+                    "completion_tokens": 41
+                }
+            },
+            "time": 9.518926858901978,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "56",
+            "question": "List the name of countries which are not a member of NATO.",
+            "query_string": "SELECT country.name FROM country WHERE country.code NOT IN (SELECT ismember.country FROM ismember WHERE ismember.organization = 'NATO')",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6002,
+                    "total_cost": 0.018129,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 123
+                },
+                "classification": {
+                    "total_tokens": 3701,
+                    "total_cost": 0.011211,
+                    "prompt_tokens": 3593,
+                    "completion_tokens": 108
+                },
+                "sql_generation": {
+                    "total_tokens": 3126,
+                    "total_cost": 0.009469,
+                    "prompt_tokens": 3035,
+                    "completion_tokens": 91
+                },
+                "self_correction": {
+                    "total_tokens": 2223,
+                    "total_cost": 0.006699000000000001,
+                    "prompt_tokens": 2193,
+                    "completion_tokens": 30
+                }
+            },
+            "time": 9.596904754638672,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "57",
+            "question": "List the name of countries which are a member of NATO.",
+            "query_string": "SELECT country.name FROM country JOIN ismember ON country.code = ismember.country JOIN organization ON ismember.organization = organization.abbreviation WHERE organization.name = 'NATO'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6002,
+                    "total_cost": 0.01813,
+                    "prompt_tokens": 5878,
+                    "completion_tokens": 124
+                },
+                "classification": {
+                    "total_tokens": 3703,
+                    "total_cost": 0.011218,
+                    "prompt_tokens": 3594,
+                    "completion_tokens": 109
+                },
+                "sql_generation": {
+                    "total_tokens": 3147,
+                    "total_cost": 0.009552,
+                    "prompt_tokens": 3036,
+                    "completion_tokens": 111
+                },
+                "self_correction": {
+                    "total_tokens": 2244,
+                    "total_cost": 0.006772000000000001,
+                    "prompt_tokens": 2204,
+                    "completion_tokens": 40
+                }
+            },
+            "time": 9.516682863235474,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "58",
+            "question": "List the rivers with length less than 50",
+            "query_string": "SELECT name FROM river WHERE length < 50",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5981,
+                    "total_cost": 0.018048,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 105
+                },
+                "classification": {
+                    "total_tokens": 3682,
+                    "total_cost": 0.011145000000000002,
+                    "prompt_tokens": 3583,
+                    "completion_tokens": 99
+                },
+                "sql_generation": {
+                    "total_tokens": 1795,
+                    "total_cost": 0.005396,
+                    "prompt_tokens": 1784,
+                    "completion_tokens": 11
+                },
+                "self_correction": {
+                    "total_tokens": 2191,
+                    "total_cost": 0.006585,
+                    "prompt_tokens": 2179,
+                    "completion_tokens": 12
+                }
+            },
+            "time": 7.122464656829834,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "59",
+            "question": "What are the area, elevation and type of lakes in country Italy?",
+            "query_string": "SELECT lake.area, lake.elevation, lake.type  FROM  lake  JOIN  country ON lake.country = country.code  WHERE  country.name = 'Italy'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6011,
+                    "total_cost": 0.018164,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 131
+                },
+                "classification": {
+                    "total_tokens": 3704,
+                    "total_cost": 0.011219,
+                    "prompt_tokens": 3597,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3131,
+                    "total_cost": 0.009485,
+                    "prompt_tokens": 3039,
+                    "completion_tokens": 92
+                },
+                "self_correction": {
+                    "total_tokens": 2228,
+                    "total_cost": 0.006716000000000001,
+                    "prompt_tokens": 2196,
+                    "completion_tokens": 32
+                }
+            },
+            "time": 8.335038661956787,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "60",
+            "question": " List the names of capital cities which are the base for organizations in alphabetical order",
+            "query_string": "SELECT T1.name  FROM  city T1  JOIN organization T2 ON T1.name = T2.city  ORDER BY T1.name ASC",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6015,
+                    "total_cost": 0.018174,
+                    "prompt_tokens": 5886,
+                    "completion_tokens": 129
+                },
+                "classification": {
+                    "total_tokens": 3699,
+                    "total_cost": 0.011206,
+                    "prompt_tokens": 3590,
+                    "completion_tokens": 109
+                },
+                "sql_generation": {
+                    "total_tokens": 3128,
+                    "total_cost": 0.00948,
+                    "prompt_tokens": 3032,
+                    "completion_tokens": 96
+                },
+                "self_correction": {
+                    "total_tokens": 2238,
+                    "total_cost": 0.006743,
+                    "prompt_tokens": 2209,
+                    "completion_tokens": 29
+                }
+            },
+            "time": 17.01118803024292,
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "61",
+            "question": "List the name of organizations that do not have countries with an area smaller than 4000 and of the member type",
+            "query_string": "SELECT name FROM organization WHERE abbreviation NOT IN (     SELECT         organization     FROM         ismember     WHERE         type = 'member'         AND country IN (             SELECT                 code             FROM                 country             WHERE                 area >= 4000         ) )",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6070,
+                    "total_cost": 0.018389999999999997,
+                    "prompt_tokens": 5890,
+                    "completion_tokens": 180
+                },
+                "classification": {
+                    "total_tokens": 3748,
+                    "total_cost": 0.011373999999999999,
+                    "prompt_tokens": 3618,
+                    "completion_tokens": 130
+                },
+                "sql_generation": {
+                    "total_tokens": 4700,
+                    "total_cost": 0.014282,
+                    "prompt_tokens": 4518,
+                    "completion_tokens": 182
+                },
+                "self_correction": {
+                    "total_tokens": 2286,
+                    "total_cost": 0.006922,
+                    "prompt_tokens": 2222,
+                    "completion_tokens": 64
+                }
+            },
+            "time": 12.740910291671753,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "62",
+            "question": "List the name of organizations that do not have countries with  an area greater than 10000 and population smaller than 3000 and of the member type",
+            "query_string": "SELECT organization.name FROM organization WHERE NOT EXISTS (     SELECT         *     FROM         country     WHERE         area > 10000         AND population < 3000         AND organization.country = country.code ) AND type = 'member'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6080,
+                    "total_cost": 0.018421999999999997,
+                    "prompt_tokens": 5898,
+                    "completion_tokens": 182
+                },
+                "classification": {
+                    "total_tokens": 3748,
+                    "total_cost": 0.011368,
+                    "prompt_tokens": 3624,
+                    "completion_tokens": 124
+                },
+                "sql_generation": {
+                    "total_tokens": 3185,
+                    "total_cost": 0.009674,
+                    "prompt_tokens": 3066,
+                    "completion_tokens": 119
+                },
+                "self_correction": {
+                    "total_tokens": 2283,
+                    "total_cost": 0.006905,
+                    "prompt_tokens": 2227,
+                    "completion_tokens": 56
+                }
+            },
+            "time": 11.134778261184692,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "63",
+            "question": "Show the inflation rate of countries that are washed by the Arabian Sea",
+            "query_string": "SELECT economy.inflation FROM economy JOIN located ON economy.country = located.country JOIN sea ON located.sea = sea.name WHERE sea.name = 'Arabian Sea'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6015,
+                    "total_cost": 0.018177000000000002,
+                    "prompt_tokens": 5883,
+                    "completion_tokens": 132
+                },
+                "classification": {
+                    "total_tokens": 3709,
+                    "total_cost": 0.011238,
+                    "prompt_tokens": 3598,
+                    "completion_tokens": 111
+                },
+                "sql_generation": {
+                    "total_tokens": 3151,
+                    "total_cost": 0.009564,
+                    "prompt_tokens": 3040,
+                    "completion_tokens": 111
+                },
+                "self_correction": {
+                    "total_tokens": 2251,
+                    "total_cost": 0.006795,
+                    "prompt_tokens": 2209,
+                    "completion_tokens": 42
+                }
+            },
+            "time": 14.727690696716309,
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        },
+        {
+            "id": "64",
+            "question": "List all the capitals of the countries that belong to the continent Africa?",
+            "query_string": "SELECT country.capital FROM country JOIN continent ON country.continent = continent.name WHERE continent.name = 'Africa'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6003,
+                    "total_cost": 0.018132,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 123
+                },
+                "classification": {
+                    "total_tokens": 3698,
+                    "total_cost": 0.011201000000000001,
+                    "prompt_tokens": 3591,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3101,
+                    "total_cost": 0.009370999999999999,
+                    "prompt_tokens": 3033,
+                    "completion_tokens": 68
+                },
+                "self_correction": {
+                    "total_tokens": 2209,
+                    "total_cost": 0.006652999999999999,
+                    "prompt_tokens": 2183,
+                    "completion_tokens": 26
+                }
+            },
+            "time": 7.337499141693115,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "65",
+            "question": "Show the inflation rate of the countries bathed by the Arabian Sea and there is no inflation with null value",
+            "query_string": "SELECT economy.inflation FROM economy JOIN located ON located.sea = 'Arabian Sea' WHERE economy.inflation IS NOT NULL",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6049,
+                    "total_cost": 0.018307999999999998,
+                    "prompt_tokens": 5888,
+                    "completion_tokens": 161
+                },
+                "classification": {
+                    "total_tokens": 3722,
+                    "total_cost": 0.011285000000000002,
+                    "prompt_tokens": 3603,
+                    "completion_tokens": 119
+                },
+                "sql_generation": {
+                    "total_tokens": 3156,
+                    "total_cost": 0.009579,
+                    "prompt_tokens": 3045,
+                    "completion_tokens": 111
+                },
+                "self_correction": {
+                    "total_tokens": 2247,
+                    "total_cost": 0.0067740000000000005,
+                    "prompt_tokens": 2214,
+                    "completion_tokens": 33
+                }
+            },
+            "time": 9.684187412261963,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "66",
+            "question": "How many countries are in Africa?",
+            "query_string": "SELECT count(country.code)  FROM  country  JOIN  encompasses  ON  country.code = encompasses.country  WHERE  encompasses.continent = 'Africa'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5986,
+                    "total_cost": 0.018071000000000004,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 113
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011172000000000001,
+                    "prompt_tokens": 3588,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 3121,
+                    "total_cost": 0.009453999999999999,
+                    "prompt_tokens": 3030,
+                    "completion_tokens": 91
+                },
+                "self_correction": {
+                    "total_tokens": 2225,
+                    "total_cost": 0.006709,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 34
+                }
+            },
+            "time": 8.039818048477173,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "67",
+            "question": "List the name of countries that are not members of NATO and UNESCO",
+            "query_string": "SELECT T1.name  FROM  country T1  WHERE  T1.code NOT IN (SELECT T2.country FROM ismember T2 WHERE T2.organization = 'NATO' OR T2.organization = 'UNESCO')",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6020,
+                    "total_cost": 0.0182,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 140
+                },
+                "classification": {
+                    "total_tokens": 3702,
+                    "total_cost": 0.011215000000000001,
+                    "prompt_tokens": 3593,
+                    "completion_tokens": 109
+                },
+                "sql_generation": {
+                    "total_tokens": 3167,
+                    "total_cost": 0.009633000000000001,
+                    "prompt_tokens": 3035,
+                    "completion_tokens": 132
+                },
+                "self_correction": {
+                    "total_tokens": 2264,
+                    "total_cost": 0.006836999999999999,
+                    "prompt_tokens": 2219,
+                    "completion_tokens": 45
+                }
+            },
+            "time": 10.532384395599365,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "68",
+            "question": "What is the area of the continent Europe?",
+            "query_string": "SELECT area FROM continent WHERE name = 'Europe'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5975,
+                    "total_cost": 0.018025000000000003,
+                    "prompt_tokens": 5875,
+                    "completion_tokens": 100
+                },
+                "classification": {
+                    "total_tokens": 3680,
+                    "total_cost": 0.011139000000000001,
+                    "prompt_tokens": 3581,
+                    "completion_tokens": 99
+                },
+                "sql_generation": {
+                    "total_tokens": 1794,
+                    "total_cost": 0.005394,
+                    "prompt_tokens": 1782,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2189,
+                    "total_cost": 0.006578,
+                    "prompt_tokens": 2178,
+                    "completion_tokens": 11
+                }
+            },
+            "time": 6.564841270446777,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "69",
+            "question": "What is the area of continent America?",
+            "query_string": "SELECT area FROM continent WHERE name = 'America'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5957,
+                    "total_cost": 0.017953999999999998,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 83
+                },
+                "classification": {
+                    "total_tokens": 3675,
+                    "total_cost": 0.011123000000000001,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 98
+                },
+                "sql_generation": {
+                    "total_tokens": 1790,
+                    "total_cost": 0.0053820000000000005,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2190,
+                    "total_cost": 0.006583,
+                    "prompt_tokens": 2177,
+                    "completion_tokens": 13
+                }
+            },
+            "time": 6.236773490905762,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "70",
+            "question": "What is the area of continent Asia?",
+            "query_string": "SELECT area FROM continent WHERE name = 'Asia'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5957,
+                    "total_cost": 0.017953999999999998,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 83
+                },
+                "classification": {
+                    "total_tokens": 3675,
+                    "total_cost": 0.011123000000000001,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 98
+                },
+                "sql_generation": {
+                    "total_tokens": 1790,
+                    "total_cost": 0.0053820000000000005,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2190,
+                    "total_cost": 0.006583,
+                    "prompt_tokens": 2177,
+                    "completion_tokens": 13
+                }
+            },
+            "time": 7.4201600551605225,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "71",
+            "question": "What is the area of Africa?",
+            "query_string": "SELECT continent.area FROM continent WHERE continent.name = 'Africa'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5951,
+                    "total_cost": 0.017931000000000002,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 78
+                },
+                "classification": {
+                    "total_tokens": 3671,
+                    "total_cost": 0.011109999999999998,
+                    "prompt_tokens": 3574,
+                    "completion_tokens": 97
+                },
+                "sql_generation": {
+                    "total_tokens": 1787,
+                    "total_cost": 0.005373,
+                    "prompt_tokens": 1775,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2191,
+                    "total_cost": 0.006588000000000001,
+                    "prompt_tokens": 2176,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 5.591610670089722,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "72",
+            "question": "How many countries are in America?",
+            "query_string": "SELECT count(DISTINCT T1.code)  FROM country T1  JOIN encompasses T2 ON T1.code = T2.country  JOIN continent AS T3 ON T2.continent = T3.name  WHERE T3.name = 'America'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5986,
+                    "total_cost": 0.018071000000000004,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 113
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011172000000000001,
+                    "prompt_tokens": 3588,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 3147,
+                    "total_cost": 0.009557999999999999,
+                    "prompt_tokens": 3030,
+                    "completion_tokens": 117
+                },
+                "self_correction": {
+                    "total_tokens": 2269,
+                    "total_cost": 0.006856999999999999,
+                    "prompt_tokens": 2219,
+                    "completion_tokens": 50
+                }
+            },
+            "time": 10.420478105545044,
+            "similarity": -1,
+            "result": false,
+            "column_matching_index": -1
+        },
+        {
+            "id": "73",
+            "question": "What area is the largest continent?",
+            "query_string": "SELECT area FROM continent ORDER BY area DESC FETCH FIRST 1 ROWS ONLY",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5968,
+                    "total_cost": 0.017996,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 92
+                },
+                "classification": {
+                    "total_tokens": 3674,
+                    "total_cost": 0.011119,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 97
+                },
+                "sql_generation": {
+                    "total_tokens": 1792,
+                    "total_cost": 0.005393,
+                    "prompt_tokens": 1775,
+                    "completion_tokens": 17
+                },
+                "self_correction": {
+                    "total_tokens": 2202,
+                    "total_cost": 0.006623,
+                    "prompt_tokens": 2185,
+                    "completion_tokens": 17
+                }
+            },
+            "time": 11.048030376434326,
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "74",
+            "question": "List the countries that belong to the continent with the largest area",
+            "query_string": "SELECT country.name FROM country JOIN encompasses ON country.code = encompasses.country JOIN continent ON encompasses.continent = continent.name WHERE continent.area = (SELECT max(area) FROM continent)",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6011,
+                    "total_cost": 0.018165,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 132
+                },
+                "classification": {
+                    "total_tokens": 3704,
+                    "total_cost": 0.01122,
+                    "prompt_tokens": 3596,
+                    "completion_tokens": 108
+                },
+                "sql_generation": {
+                    "total_tokens": 3150,
+                    "total_cost": 0.009562,
+                    "prompt_tokens": 3038,
+                    "completion_tokens": 112
+                },
+                "self_correction": {
+                    "total_tokens": 2244,
+                    "total_cost": 0.00677,
+                    "prompt_tokens": 2206,
+                    "completion_tokens": 38
+                }
+            },
+            "time": 8.49169659614563,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "75",
+            "question": "List the countries that belong to the continent with the largest area and whose language is English",
+            "query_string": "SELECT country.name  FROM  country  JOIN encompasses ON country.code = encompasses.country  JOIN continent ON encompasses.continent = continent.name  JOIN language ON country.code = language.country  WHERE  continent.area = (SELECT max(area) FROM continent)  AND language.name = 'English'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6029,
+                    "total_cost": 0.018232,
+                    "prompt_tokens": 5884,
+                    "completion_tokens": 145
+                },
+                "classification": {
+                    "total_tokens": 3718,
+                    "total_cost": 0.011269000000000001,
+                    "prompt_tokens": 3603,
+                    "completion_tokens": 115
+                },
+                "sql_generation": {
+                    "total_tokens": 3189,
+                    "total_cost": 0.009711000000000001,
+                    "prompt_tokens": 3045,
+                    "completion_tokens": 144
+                },
+                "self_correction": {
+                    "total_tokens": 2282,
+                    "total_cost": 0.006902,
+                    "prompt_tokens": 2226,
+                    "completion_tokens": 56
+                }
+            },
+            "time": 9.495978355407715,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "76",
+            "question": "List the names of cities, along with the name of their country for cities with a population greater than 5 million.  Display the results in descending order by population.",
+            "query_string": "SELECT city.name, country.name FROM city JOIN country ON city.country = country.code WHERE city.population > 5000000 ORDER BY city.population DESC",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6077,
+                    "total_cost": 0.018408,
+                    "prompt_tokens": 5900,
+                    "completion_tokens": 177
+                },
+                "classification": {
+                    "total_tokens": 3733,
+                    "total_cost": 0.011321999999999999,
+                    "prompt_tokens": 3610,
+                    "completion_tokens": 123
+                },
+                "sql_generation": {
+                    "total_tokens": 1834,
+                    "total_cost": 0.005525,
+                    "prompt_tokens": 1811,
+                    "completion_tokens": 23
+                },
+                "self_correction": {
+                    "total_tokens": 2247,
+                    "total_cost": 0.0067729999999999995,
+                    "prompt_tokens": 2215,
+                    "completion_tokens": 32
+                }
+            },
+            "time": 8.99897027015686,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "77",
+            "question": "Show the name of the deserts in the province of Algeria",
+            "query_string": "SELECT desert.name FROM desert JOIN geo_desert ON desert.name = geo_desert.desert JOIN province ON geo_desert.province = province.name WHERE province.name = 'Algeria'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6042,
+                    "total_cost": 0.018289,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 163
+                },
+                "classification": {
+                    "total_tokens": 3720,
+                    "total_cost": 0.011271,
+                    "prompt_tokens": 3609,
+                    "completion_tokens": 111
+                },
+                "sql_generation": {
+                    "total_tokens": 3190,
+                    "total_cost": 0.009709000000000002,
+                    "prompt_tokens": 3051,
+                    "completion_tokens": 139
+                },
+                "self_correction": {
+                    "total_tokens": 2262,
+                    "total_cost": 0.00683,
+                    "prompt_tokens": 2218,
+                    "completion_tokens": 44
+                }
+            },
+            "time": 11.613095998764038,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "78",
+            "question": "Show the name and area of the deserts in the province of California",
+            "query_string": "SELECT desert.name, desert.area  FROM  desert  JOIN  geo_desert ON desert.name = geo_desert.desert  JOIN  province ON geo_desert.province = province.name  WHERE  province.name = 'California'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6034,
+                    "total_cost": 0.018255000000000004,
+                    "prompt_tokens": 5881,
+                    "completion_tokens": 153
+                },
+                "classification": {
+                    "total_tokens": 3719,
+                    "total_cost": 0.011269999999999999,
+                    "prompt_tokens": 3606,
+                    "completion_tokens": 113
+                },
+                "sql_generation": {
+                    "total_tokens": 3173,
+                    "total_cost": 0.009644000000000002,
+                    "prompt_tokens": 3048,
+                    "completion_tokens": 125
+                },
+                "self_correction": {
+                    "total_tokens": 2261,
+                    "total_cost": 0.006831000000000001,
+                    "prompt_tokens": 2213,
+                    "completion_tokens": 48
+                }
+            },
+            "time": 11.153019428253174,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "79",
+            "question": "List the country names and percentage of use of language where  French are used as languages.",
+            "query_string": "SELECT T1.name, T2.percentage FROM country T1 JOIN language T2 ON T1.code = T2.country WHERE T2.name = 'French'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6026,
+                    "total_cost": 0.01822,
+                    "prompt_tokens": 5884,
+                    "completion_tokens": 142
+                },
+                "classification": {
+                    "total_tokens": 3711,
+                    "total_cost": 0.011244,
+                    "prompt_tokens": 3600,
+                    "completion_tokens": 111
+                },
+                "sql_generation": {
+                    "total_tokens": 3140,
+                    "total_cost": 0.009518,
+                    "prompt_tokens": 3042,
+                    "completion_tokens": 98
+                },
+                "self_correction": {
+                    "total_tokens": 2250,
+                    "total_cost": 0.006785,
+                    "prompt_tokens": 2215,
+                    "completion_tokens": 35
+                }
+            },
+            "time": 9.114938735961914,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "80",
+            "question": "What are the cities where \ufffdPortuguese\ufffd is spoken?",
+            "query_string": "SELECT city.name FROM city JOIN language ON city.country = language.country WHERE language.name = 'Portuguese'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6001,
+                    "total_cost": 0.018125,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 122
+                },
+                "classification": {
+                    "total_tokens": 3702,
+                    "total_cost": 0.011214,
+                    "prompt_tokens": 3594,
+                    "completion_tokens": 108
+                },
+                "sql_generation": {
+                    "total_tokens": 3140,
+                    "total_cost": 0.009524,
+                    "prompt_tokens": 3036,
+                    "completion_tokens": 104
+                },
+                "self_correction": {
+                    "total_tokens": 2227,
+                    "total_cost": 0.006706,
+                    "prompt_tokens": 2202,
+                    "completion_tokens": 25
+                }
+            },
+            "time": 8.753452062606812,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "81",
+            "question": "What is the total area of the provinces in Canada?",
+            "query_string": "SELECT sum(province.area)  FROM  province  JOIN  country ON province.country = country.code  WHERE  country.name = 'Canada'",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5988,
+                    "total_cost": 0.018075,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 111
+                },
+                "classification": {
+                    "total_tokens": 3691,
+                    "total_cost": 0.011178,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 105
+                },
+                "sql_generation": {
+                    "total_tokens": 3112,
+                    "total_cost": 0.00942,
+                    "prompt_tokens": 3028,
+                    "completion_tokens": 84
+                },
+                "self_correction": {
+                    "total_tokens": 2223,
+                    "total_cost": 0.006697,
+                    "prompt_tokens": 2195,
+                    "completion_tokens": 28
+                }
+            },
+            "time": 7.686813831329346,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "82",
+            "question": "What is the length of the Tigres River?",
+            "query_string": "SELECT river.length FROM river WHERE river.name = 'Tigres'",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5960,
+                    "total_cost": 0.017964,
+                    "prompt_tokens": 5876,
+                    "completion_tokens": 84
+                },
+                "classification": {
+                    "total_tokens": 3677,
+                    "total_cost": 0.011131,
+                    "prompt_tokens": 3577,
+                    "completion_tokens": 100
+                },
+                "sql_generation": {
+                    "total_tokens": 1792,
+                    "total_cost": 0.00539,
+                    "prompt_tokens": 1778,
+                    "completion_tokens": 14
+                },
+                "self_correction": {
+                    "total_tokens": 2198,
+                    "total_cost": 0.0066110000000000006,
+                    "prompt_tokens": 2181,
+                    "completion_tokens": 17
+                }
+            },
+            "time": 6.2738354206085205,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "83",
+            "question": "List the Airports with elevation more than 1000",
+            "query_string": "SELECT airport.* FROM airport WHERE airport.elevation > 1000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5989,
+                    "total_cost": 0.018078,
+                    "prompt_tokens": 5878,
+                    "completion_tokens": 111
+                },
+                "classification": {
+                    "total_tokens": 3687,
+                    "total_cost": 0.011162,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 1799,
+                    "total_cost": 0.005409,
+                    "prompt_tokens": 1787,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2197,
+                    "total_cost": 0.006606,
+                    "prompt_tokens": 2182,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 6.699056625366211,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "84",
+            "question": "List airports in the United States with an elevation below 200 feet",
+            "query_string": "SELECT airport.* FROM airport JOIN country ON airport.country = country.code WHERE country.name = 'United States' AND airport.elevation < 200",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6013,
+                    "total_cost": 0.018172,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 133
+                },
+                "classification": {
+                    "total_tokens": 3704,
+                    "total_cost": 0.011219,
+                    "prompt_tokens": 3597,
+                    "completion_tokens": 107
+                },
+                "sql_generation": {
+                    "total_tokens": 3137,
+                    "total_cost": 0.009509,
+                    "prompt_tokens": 3039,
+                    "completion_tokens": 98
+                },
+                "self_correction": {
+                    "total_tokens": 2236,
+                    "total_cost": 0.006743000000000001,
+                    "prompt_tokens": 2201,
+                    "completion_tokens": 35
+                }
+            },
+            "time": 9.31456971168518,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "85",
+            "question": "What are the mountains with altitudes above 8000 meters?",
+            "query_string": "SELECT name FROM mountain WHERE elevation > 8000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5982,
+                    "total_cost": 0.018049,
+                    "prompt_tokens": 5879,
+                    "completion_tokens": 103
+                },
+                "classification": {
+                    "total_tokens": 3692,
+                    "total_cost": 0.011179,
+                    "prompt_tokens": 3589,
+                    "completion_tokens": 103
+                },
+                "sql_generation": {
+                    "total_tokens": 1802,
+                    "total_cost": 0.005418000000000001,
+                    "prompt_tokens": 1790,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2198,
+                    "total_cost": 0.006608999999999999,
+                    "prompt_tokens": 2183,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 6.4769744873046875,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "86",
+            "question": "What are the 3 airports with the largest name?",
+            "query_string": "SELECT iatacode, name, country, city, province, island, latitude, longitude, elevation, gmtoffset FROM airport ORDER BY length(name) DESC FETCH FIRST 3 ROWS ONLY",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5979,
+                    "total_cost": 0.018036,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 99
+                },
+                "classification": {
+                    "total_tokens": 3684,
+                    "total_cost": 0.011153000000000001,
+                    "prompt_tokens": 3583,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 1800,
+                    "total_cost": 0.005418999999999999,
+                    "prompt_tokens": 1781,
+                    "completion_tokens": 19
+                },
+                "self_correction": {
+                    "total_tokens": 2232,
+                    "total_cost": 0.006737,
+                    "prompt_tokens": 2191,
+                    "completion_tokens": 41
+                }
+            },
+            "time": 10.7837073802948,
+            "similarity": 1.0,
+            "column_matching_index": 1.0,
+            "result": true
+        },
+        {
+            "id": "87",
+            "question": "List lakes with an area of less than 5000 square kilometers.",
+            "query_string": "SELECT name FROM lake WHERE area < 5000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6005,
+                    "total_cost": 0.01814,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 125
+                },
+                "classification": {
+                    "total_tokens": 3695,
+                    "total_cost": 0.011189000000000001,
+                    "prompt_tokens": 3591,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 1804,
+                    "total_cost": 0.005424000000000001,
+                    "prompt_tokens": 1792,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2197,
+                    "total_cost": 0.0066040000000000005,
+                    "prompt_tokens": 2184,
+                    "completion_tokens": 13
+                }
+            },
+            "time": 7.8019115924835205,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "88",
+            "question": "What is the total area of the seas with a depth greater than 1000 meters?",
+            "query_string": "SELECT sum(area)  FROM  sea  WHERE  depth > 1000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6004,
+                    "total_cost": 0.018132000000000002,
+                    "prompt_tokens": 5884,
+                    "completion_tokens": 120
+                },
+                "classification": {
+                    "total_tokens": 3699,
+                    "total_cost": 0.011205000000000001,
+                    "prompt_tokens": 3591,
+                    "completion_tokens": 108
+                },
+                "sql_generation": {
+                    "total_tokens": 1806,
+                    "total_cost": 0.005432,
+                    "prompt_tokens": 1792,
+                    "completion_tokens": 14
+                },
+                "self_correction": {
+                    "total_tokens": 2205,
+                    "total_cost": 0.0066300000000000005,
+                    "prompt_tokens": 2190,
+                    "completion_tokens": 15
+                }
+            },
+            "time": 8.146729946136475,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "89",
+            "question": "Find the countries whose name starts with the letter \"B\" and have a population greater than 10 million",
+            "query_string": "SELECT country.name FROM country WHERE country.name LIKE 'B%' AND country.population > 10000000",
+            "type": "complex",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6021,
+                    "total_cost": 0.018196,
+                    "prompt_tokens": 5888,
+                    "completion_tokens": 133
+                },
+                "classification": {
+                    "total_tokens": 3710,
+                    "total_cost": 0.011241000000000001,
+                    "prompt_tokens": 3599,
+                    "completion_tokens": 111
+                },
+                "sql_generation": {
+                    "total_tokens": 1819,
+                    "total_cost": 0.005476,
+                    "prompt_tokens": 1800,
+                    "completion_tokens": 19
+                },
+                "self_correction": {
+                    "total_tokens": 2222,
+                    "total_cost": 0.006689,
+                    "prompt_tokens": 2199,
+                    "completion_tokens": 23
+                }
+            },
+            "time": 8.096882343292236,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "90",
+            "question": "List cities with another name in Brazil",
+            "query_string": "SELECT cityothername.othername FROM cityothername WHERE country = 'Brazil'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5987,
+                    "total_cost": 0.018074,
+                    "prompt_tokens": 5874,
+                    "completion_tokens": 113
+                },
+                "classification": {
+                    "total_tokens": 3683,
+                    "total_cost": 0.011148000000000002,
+                    "prompt_tokens": 3584,
+                    "completion_tokens": 99
+                },
+                "sql_generation": {
+                    "total_tokens": 1799,
+                    "total_cost": 0.005410999999999999,
+                    "prompt_tokens": 1785,
+                    "completion_tokens": 14
+                },
+                "self_correction": {
+                    "total_tokens": 2196,
+                    "total_cost": 0.006605,
+                    "prompt_tokens": 2179,
+                    "completion_tokens": 17
+                }
+            },
+            "time": 7.702451705932617,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "91",
+            "question": "List all cities that are at a latitude greater than 45 degrees.",
+            "query_string": "SELECT city.name FROM city WHERE city.latitude > 45",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5989,
+                    "total_cost": 0.018076,
+                    "prompt_tokens": 5880,
+                    "completion_tokens": 109
+                },
+                "classification": {
+                    "total_tokens": 3690,
+                    "total_cost": 0.011174,
+                    "prompt_tokens": 3586,
+                    "completion_tokens": 104
+                },
+                "sql_generation": {
+                    "total_tokens": 1798,
+                    "total_cost": 0.005404999999999999,
+                    "prompt_tokens": 1787,
+                    "completion_tokens": 11
+                },
+                "self_correction": {
+                    "total_tokens": 2197,
+                    "total_cost": 0.006604999999999999,
+                    "prompt_tokens": 2183,
+                    "completion_tokens": 14
+                }
+            },
+            "time": 7.1394946575164795,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "92",
+            "question": "Show the number of cities with another name in countries with an area greater than 30000",
+            "query_string": "SELECT COUNT(cityothername.city)  FROM cityothername  JOIN country ON cityothername.country = country.code  WHERE country.area > 30000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6013,
+                    "total_cost": 0.018167,
+                    "prompt_tokens": 5885,
+                    "completion_tokens": 128
+                },
+                "classification": {
+                    "total_tokens": 3710,
+                    "total_cost": 0.011245000000000002,
+                    "prompt_tokens": 3595,
+                    "completion_tokens": 115
+                },
+                "sql_generation": {
+                    "total_tokens": 3135,
+                    "total_cost": 0.009503,
+                    "prompt_tokens": 3037,
+                    "completion_tokens": 98
+                },
+                "self_correction": {
+                    "total_tokens": 2234,
+                    "total_cost": 0.006732000000000001,
+                    "prompt_tokens": 2204,
+                    "completion_tokens": 30
+                }
+            },
+            "time": 9.37547516822815,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "93",
+            "question": "Show the deserts with area greater than 10000",
+            "query_string": "SELECT desert.name FROM desert WHERE desert.area > 10000",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5994,
+                    "total_cost": 0.018098,
+                    "prompt_tokens": 5878,
+                    "completion_tokens": 116
+                },
+                "classification": {
+                    "total_tokens": 3692,
+                    "total_cost": 0.011178,
+                    "prompt_tokens": 3590,
+                    "completion_tokens": 102
+                },
+                "sql_generation": {
+                    "total_tokens": 1803,
+                    "total_cost": 0.0054210000000000005,
+                    "prompt_tokens": 1791,
+                    "completion_tokens": 12
+                },
+                "self_correction": {
+                    "total_tokens": 2200,
+                    "total_cost": 0.006618,
+                    "prompt_tokens": 2182,
+                    "completion_tokens": 18
+                }
+            },
+            "time": 6.677164793014526,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "94",
+            "question": "List the islands that belong to a lake with an elevation greater than 100",
+            "query_string": "SELECT island.name  FROM  island  JOIN  lakeonisland ON island.name = lakeonisland.island  JOIN  lake ON lake.name = lakeonisland.lake  WHERE  lake.elevation > 100",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6037,
+                    "total_cost": 0.018265999999999998,
+                    "prompt_tokens": 5882,
+                    "completion_tokens": 155
+                },
+                "classification": {
+                    "total_tokens": 3723,
+                    "total_cost": 0.011283,
+                    "prompt_tokens": 3609,
+                    "completion_tokens": 114
+                },
+                "sql_generation": {
+                    "total_tokens": 3171,
+                    "total_cost": 0.009633000000000001,
+                    "prompt_tokens": 3051,
+                    "completion_tokens": 120
+                },
+                "self_correction": {
+                    "total_tokens": 2257,
+                    "total_cost": 0.006816,
+                    "prompt_tokens": 2212,
+                    "completion_tokens": 45
+                }
+            },
+            "time": 10.705476760864258,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "95",
+            "question": "List all mountains located on islands with an area greater than 100,000 square kilometers",
+            "query_string": "SELECT mountain.name FROM mountain JOIN mountainonisland ON mountain.name = mountainonisland.mountain JOIN island ON mountainonisland.island = island.name WHERE island.area > 100000",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6047,
+                    "total_cost": 0.018304,
+                    "prompt_tokens": 5884,
+                    "completion_tokens": 163
+                },
+                "classification": {
+                    "total_tokens": 3728,
+                    "total_cost": 0.011300000000000001,
+                    "prompt_tokens": 3612,
+                    "completion_tokens": 116
+                },
+                "sql_generation": {
+                    "total_tokens": 3174,
+                    "total_cost": 0.009642,
+                    "prompt_tokens": 3054,
+                    "completion_tokens": 120
+                },
+                "self_correction": {
+                    "total_tokens": 2256,
+                    "total_cost": 0.00681,
+                    "prompt_tokens": 2214,
+                    "completion_tokens": 42
+                }
+            },
+            "time": 10.839832067489624,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "96",
+            "question": "List the countries and the sum of their provincial areas.",
+            "query_string": "SELECT T1.name, SUM(T2.area)  FROM country T1  JOIN province T2 ON T1.code = T2.country  GROUP BY T1.name",
+            "type": "simple",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5988,
+                    "total_cost": 0.018075,
+                    "prompt_tokens": 5877,
+                    "completion_tokens": 111
+                },
+                "classification": {
+                    "total_tokens": 3692,
+                    "total_cost": 0.011181000000000002,
+                    "prompt_tokens": 3587,
+                    "completion_tokens": 105
+                },
+                "sql_generation": {
+                    "total_tokens": 3122,
+                    "total_cost": 0.009459,
+                    "prompt_tokens": 3029,
+                    "completion_tokens": 93
+                },
+                "self_correction": {
+                    "total_tokens": 2238,
+                    "total_cost": 0.006747,
+                    "prompt_tokens": 2205,
+                    "completion_tokens": 33
+                }
+            },
+            "time": 8.160605192184448,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "97",
+            "question": "Show the name of the countries, the average elevation and sum of the population of their cities",
+            "query_string": "SELECT country.name, AVG(city.elevation) AS average_elevation, SUM(city.population) AS total_population FROM country JOIN city ON country.code = city.country GROUP BY country.name",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6025,
+                    "total_cost": 0.018215000000000002,
+                    "prompt_tokens": 5885,
+                    "completion_tokens": 140
+                },
+                "classification": {
+                    "total_tokens": 3711,
+                    "total_cost": 0.011245000000000002,
+                    "prompt_tokens": 3599,
+                    "completion_tokens": 112
+                },
+                "sql_generation": {
+                    "total_tokens": 3135,
+                    "total_cost": 0.009498999999999999,
+                    "prompt_tokens": 3041,
+                    "completion_tokens": 94
+                },
+                "self_correction": {
+                    "total_tokens": 2241,
+                    "total_cost": 0.006761,
+                    "prompt_tokens": 2203,
+                    "completion_tokens": 38
+                }
+            },
+            "time": 9.154110431671143,
+            "similarity": 1.0,
+            "result": true,
+            "column_matching_index": 1.0
+        },
+        {
+            "id": "98",
+            "question": "What was Germany's inflation?",
+            "query_string": "SELECT economy.inflation FROM economy WHERE economy.country = 'Germany'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5968,
+                    "total_cost": 0.018,
+                    "prompt_tokens": 5872,
+                    "completion_tokens": 96
+                },
+                "classification": {
+                    "total_tokens": 3684,
+                    "total_cost": 0.011153000000000001,
+                    "prompt_tokens": 3583,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 3092,
+                    "total_cost": 0.009343,
+                    "prompt_tokens": 3025,
+                    "completion_tokens": 67
+                },
+                "self_correction": {
+                    "total_tokens": 2194,
+                    "total_cost": 0.006600999999999999,
+                    "prompt_tokens": 2175,
+                    "completion_tokens": 19
+                }
+            },
+            "time": 7.52747654914856,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "99",
+            "question": "What type of government is Iran?",
+            "query_string": "SELECT government FROM politics WHERE country = 'Iran'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 5970,
+                    "total_cost": 0.018007000000000002,
+                    "prompt_tokens": 5873,
+                    "completion_tokens": 97
+                },
+                "classification": {
+                    "total_tokens": 3686,
+                    "total_cost": 0.011159,
+                    "prompt_tokens": 3585,
+                    "completion_tokens": 101
+                },
+                "sql_generation": {
+                    "total_tokens": 3097,
+                    "total_cost": 0.009361000000000001,
+                    "prompt_tokens": 3027,
+                    "completion_tokens": 70
+                },
+                "self_correction": {
+                    "total_tokens": 2192,
+                    "total_cost": 0.0065899999999999995,
+                    "prompt_tokens": 2178,
+                    "completion_tokens": 14
+                }
+            },
+            "time": 7.397900342941284,
+            "similarity": 0.0,
+            "result": false,
+            "column_matching_index": 0.0
+        },
+        {
+            "id": "100",
+            "question": "What is the percentage of industries in relation to Japan's economy?",
+            "query_string": "SELECT industry FROM economy WHERE country = 'Japan'",
+            "type": "medium",
+            "token_usage": {
+                "schema_linking": {
+                    "total_tokens": 6003,
+                    "total_cost": 0.018129999999999997,
+                    "prompt_tokens": 5882,
+                    "completion_tokens": 121
+                },
+                "classification": {
+                    "total_tokens": 3701,
+                    "total_cost": 0.011211,
+                    "prompt_tokens": 3593,
+                    "completion_tokens": 108
+                },
+                "sql_generation": {
+                    "total_tokens": 3105,
+                    "total_cost": 0.009385000000000001,
+                    "prompt_tokens": 3035,
+                    "completion_tokens": 70
+                },
+                "self_correction": {
+                    "total_tokens": 2201,
+                    "total_cost": 0.006617,
+                    "prompt_tokens": 2187,
+                    "completion_tokens": 14
+                }
+            },
+            "time": 13.502198457717896,
+            "similarity": 0.0,
+            "column_matching_index": 0.0,
+            "result": false
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+,experiment,simple,medium,complex,total,overall_simple,overall_medium,overall_complex,overall_total,input_tokens,output_tokens,total_tokens,total_cost,total_time
+1,DIN - Mondial - MONDIAL_GPT - GPT-4 - FK,27,25,17,69,0.8182,0.7576,0.5,0.69,1428284,32473,1460757,44.8,0:45:26
+0,DIN - Mondial - MONDIAL_GPT - GPT-3.5 - FK,26,15,14,55,0.7879,0.4545,0.4118,0.55,1431645,33050,1464695,4.43,0:14:54

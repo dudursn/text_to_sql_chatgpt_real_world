@@ -1,0 +1,702 @@
+[
+    {
+        "id": "1",
+        "query_string": "Country=Thailand Area",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "2",
+        "query_string": "Province Area>10000",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "3",
+        "query_string": "Language Country=Poland",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "4",
+        "query_string": "Lake Depth",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.005291005291005291
+    },
+    {
+        "id": "5",
+        "query_string": "Total Country Province Country=Netherlands",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "6",
+        "query_string": "Religion Percentage Country=Thailand",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.25
+    },
+    {
+        "id": "7",
+        "query_string": "Number of Provinces River",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.2630057803468208
+    },
+    {
+        "id": "8",
+        "query_string": "Country Politics Independence>=8/1/1910 Independence<=8/1/1950",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.2206896551724138
+    },
+    {
+        "id": "9",
+        "query_string": "City Country=Cuba",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "10",
+        "query_string": "Country=Georgia Capital",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "11",
+        "query_string": "Total Province Area>1000",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "12",
+        "query_string": "Country Area>",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.004098360655737705
+    },
+    {
+        "id": "13",
+        "query_string": "Organization Identifier=\"International Energy Agency\" Host province Year of establishment",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "14",
+        "query_string": "Mountain Elevation>1000 Name",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.23622047244094488
+    },
+    {
+        "id": "15",
+        "query_string": "Geo sea Identifier=Caribbean Sea Economy",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "16",
+        "query_string": "City Longitude>0 Longitude<6",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.06417842512517069
+    },
+    {
+        "id": "17",
+        "query_string": "City Population>100000 Altitude>2500 Country Population Growth>1",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.011475409836065573
+    },
+    {
+        "id": "18",
+        "query_string": "Politics Government",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.32653061224489793
+    },
+    {
+        "id": "19",
+        "query_string": "Province Country=Germany",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "20",
+        "query_string": "Ethnic Group Percentage Country=Brazil",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.3333333333333333
+    },
+    {
+        "id": "21",
+        "query_string": "Total City Population<1000",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.004098360655737705
+    },
+    {
+        "id": "22",
+        "query_string": "Average Elevation of Airport Country=America",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "23",
+        "query_string": "Total Country Sea Adjacent=Caribbean Sea",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "24",
+        "query_string": "Total Country Area \"Geo sea\" Identifier=Caribbean Sea",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "25",
+        "query_string": "Total Country Population Borders",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "26",
+        "query_string": "Mountain Name Island=Borneo",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "27",
+        "query_string": "Country Area Population Name",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "28",
+        "query_string": "Country Identifier River \"Geo estuary\"",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "29",
+        "query_string": "Country Mountain Province",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "30",
+        "query_string": "Country Borders Code Total Border Length",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.055793991416309016
+    },
+    {
+        "id": "31",
+        "query_string": "Country Name Code River \"Geo source\"",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.1596958174904943
+    },
+    {
+        "id": "32",
+        "query_string": "River Identifier=Chatanga Area Country",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0006807351940095302
+    },
+    {
+        "id": "33",
+        "query_string": "Airport Elevation>3000",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "34",
+        "query_string": "Religion Name Country=Mexico",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.058823529411764705
+    },
+    {
+        "id": "35",
+        "query_string": "",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "36",
+        "query_string": "Country Continent=Africa Borders",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "37",
+        "query_string": "Average Infant Mortality Rate per Continent",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "38",
+        "query_string": "Average Country Mortality Rate Continent=America Country!=Brazil",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "39",
+        "query_string": "Sea Area>8000 Depth<100",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "40",
+        "query_string": "Number of Mountains per Continent",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.2
+    },
+    {
+        "id": "41",
+        "query_string": "Country \"Geo sea\" Country",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0075675675675675675
+    },
+    {
+        "id": "42",
+        "query_string": "Total Politics Government",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "43",
+        "query_string": "Province Name Desert Area",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "44",
+        "query_string": "Desert Area",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.015873015873015872
+    },
+    {
+        "id": "45",
+        "query_string": "Total Desert per Continent",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "46",
+        "query_string": "Sea Name \"Banda Sea\" Geo sea",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "47",
+        "query_string": "Country Capital Continent=Europe",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "48",
+        "query_string": "Language Percentage Country=Andorra",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.2
+    },
+    {
+        "id": "49",
+        "query_string": "River Length>1000",
+        "complexity": "complex",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "50",
+        "query_string": "Country Population <",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.004098360655737705
+    },
+    {
+        "id": "51",
+        "query_string": "Country Capital does_not_contain",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "52",
+        "query_string": "Capital Province Identifier=Andaluc\u00eda",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "53",
+        "query_string": "Organization Identifier Abbreviation=\"General Confederation of Trade Unions\"",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "54",
+        "query_string": "Organization Identifier=UPU City",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.008264462809917356
+    },
+    {
+        "id": "55",
+        "query_string": "Total of Country Name Organization=1",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "56",
+        "query_string": "Country Name NATO=false",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "57",
+        "query_string": "Country Name Organization=NATO",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "58",
+        "query_string": "River Length<50",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "59",
+        "query_string": "Lake Area Elevation Type Country=Italy",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.2222222222222222
+    },
+    {
+        "id": "60",
+        "query_string": "City Name Organization",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "61",
+        "query_string": "Organization Identifier Established Name Country Area>=4000 Member Type",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "62",
+        "query_string": "Organization Identifier Established Name Country Area<=10000 Country Population<3000",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "63",
+        "query_string": "Country Inflation Rate \"Geo sea\" Identifier=Arabian Sea",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.004319654427645789
+    },
+    {
+        "id": "64",
+        "query_string": "Country Continent=Africa Capital",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "65",
+        "query_string": "Country Inflation_rate Geo sea=Arabian Sea Inflation_rate!=null",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "66",
+        "query_string": "Total Country Continent=Africa",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "67",
+        "query_string": "Country NATO membership!=true UNESCO membership!=true Name",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "68",
+        "query_string": "Continent=Europe Area",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "69",
+        "query_string": "Continent=America Area",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "70",
+        "query_string": "Continent=Asia Area",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "71",
+        "query_string": "Continent=Africa Area",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "72",
+        "query_string": "Total Country Continent=America",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "73",
+        "query_string": "Continent Area",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.2
+    },
+    {
+        "id": "74",
+        "query_string": "Country Continent Area=MAX",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.21285140562248997
+    },
+    {
+        "id": "75",
+        "query_string": "Country Continent Area Language=English",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.029411764705882353
+    },
+    {
+        "id": "76",
+        "query_string": "City Name Country Name City Population>5000000",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.026929982046678635
+    },
+    {
+        "id": "77",
+        "query_string": "Desert Name Province=Algeria",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "78",
+        "query_string": "Desert Name Area Province=California",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "79",
+        "query_string": "Country Name Language=French Language Percentage",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "80",
+        "query_string": "City Language=Portuguese",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "81",
+        "query_string": "Total Province Area Country=Canada",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "82",
+        "query_string": "River Name=Tigres Length",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "83",
+        "query_string": "Airport Elevation>1000",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "84",
+        "query_string": "Airport Elevation<200 Country=United States",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "85",
+        "query_string": "Mountain Elevation>8000",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "86",
+        "query_string": "Airport Name limit 3",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "87",
+        "query_string": "Lake Area<5000",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "88",
+        "query_string": "Total Sea Area Depth>1000",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "89",
+        "query_string": "Country Name starts_with B Population>10000000",
+        "complexity": "complex",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "90",
+        "query_string": "City Name!=Country Name Country=Identifier Brazil",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "91",
+        "query_string": "City Latitude>45",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "92",
+        "query_string": "Number of Cities City Name!=Country Name Country Area>30000",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0
+    },
+    {
+        "id": "93",
+        "query_string": "Desert Area>10000",
+        "complexity": "simple",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "94",
+        "query_string": "Island \"Lake\" Elevation>100",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.017241379310344827
+    },
+    {
+        "id": "95",
+        "query_string": "Mountain Name \"Geo island\" Area>100000",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.0425531914893617
+    },
+    {
+        "id": "96",
+        "query_string": "Total Country Province Area",
+        "complexity": "simple",
+        "correct": false,
+        "similarity": 0.004098360655737705
+    },
+    {
+        "id": "97",
+        "query_string": "Country Name City Elevation City Population",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.00261437908496732
+    },
+    {
+        "id": "98",
+        "query_string": "Country=Germany Inflation",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    },
+    {
+        "id": "99",
+        "query_string": "Politics Government",
+        "complexity": "medium",
+        "correct": false,
+        "similarity": 0.004098360655737705
+    },
+    {
+        "id": "100",
+        "query_string": "Economy Industry Country=Japan",
+        "complexity": "medium",
+        "correct": true,
+        "similarity": 1.0
+    }
+]

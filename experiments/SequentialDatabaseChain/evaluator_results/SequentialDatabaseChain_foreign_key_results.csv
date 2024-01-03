@@ -1,0 +1,5 @@
+,experiment,simple,medium,complex,total,overall_simple,overall_medium,overall_complex,overall_total,input_tokens,output_tokens,total_tokens,total_cost,total_time
+2,MONDIAL_GPT - GPT-4 - FK - SequentialDatabaseChain,22,22,19,63,0.6667,0.6667,0.5588,0.63,67645,3276,70921,2.23,0:06:58
+3,MONDIAL_GPT - GPT-4 - Passing Database Instances - FK - SequentialDatabaseChain,22,20,17,59,0.6667,0.6061,0.5,0.59,80208,3217,83425,2.6,0:07:00
+0,MONDIAL_GPT - GPT-3.5 - FK - SequentialDatabaseChain,22,13,8,43,0.6667,0.3939,0.2353,0.43,63394,2883,66277,0.1,0:23:01
+1,MONDIAL_GPT - GPT-3.5 - Passing Database Instances - FK - SequentialDatabaseChain,22,13,5,40,0.6667,0.3939,0.1471,0.4,73994,2955,76949,0.12,0:02:56

@@ -1,0 +1,11 @@
+{
+    "DB_HOST":"",
+    "DB_PORT":"1521",
+    "DB_USER_NAME":"MONDIAL_GPT",
+    "DB_PASS":"",
+    "DB_NAME":"",
+    "SQL_DRIVER":"oracle+oracledb",
+    "SERVICE_NAME":"",
+    "SCHEMA":"MONDIAL_GPT",
+    "KEYWORD_SEARCH_API_URL":""
+}

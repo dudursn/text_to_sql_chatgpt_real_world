@@ -1,0 +1,328 @@
+id,Questions,SQL,keywords,count results,count joins,count filters,count aggregations,nested,type
+1,What is the area of Thailand?,SELECT max(area) FROM mondial_country where name  = 'Thailand',area thailand,1,0,0,0,0,simple
+2,What are the provinces with an area greater than 10000?,SELECT name FROM mondial_province where area > 10000,province area more than 10000,1056,0,1,0,0,simple
+3,What are the languages spoken in Poland?,SELECT mondial_language.name FROM mondial_language INNER JOIN mondial_country ON mondial_language.country = mondial_country.code WHERE mondial_country.name = 'Poland',languages spoken poland,1,1,1,0,0,medium
+4,How deep is Lake Kariba?,SELECT depth FROM mondial_lake where name LIKE '%Lake Kariba%',deep Lake Kariba,1,0,1,0,0,simple
+5,What is the total of provinces of Netherlands?,SELECT count(*) FROM mondial_province p INNER JOIN mondial_country c ON p.country = c.code WHERE c.name = 'Netherlands',total provinces Netherlands,1,1,1,1,0,complex
+6,What is the percentage of religious people are hindu in thailand?,SELECT r.percentage FROM mondial_religion r INNER JOIN mondial_country c ON r.country = c.code WHERE c.name = 'Thailand' AND r.name LIKE '%Hindu%',percentage religious hindu Thailand,1,0,2,1,0,complex
+7,List the number of provinces each river flows through.,"SELECT river.name, COUNT(DISTINCT geo_river.province) FROM river JOIN geo_river ON river.name = geo_river.river GROUP BY river.name ",number provinces each river through,137,2,0,1,0,medium
+8,Find all countries that became independent between 8/1/1910 and 8/1/1950.,"SELECT c.name FROM mondial_country c 
+INNER JOIN mondial_politics p ON c.code = p.country 
+WHERE independence > DATE '1910-08-01' AND independence < DATE '1950-08-01' ",country independence between  8/1/1910 and 8/1/1950,32,1,2,0,0,complex
+9,What are the cities of Cuba?,SELECT * FROM mondial_city ci INNER JOIN mondial_country c on ci.country = c.code where c.name = 'Cuba',cities of cuba,17,1,1,0,0,medium
+10,What is the capital of Georgia?,SELECT capital FROM mondial_country WHERE name = 'Georgia',capital georgia,1,0,1,0,0,medium
+11,How many provinces have areas greater than 1000 in Niger?,SELECT count(p.name) FROM mondial_province p INNER JOIN mondial_country c on p.country = c.code where c.name = 'Niger' AND p.area > 1000,provinces  areas greater than 1000 in Niger,1,1,2,1,0,complex
+12,Tell me about the country with the area largest.,SELECT name FROM mondial_country GROUP BY name ORDER BY max(area) DESC FETCH FIRST 1 ROWS ONLY;,country Area largest,1,0,0,1,0,medium
+13,"What is the host province and year of establishment of the organization ""International Energy Agency""?","SELECT o.province, o.established  FROM mondial_organization o WHERE o.name LIKE '%International Energy Agency%'",province year establishment organization International Energy Agency,1,0,1,0,0,medium
+14,Find the name of all mountains whose elevation is higher than 1000.,SELECT name FROM mondial_mountain WHERE elevation > 1000.0,mountain elevation higher than 1000,561,0,1,0,0,medium
+15,Tell me the economy of the Caribbean Sea.,"SELECT DISTINCT e.* FROM mondial_economy e 
+INNER JOIN mondial_country c ON e.country = c.code
+INNER JOIN mondial_geo_sea gs ON gs.country = c.code
+INNER JOIN mondial_sea s ON s.name = gs.sea
+WHERE s.name LIKE '%Caribbean Sea%'",Caribbean Sea economic,33,3,1,0,0,medium
+16,Show the cities with longitude between 0 and 6.,SELECT name FROM mondial_city WHERE longitude BETWEEN 0 AND 6,cities longitude between 0 and 6,142,0,2,0,0,simple
+17,"Select cities whose population is greater than 100000, altitude greater than 2500, and the country you belong to has population growth greater than 1.","SELECT ci.name FROM mondial_city ci
+INNER JOIN mondial_country c ON c.code = ci.country
+INNER JOIN mondial_population p ON p.country = c.code 
+WHERE ci.population > 100000 AND ci.elevation > 2500 AND 
+p.population_growth > 1",cities population greater than 100000 altitude greater than 2500 country belong population growth greater than 1. ,14,2,3,0,0,complex
+18,Show all the different types of government.,SELECT DISTINCT government FROM mondial_politics ,different types government,81,0,0,0,0,simple
+19,List all provinces in Germany,SELECT p.name FROM mondial_province p INNER JOIN mondial_country c ON p.country = c.code  WHERE c.name = 'Germany',provinces germany,16,1,1,0,0,medium
+20,What is the percentage of mulatto ethnicity in Brazil?,SELECT eg.percentage FROM mondial_ethnicgroup eg INNER JOIN mondial_country c ON c.code = eg.country WHERE c.name = 'Brazil' AND eg.name LIKE '%Mulatto%',percentage mullato ethnic group brazil,1,1,2,0,0,complex
+21,How many cities have populations less than 1000?,SELECT count(*) FROM mondial_city WHERE population < 1000,cities population less than 1000,1,0,1,1,0,simple
+22,What is the average elevation of airports in America?,"SELECT avg(a.elevation) FROM mondial_airport a
+INNER JOIN mondial_country c ON c.code = a.country 
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE co.name = 'America'",average elevation airport America,1,3,1,1,0,complex
+23,How many countries are adjacent to (or ecompassed by) the Caribbean Sea?,"SELECT COUNT(DISTINCT ec.country) AS number_of_countries
+FROM mondial_geo_sea gs
+JOIN mondial_encompasses ec ON gs.country = ec.country
+WHERE gs.sea = 'Caribbean Sea';",countries encompasses Carribean Sea,1,1,1,1,0,medium
+24,How much area do the countries that are adjacent to (or encompassed by) the Caribbean Sea cover in total?,"SELECT SUM(DISTINCT c.area) AS total_area
+FROM mondial_Country c
+JOIN mondial_encompasses e ON c.code = e.country
+JOIN mondial_geo_sea gs ON e.country = gs.country
+WHERE gs.sea = 'Caribbean Sea';",total area countries encompasses Carribean Sea,1,2,1,1,0,complex
+25,"For all countries, give the sum of the population of all its neighbors","SELECT c.name AS country_name, SUM(c1.population) AS total_neighbor_population
+FROM mondial_Country c
+JOIN mondial_Borders b ON c.code = b.country1
+JOIN mondial_Country c1 ON b.country2 = c1.code
+GROUP BY c.name;",countries sum population neighbors,119,2,0,1,0,medium
+26,What mountains are on the island of Borneo?,SELECT mountain FROM mondial_mountainonisland WHERE island LIKE '%Borneo%',mountains island Borneo,7,0,1,0,0,simple
+27,Provide the name and total population of the country with the smallest area.,"SELECT name, population FROM mondial_country ORDER BY area ASC FETCH FIRST 1 ROWS ONLY;",name total population country smallest area,1,0,0,0,0,simple
+28,The codes of all countries for which at least one river that originates in this country has its estuary in a neighboring country.,"SELECT DISTINCT s.country
+FROM mondial_geo_estuary e, mondial_borders b, mondial_geo_source s
+WHERE ((e.country = b.country1 AND s.country = b.country2)
+OR (e.country = b.country2 AND s.country = b.country1))
+AND e.river = s.river;",code countries river originates estuary neighboring ,56,0,5,0,0,complex
+29,The codes of all countries where at least one mountain is located in each of their provinces,"SELECT code FROM mondial_country
+WHERE code NOT IN (
+SELECT p.country FROM (
+SELECT name, country
+FROM mondial_province
+WHERE (name, country) NOT IN (SELECT province, country FROM mondial_geo_mountain)) p);",code countries mountain located each provinces,84,0,2,0,1,complex
+30,The code and total border lengths of all countries with at least one border.,"SELECT b.country1, sum(b.length)
+FROM (SELECT country1, length FROM mondial_borders
+UNION ALL
+SELECT country2, length FROM mondial_borders
+) b
+GROUP BY b.country1;",code total border length countries border,167,0,2,1,1,complex
+31,The names and codes of all countries in which at least one river originates.,"SELECT DISTINCT c.name, c.code
+FROM mondial_country c, mondial_geo_source g
+WHERE c.code = g.country;",names codes countries river ,90,1,1,0,0,medium
+32,What is the area and country of the Chatanga River?,"SELECT c.name, r.area FROM mondial_geo_river gr
+INNER JOIN mondial_country c ON c.code = gr.country 
+INNER JOIN mondial_river r ON r.name = gr.river
+WHERE r.name = 'Chatanga'",area and country Chatanga River,1,2,1,0,0,simple
+33,Show the Airports with elevation more than 3000,SELECT name FROM mondial_airport WHERE elevation > 3000.0,airports elevation more than 3000,5,0,1,0,0,simple
+34,What are the religions practiced in Mexico?,SELECT r.name FROM mondial_religion r INNER JOIN mondial_country c ON c.code = r.country WHERE c.name = 'Mexico',religion Mexico,3,0,1,1,0,medium
+35,Show all rivers that do not flow into the sea.,SELECT name FROM mondial_River WHERE sea IS NULL;,rivers not flow sea,267,0,1,0,0,medium
+36,List African countries by number of neighbors.,"SELECT c.name, COUNT(b.country2) AS num_neighbors FROM mondial_country c INNER JOIN mondial_borders b ON c.code = b.country1 
+INNER JOIN mondial_encompasses e ON c.code = e.country 
+INNER JOIN mondial_continent co ON e.continent = co.name 
+WHERE co.name = 'Africa' GROUP BY c.name ORDER BY num_neighbors DESC;",African countries number neighbors,39,3,1,1,0,complex
+37,What is the average infant mortality rate for each continent?,"SELECT c.name AS continent, AVG(p.infant_mortality) AS avg_infant_mortality
+FROM mondial_continent c
+JOIN mondial_encompasses e ON c.name = e.continent
+JOIN mondial_population p ON e.country = p.country
+GROUP BY c.name;",average infant mortality each continent,5,2,0,1,0,simple
+38,What is the average mortality rate of the countries in America without considering Brazil?,"SELECT AVG(p.infant_mortality) AS avg_infant_mortality
+FROM mondial_Country c
+JOIN mondial_Population p ON c.code = p.country
+JOIN mondial_encompasses e ON c.code = e.country
+JOIN mondial_Continent ct ON e.continent = ct.name
+WHERE ct.name = 'America' AND c.name != 'Brazil';",average mortality rate countries in  America without Brazil,1,3,2,1,0,complex
+39,List seas with area greater than 8000 and depth less than 100.,SELECT name FROM mondial_sea WHERE area > 8000 AND depth < 100,sea area greather than 8000 and depth less than 100,2,0,2,0,0,simple
+40,How many mountains are there in Asia?,"SELECT count(DISTINCT m.name) FROM mondial_mountain m
+INNER JOIN mondial_geo_mountain gm ON m.name = gm.mountain 
+INNER JOIN mondial_country c ON c.code = gm.country 
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE co.name = 'Asia'",mountains Asia,1,4,1,1,0,complex
+41,How many countries that are close to the Mediterranean Sea?,"SELECT count(DISTINCT c.name) FROM mondial_country c
+INNER JOIN mondial_geo_sea gs ON gs.country = c.code
+INNER JOIN mondial_sea s ON gs.sea = s.name 
+WHERE s.name = 'Mediterranean Sea'","country ""Mediterranean Sea""",8,3,1,0,0,complex
+42,Show the total for each type of government.,"SELECT government, count(government) FROM mondial_politics GROUP BY government",total government,81,0,0,1,0,simple
+43,Which province has the largest desert in the world?,"SELECT province FROM mondial_geo_desert gd 
+INNER JOIN mondial_desert d ON gd.desert = d.name ORDER BY d.area DESC FETCH FIRST 1 ROWS ONLY;",province largest desert,1,1,0,0,0,simple
+44,What is the largest desert in the world?,SELECT name FROM mondial_desert ORDER BY area DESC FETCH FIRST 1 ROWS ONLY;,largest desert ,1,0,0,0,0,simple
+45,"List, for all continents, the amount of deserts on each.","SELECT co.name, count(gd.desert) FROM mondial_geo_desert gd 
+INNER JOIN mondial_country c ON c.code = gd.country 
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+GROUP BY co.name ",continents amount desert,5,3,0,1,0,complex
+46,What are the neighboring seas of the Banda Sea?,SELECT sea2 FROM mergeswith WHERE sea1 = 'Banda Sea' UNION SELECT sea1 FROM mergeswith WHERE sea2 = 'Banda Sea',neighboring seas Banda Sea,4,0,1,0,0,medium
+47,List all the capitals of European countries.,"SELECT c.capital FROM mondial_country c
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE co.name = 'Europe'",capitals Europe countries,54,2,1,0,0,medium
+48,What percentage of people speak French in Andorra?,"SELECT l.percentage FROM mondial_language l 
+INNER JOIN mondial_country c ON l.country = c.code
+WHERE l.name LIKE '%French%' AND c.name = 'Andorra'",percentage french speak French Andorra,1,1,2,0,0,complex
+49,Which rivers are longer than 1000 kilometers?,SELECT name FROM mondial_river WHERE length > 1000,rivers  longer than 1000 ,151,0,1,0,0,complex
+50,Which country had the lowest population growth?,"SELECT c.name FROM mondial_country c 
+INNER JOIN mondial_population p ON p.country = c.code 
+ORDER BY p.population_growth ASC FETCH FIRST 1 ROWS ONLY",country lowest population growth,1,1,0,0,0,simple
+51,List the name of capital cities for which we do not have data about the city in located,SELECT c.capital FROM mondial_country c WHERE c.capital NOT IN (SELECT lo.city FROM mondial_located lo ),,64,0,1,0,1,complex
+52,What is the capital of the provice Andalucía?,"SELECT p.CAPITAL
+FROM MONDIAL_PROVINCE p 
+WHERE p.name like '%Andalucía%'",province Andalucía capital,1,0,1,0,0,simple
+53,"What is the abbreviation for the organization whose name is ""General Confederation of Trade Unions""?",SELECT abbreviation FROM mondial_organization WHERE name='General Confederation of Trade Unions',,1,0,1,0,0,simple
+54,"In which city is the organization with the abbreviation ""UPU"" ?",SELECT city FROM mondial_organization WHERE abbreviation='UPU',,1,0,1,0,0,simple
+55,List the names of countries which are members of only one organization,"SELECT c.name
+FROM mondial_country c
+JOIN mondial_ismember m
+ON c.code=m.country
+WHERE m.organization=ALL(SELECT organization
+FROM mondial_ismember m
+WHERE
+m.country=c.code)",,10,1,1,0,1,complex
+56, List the name of countries which are not a member of NATO.,"SELECT c.name
+FROM mondial_country c
+WHERE c.code NOT IN (SELECT m.country
+FROM mondial_ismember m
+WHERE organization='NATO')",,215,0,2,0,1,complex
+57,List the name of countries which are a member of NATO.,"SELECT c.name
+FROM mondial_country c
+JOIN mondial_ismember m
+ON c.code=m.country
+WHERE organization='NATO'",,29,1,1,0,0,medium
+58,List the rivers with length less than 50,SELECT name FROM mondial_river WHERE length < 50 ,river length < 50,17,0,1,0,0,simple
+59,"What are the area, elevation and type of lakes in country Italy?","SELECT l.area, l.elevation, l.type FROM MONDIAL_GEO_LAKE gl , MONDIAL_LAKE l, MONDIAL_COUNTRY c
+WHERE (gl.LAKE = l.NAME)
+ AND (gl.COUNTRY = c.CODE)
+ AND  c.name = 'Italy'",country italy lake area elevation type,11,3,0,0,0,simple
+60,List the names of capital cities which are the base for organizations in alphabetical order,"SELECT c.capital
+FROM mondial_country c
+WHERE c.capital IN (SELECT o.city
+FROM mondial_organization o) ORDER BY c.capital ASC",,54,0,1,0,1,complex
+61,List the name of organizations that do not have countries with an area smaller than 4000 and of the member type,"SELECT o.name
+FROM mondial_organization o
+WHERE NOT EXISTS (SELECT *
+FROM mondial_ismember m
+JOIN mondial_country c
+ON m.country=c.code
+WHERE m.organization=o.abbreviation
+AND c.area <=4000
+AND m.type= 'member')",,34,1,2,0,1,complex
+62,List the name of organizations that do not have countries with  an area greater than 10000 and population smaller than 3000 and of the member type  ,"SELECT o.name
+FROM mondial_organization o
+WHERE NOT EXISTS (SELECT *
+FROM mondial_ismember m
+JOIN mondial_country c
+ON m.country=c.code
+WHERE m.organization=o.abbreviation
+AND c.area > 10000
+AND c.population < 3000
+AND m.type= 'member')",,167,1,3,0,1,complex
+63,Show the inflation rate sorted of countries that are washed by the Arabian Sea ,"SELECT DISTINCT e.inflation FROM mondial_economy e 
+INNER JOIN mondial_country c ON e.country = c.code
+INNER JOIN mondial_geo_sea gs ON gs.country = c.code
+INNER JOIN mondial_sea s ON s.name = gs.sea
+WHERE s.name LIKE '%Arabian Sea%' ORDER BY e.inflation",,5,3,1,0,0,complex
+64,List all the capitals of the countries that belong to the continent Africa?,"SELECT c.capital FROM mondial_country c
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE co.name = 'Africa'",,60,2,1,0,0,medium
+65,Show the inflation rate of the countries bathed by the Arabian Sea and there is no inflation with null value,"SELECT DISTINCT e.inflation FROM mondial_economy e 
+INNER JOIN mondial_country c ON e.country = c.code
+INNER JOIN mondial_geo_sea gs ON gs.country = c.code
+INNER JOIN mondial_sea s ON s.name = gs.sea
+WHERE s.name LIKE '%Arabian Sea%' AND e.INFLATION IS NOT NULL",,4,3,2,0,0,complex
+66,How many countries are in Africa?,"SELECT count(*) FROM mondial_country c
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE co.name = 'Africa'",,1,2,1,1,0,complex
+67,List the name of countries that are not members of NATO and UNESCO,"SELECT name FROM country WHERE code NOT IN (SELECT country FROM ismember WHERE organization = 'NATO')
+INTERSECT SELECT name FROM country WHERE code NOT IN (SELECT country FROM ismember WHERE organization = 'UNESCO')",,244,0,2,0,1,complex
+68,What is the area of the continent Europe?,SELECT area FROM mondial_continent WHERE name = 'Europe',,1,0,1,0,0,simple
+69,What is the area of continent America?,SELECT area FROM mondial_continent WHERE name = 'America',,1,0,1,0,0,simple
+70,What is the area of continent Asia?,SELECT area FROM mondial_continent WHERE name = 'Asia',,1,0,1,0,0,simple
+71,What is the area of Africa?,SELECT area FROM mondial_continent WHERE name = 'Africa',,1,0,1,0,0,simple
+72,How many countries are in America?,"SELECT count(*) FROM mondial_country c
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE co.name = 'America'",,1,2,1,1,0,complex
+73,What area is the largest continent?,SELECT max(area) FROM mondial_continent,,1,0,0,1,0,medium
+74,List the countries that belong to the continent with the largest area,"SELECT c.name
+FROM mondial_country c
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+WHERE e.continent = (
+    SELECT name
+    FROM mondial_continent
+    GROUP BY name
+    ORDER BY MAX(area) DESC
+    FETCH FIRST 1 ROWS ONLY
+);",,53,2,1,0,1,complex
+75,List the countries that belong to the continent with the largest area and whose language is English,"SELECT c.name
+FROM mondial_country c
+INNER JOIN mondial_encompasses e ON e.country = c.code
+INNER JOIN mondial_continent co ON co.name = e.continent
+INNER JOIN mondial_language l ON l.country = c.code
+WHERE e.continent = (
+    SELECT name
+    FROM mondial_continent
+    GROUP BY name
+    ORDER BY MAX(area) DESC
+    FETCH FIRST 1 ROWS ONLY
+) AND l.name='English';",,1,3,2,0,1,complex
+76,"List the names of cities, along with the name of their country for cities with a population greater than 5 million.  Display the results in descending order by population.","SELECT ci.name AS cityname, c.name AS countryname
+FROM mondial_city ci
+JOIN mondial_country c ON ci.country = c.code
+WHERE ci.population > 5000000
+ORDER BY ci.population DESC;",,49,0,1,0,0,medium
+77,Show the name of the deserts in the province of Algeria,"SELECT d.name FROM mondial_desert d 
+INNER JOIN mondial_geo_desert gd ON gd.desert = d.name 
+WHERE gd.province='Algeria'",,7,1,1,0,0,simple
+78,Show the name and area of the deserts in the province of California,"SELECT d.name, d.area FROM mondial_desert d 
+INNER JOIN mondial_geo_desert gd ON gd.desert = d.name 
+WHERE gd.province='California'",,3,1,1,0,0,simple
+79,List the country names and percentage of use of language where  French are used as languages.,"SELECT c.name, l.percentage FROM mondial_language l INNER JOIN mondial_country c
+ON l.country = c.code WHERE l.name = 'French'",,17,1,1,0,0,simple
+80,What are the cities where �Portuguese� is spoken?,"SELECT ci.name
+FROM mondial_city ci
+INNER JOIN mondial_country co
+ON co.code = ci.country
+INNER JOIN mondial_language l
+ON l.country = co.code
+WHERE l.name = 'Portuguese';",,251,2,1,0,0,medium
+81,What is the total area of the provinces in Canada?,"SELECT SUM(p.area)
+FROM mondial_province p
+INNER JOIN mondial_country c
+ON p.country = c.code
+WHERE c.name = 'Canada';",,1,1,1,1,0,complex
+82,What is the length of the Tigres River?,SELECT length FROM mondial_river WHERE name LIKE '%Tigris%' ,,1,0,1,0,0,simple
+83,List the Airports with elevation more than 1000,"SELECT name
+FROM mondial_airport
+WHERE elevation > 1000.0;",,123,0,1,0,0,medium
+84,List airports in the United States with an elevation below 200 feet,"SELECT a.name
+FROM mondial_airport a
+INNER JOIN mondial_country c
+ON c.code = a.country
+WHERE c.name = 'United States' AND a.elevation <200;",,72,1,2,0,0,complex
+85,What are the mountains with altitudes above 8000 meters?,"SELECT name
+FROM mondial_mountain
+WHERE elevation > 8000;",,14,0,1,0,0,medium
+86,What are the 3 airports with the largest name?,"SELECT name
+FROM mondial_airport
+ORDER BY LENGTH(name) DESC
+FETCH FIRST 3 ROWS ONLY;",,3,0,0,0,0,simple
+87,List lakes with an area of less than 5000 square kilometers.,"SELECT name
+FROM mondial_lake
+WHERE area < 5000;",,145,0,1,0,0,medium
+88,What is the total area of the seas with a depth greater than 1000 meters?,"SELECT SUM(area)
+FROM mondial_sea
+WHERE depth > 1000;",,1,0,1,1,0,medium
+89,"Find the countries whose name starts with the letter ""B"" and have a population greater than 10 million","SELECT name
+FROM mondial_country
+WHERE name LIKE 'B%' AND population > 10000000;",,5,0,2,0,0,complex
+90,List cities with another name in Brazil,"SELECT cio.othername
+FROM mondial_cityothername cio
+INNER JOIN mondial_country c
+ON cio.country = c.code
+WHERE c.name = 'Brazil' ",,3,1,1,0,0,medium
+91,List all cities that are at a latitude greater than 45 degrees.,"SELECT name
+FROM mondial_city
+WHERE latitude > 45;",,797,0,1,0,0,medium
+92,Show the number of cities with another name in countries with an area greater than 30000,"SELECT count(DISTINCT cio.city)
+FROM mondial_cityothername cio
+INNER JOIN mondial_country c
+ON cio.country = c.code
+WHERE c.area >30000 ",,1,1,1,1,0,medium
+93,Show the deserts with area greater than 10000,"SELECT name
+FROM mondial_desert
+WHERE area > 10000;",,61,0,1,0,0,simple
+94,List the islands that belong to a lake with an elevation greater than 100,"SELECT island.name 
+FROM island 
+JOIN lakeonisland ON island.name = lakeonisland.island 
+JOIN lake ON lake.name = lakeonisland.lake
+WHERE lake.elevation > 100",,39,1,1,0,0,simple
+95,"List all mountains located on islands with an area greater than 100,000 square kilometers","SELECT moi.mountain
+FROM mondial_mountainonisland moi
+INNER JOIN mondial_island isl
+ON moi.island = isl.name
+WHERE isl.area > 100000",,71,1,1,0,0,medium
+96,List the countries and the sum of their provincial areas.,"SELECT c.name AS country, SUM(p.area) AS total_province_area
+FROM mondial_country c
+INNER JOIN mondial_province p
+ON c.code = p.country
+GROUP BY c.name;",,244,1,0,1,0,simple
+97,"Show the name of the countries, the average elevation and sum of the population of their cities","SELECT c.name AS country, AVG(ci.elevation) AS average_city_population, SUM(ci.population) AS total_city_area
+FROM mondial_country c
+INNER JOIN mondial_city ci
+ON c.code = ci.country
+GROUP BY c.name;",country name city average elevation sum population,244,1,0,2,0,medium
+98,What was Germany's inflation?,SELECT e.inflation FROM mondial_country c JOIN mondial_economy e ON c.code=e.country WHERE c.name LIKE '%Germany%' ,,1,1,1,0,0,medium
+99,What type of government is Iran?,"SELECT p.government
+FROM mondial_country c
+INNER JOIN mondial_politics p
+ON p.country = c.code
+WHERE c.name = 'Iran'",government Iran,1,1,1,0,0,medium
+100,What is the percentage of industries in relation to Japan's economy?,"SELECT e.industry 
+FROM mondial_economy e
+INNER JOIN mondial_country c
+ON c.code = e.country
+WHERE c.name = 'Japan'",industry economy Japan,1,1,1,0,0,medium

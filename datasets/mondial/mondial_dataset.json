@@ -1,0 +1,1604 @@
+{
+    "dataset": [
+        {
+            "id": "1",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "What is the area of Thailand?",
+            "query": "SELECT max(area) FROM mondial_country where name  = 'Thailand'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/1.csv"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "type": "simple",
+            "number_of_results": "1056",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What are the provinces with an area greater than 10000?",
+            "query": "SELECT name FROM mondial_province where area > 10000",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/2.csv"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What are the languages spoken in Poland?",
+            "query": "SELECT mondial_language.name FROM mondial_language INNER JOIN mondial_country ON mondial_language.country = mondial_country.code WHERE mondial_country.name = 'Poland'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/3.csv"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "How deep is Lake Kariba?",
+            "query": "SELECT depth FROM mondial_lake where name LIKE '%Lake Kariba%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/4.csv"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "What is the total of provinces of Netherlands?",
+            "query": "SELECT count(*) FROM mondial_province p INNER JOIN mondial_country c ON p.country = c.code WHERE c.name = 'Netherlands'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/5.csv"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "1",
+            "question": "What is the percentage of religious people are hindu in thailand?",
+            "query": "SELECT r.percentage FROM mondial_religion r INNER JOIN mondial_country c ON r.country = c.code WHERE c.name = 'Thailand' AND r.name LIKE '%Hindu%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/6.csv"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "type": "medium",
+            "number_of_results": "137",
+            "number_of_joins": "2",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "List the number of provinces each river flows through.",
+            "query": "SELECT river.name, COUNT(DISTINCT geo_river.province) FROM river JOIN geo_river ON river.name = geo_river.river GROUP BY river.name",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/7.csv"
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "type": "complex",
+            "number_of_results": "32",
+            "number_of_joins": "1",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "Find all countries that became independent between 8/1/1910 and 8/1/1950.",
+            "query": "SELECT c.name FROM mondial_country c \nINNER JOIN mondial_politics p ON c.code = p.country \nWHERE independence > DATE '1910-08-01' AND independence < DATE '1950-08-01'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/8.csv"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "type": "medium",
+            "number_of_results": "17",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What are the cities of Cuba?",
+            "query": "SELECT * FROM mondial_city ci INNER JOIN mondial_country c on ci.country = c.code where c.name = 'Cuba'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/9.csv"
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the capital of Georgia?",
+            "query": "SELECT capital FROM mondial_country WHERE name = 'Georgia'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/10.csv"
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "2",
+            "number_of_aggregations": "1",
+            "question": "How many provinces have areas greater than 1000 in Niger?",
+            "query": "SELECT count(p.name) FROM mondial_province p INNER JOIN mondial_country c on p.country = c.code where c.name = 'Niger' AND p.area > 1000",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/11.csv"
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "Tell me about the country with the area largest.",
+            "query": "SELECT name FROM mondial_country GROUP BY name ORDER BY max(area) DESC FETCH FIRST 1 ROWS ONLY;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/12.csv"
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the host province and year of establishment of the organization \"International Energy Agency\"?",
+            "query": "SELECT o.province, o.established  FROM mondial_organization o WHERE o.name LIKE '%International Energy Agency%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/13.csv"
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "type": "medium",
+            "number_of_results": "561",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Find the name of all mountains whose elevation is higher than 1000.",
+            "query": "SELECT name FROM mondial_mountain WHERE elevation > 1000.0",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/14.csv"
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "type": "medium",
+            "number_of_results": "33",
+            "number_of_joins": "3",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Tell me the economy of the Caribbean Sea.",
+            "query": "SELECT DISTINCT e.* FROM mondial_economy e \nINNER JOIN mondial_country c ON e.country = c.code\nINNER JOIN mondial_geo_sea gs ON gs.country = c.code\nINNER JOIN mondial_sea s ON s.name = gs.sea\nWHERE s.name LIKE '%Caribbean Sea%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/15.csv"
+                }
+            ]
+        },
+        {
+            "id": "16",
+            "type": "simple",
+            "number_of_results": "142",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "Show the cities with longitude between 0 and 6.",
+            "query": "SELECT name FROM mondial_city WHERE longitude BETWEEN 0 AND 6",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/16.csv"
+                }
+            ]
+        },
+        {
+            "id": "17",
+            "type": "complex",
+            "number_of_results": "14",
+            "number_of_joins": "2",
+            "number_of_filters": "3",
+            "number_of_aggregations": "0",
+            "question": "Select cities whose population is greater than 100000, altitude greater than 2500, and the country you belong to has population growth greater than 1.",
+            "query": "SELECT ci.name FROM mondial_city ci\nINNER JOIN mondial_country c ON c.code = ci.country\nINNER JOIN mondial_population p ON p.country = c.code \nWHERE ci.population > 100000 AND ci.elevation > 2500 AND \np.population_growth > 1",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/17.csv"
+                }
+            ]
+        },
+        {
+            "id": "18",
+            "type": "simple",
+            "number_of_results": "81",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "Show all the different types of government.",
+            "query": "SELECT DISTINCT government FROM mondial_politics",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/18.csv"
+                }
+            ]
+        },
+        {
+            "id": "19",
+            "type": "medium",
+            "number_of_results": "16",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List all provinces in Germany",
+            "query": "SELECT p.name FROM mondial_province p INNER JOIN mondial_country c ON p.country = c.code  WHERE c.name = 'Germany'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/19.csv"
+                }
+            ]
+        },
+        {
+            "id": "20",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "What is the percentage of mulatto ethnicity in Brazil?",
+            "query": "SELECT eg.percentage FROM mondial_ethnicgroup eg INNER JOIN mondial_country c ON c.code = eg.country WHERE c.name = 'Brazil' AND eg.name LIKE '%Mulatto%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/20.csv"
+                }
+            ]
+        },
+        {
+            "id": "21",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "How many cities have populations less than 1000?",
+            "query": "SELECT count(*) FROM mondial_city WHERE population < 1000",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/21.csv"
+                }
+            ]
+        },
+        {
+            "id": "22",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "3",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "What is the average elevation of airports in America?",
+            "query": "SELECT avg(a.elevation) FROM mondial_airport a\nINNER JOIN mondial_country c ON c.code = a.country \nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE co.name = 'America'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/22.csv"
+                }
+            ]
+        },
+        {
+            "id": "23",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "How many countries are adjacent to (or ecompassed by) the Caribbean Sea?",
+            "query": "SELECT COUNT(DISTINCT ec.country) AS number_of_countries\nFROM mondial_geo_sea gs\nJOIN mondial_encompasses ec ON gs.country = ec.country\nWHERE gs.sea = 'Caribbean Sea';",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/23.csv"
+                }
+            ]
+        },
+        {
+            "id": "24",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "How much area do the countries that are adjacent to (or encompassed by) the Caribbean Sea cover in total?",
+            "query": "SELECT SUM(DISTINCT c.area) AS total_area\nFROM mondial_Country c\nJOIN mondial_encompasses e ON c.code = e.country\nJOIN mondial_geo_sea gs ON e.country = gs.country\nWHERE gs.sea = 'Caribbean Sea';",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/24.csv"
+                }
+            ]
+        },
+        {
+            "id": "25",
+            "type": "medium",
+            "number_of_results": "119",
+            "number_of_joins": "2",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "For all countries, give the sum of the population of all its neighbors",
+            "query": "SELECT c.name AS country_name, SUM(c1.population) AS total_neighbor_population\nFROM mondial_Country c\nJOIN mondial_Borders b ON c.code = b.country1\nJOIN mondial_Country c1 ON b.country2 = c1.code\nGROUP BY c.name;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/25.csv"
+                }
+            ]
+        },
+        {
+            "id": "26",
+            "type": "simple",
+            "number_of_results": "7",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What mountains are on the island of Borneo?",
+            "query": "SELECT mountain FROM mondial_mountainonisland WHERE island LIKE '%Borneo%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/26.csv"
+                }
+            ]
+        },
+        {
+            "id": "27",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "Provide the name and total population of the country with the smallest area.",
+            "query": "SELECT name, population FROM mondial_country ORDER BY area ASC FETCH FIRST 1 ROWS ONLY;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/27.csv"
+                }
+            ]
+        },
+        {
+            "id": "28",
+            "type": "complex",
+            "number_of_results": "56",
+            "number_of_joins": "0",
+            "number_of_filters": "5",
+            "number_of_aggregations": "0",
+            "question": "The codes of all countries for which at least one river that originates in this country has its estuary in a neighboring country.",
+            "query": "SELECT DISTINCT s.country\nFROM mondial_geo_estuary e, mondial_borders b, mondial_geo_source s\nWHERE ((e.country = b.country1 AND s.country = b.country2)\nOR (e.country = b.country2 AND s.country = b.country1))\nAND e.river = s.river;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/28.csv"
+                }
+            ]
+        },
+        {
+            "id": "29",
+            "type": "complex",
+            "number_of_results": "84",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "The codes of all countries where at least one mountain is located in each of their provinces",
+            "query": "SELECT code FROM mondial_country\nWHERE code NOT IN (\nSELECT p.country FROM (\nSELECT name, country\nFROM mondial_province\nWHERE (name, country) NOT IN (SELECT province, country FROM mondial_geo_mountain)) p);",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/29.csv"
+                }
+            ]
+        },
+        {
+            "id": "30",
+            "type": "complex",
+            "number_of_results": "167",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "1",
+            "question": "The code and total border lengths of all countries with at least one border.",
+            "query": "SELECT b.country1, sum(b.length)\nFROM (SELECT country1, length FROM mondial_borders\nUNION ALL\nSELECT country2, length FROM mondial_borders\n) b\nGROUP BY b.country1;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/30.csv"
+                }
+            ]
+        },
+        {
+            "id": "31",
+            "type": "medium",
+            "number_of_results": "90",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "The names and codes of all countries in which at least one river originates.",
+            "query": "SELECT DISTINCT c.name, c.code\nFROM mondial_country c, mondial_geo_source g\nWHERE c.code = g.country;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/31.csv"
+                }
+            ]
+        },
+        {
+            "id": "32",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the area and country of the Chatanga River?",
+            "query": "SELECT c.name, r.area FROM mondial_geo_river gr\nINNER JOIN mondial_country c ON c.code = gr.country \nINNER JOIN mondial_river r ON r.name = gr.river\nWHERE r.name = 'Chatanga'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/32.csv"
+                }
+            ]
+        },
+        {
+            "id": "33",
+            "type": "simple",
+            "number_of_results": "5",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Show the Airports with elevation more than 3000",
+            "query": "SELECT name FROM mondial_airport WHERE elevation > 3000.0",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/33.csv"
+                }
+            ]
+        },
+        {
+            "id": "34",
+            "type": "medium",
+            "number_of_results": "3",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "What are the religions practiced in Mexico?",
+            "query": "SELECT r.name FROM mondial_religion r INNER JOIN mondial_country c ON c.code = r.country WHERE c.name = 'Mexico'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/34.csv"
+                }
+            ]
+        },
+        {
+            "id": "35",
+            "type": "medium",
+            "number_of_results": "267",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Show all rivers that do not flow into the sea.",
+            "query": "SELECT name FROM mondial_River WHERE sea IS NULL;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/35.csv"
+                }
+            ]
+        },
+        {
+            "id": "36",
+            "type": "complex",
+            "number_of_results": "39",
+            "number_of_joins": "3",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "List African countries by number of neighbors.",
+            "query": "SELECT c.name, COUNT(b.country2) AS num_neighbors FROM mondial_country c INNER JOIN mondial_borders b ON c.code = b.country1 \nINNER JOIN mondial_encompasses e ON c.code = e.country \nINNER JOIN mondial_continent co ON e.continent = co.name \nWHERE co.name = 'Africa' GROUP BY c.name ORDER BY num_neighbors DESC;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/36.csv"
+                }
+            ]
+        },
+        {
+            "id": "37",
+            "type": "simple",
+            "number_of_results": "5",
+            "number_of_joins": "2",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "What is the average infant mortality rate for each continent?",
+            "query": "SELECT c.name AS continent, AVG(p.infant_mortality) AS avg_infant_mortality\nFROM mondial_continent c\nJOIN mondial_encompasses e ON c.name = e.continent\nJOIN mondial_population p ON e.country = p.country\nGROUP BY c.name;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/37.csv"
+                }
+            ]
+        },
+        {
+            "id": "38",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "3",
+            "number_of_filters": "2",
+            "number_of_aggregations": "1",
+            "question": "What is the average mortality rate of the countries in America without considering Brazil?",
+            "query": "SELECT AVG(p.infant_mortality) AS avg_infant_mortality\nFROM mondial_Country c\nJOIN mondial_Population p ON c.code = p.country\nJOIN mondial_encompasses e ON c.code = e.country\nJOIN mondial_Continent ct ON e.continent = ct.name\nWHERE ct.name = 'America' AND c.name != 'Brazil';",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/38.csv"
+                }
+            ]
+        },
+        {
+            "id": "39",
+            "type": "simple",
+            "number_of_results": "2",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "List seas with area greater than 8000 and depth less than 100.",
+            "query": "SELECT name FROM mondial_sea WHERE area > 8000 AND depth < 100",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/39.csv"
+                }
+            ]
+        },
+        {
+            "id": "40",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "4",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "How many mountains are there in Asia?",
+            "query": "SELECT count(DISTINCT m.name) FROM mondial_mountain m\nINNER JOIN mondial_geo_mountain gm ON m.name = gm.mountain \nINNER JOIN mondial_country c ON c.code = gm.country \nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE co.name = 'Asia'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/40.csv"
+                }
+            ]
+        },
+        {
+            "id": "41",
+            "type": "complex",
+            "number_of_results": "8",
+            "number_of_joins": "3",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "How many countries that are close to the Mediterranean Sea?",
+            "query": "SELECT count(DISTINCT c.name) FROM mondial_country c\nINNER JOIN mondial_geo_sea gs ON gs.country = c.code\nINNER JOIN mondial_sea s ON gs.sea = s.name \nWHERE s.name = 'Mediterranean Sea'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/41.csv"
+                }
+            ]
+        },
+        {
+            "id": "42",
+            "type": "simple",
+            "number_of_results": "81",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "Show the total for each type of government.",
+            "query": "SELECT government, count(government) FROM mondial_politics GROUP BY government",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/42.csv"
+                }
+            ]
+        },
+        {
+            "id": "43",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "Which province has the largest desert in the world?",
+            "query": "SELECT province FROM mondial_geo_desert gd \nINNER JOIN mondial_desert d ON gd.desert = d.name ORDER BY d.area DESC FETCH FIRST 1 ROWS ONLY;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/43.csv"
+                }
+            ]
+        },
+        {
+            "id": "44",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "What is the largest desert in the world?",
+            "query": "SELECT name FROM mondial_desert ORDER BY area DESC FETCH FIRST 1 ROWS ONLY;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/44.csv"
+                }
+            ]
+        },
+        {
+            "id": "45",
+            "type": "complex",
+            "number_of_results": "5",
+            "number_of_joins": "3",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "List, for all continents, the amount of deserts on each.",
+            "query": "SELECT co.name, count(gd.desert) FROM mondial_geo_desert gd \nINNER JOIN mondial_country c ON c.code = gd.country \nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nGROUP BY co.name",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/45.csv"
+                }
+            ]
+        },
+        {
+            "id": "46",
+            "type": "medium",
+            "number_of_results": "4",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What are the neighboring seas of the Banda Sea?",
+            "query": "SELECT sea2 FROM mergeswith WHERE sea1 = 'Banda Sea' UNION SELECT sea1 FROM mergeswith WHERE sea2 = 'Banda Sea'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/46.csv"
+                }
+            ]
+        },
+        {
+            "id": "47",
+            "type": "medium",
+            "number_of_results": "54",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List all the capitals of European countries.",
+            "query": "SELECT c.capital FROM mondial_country c\nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE co.name = 'Europe'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/47.csv"
+                }
+            ]
+        },
+        {
+            "id": "48",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "What percentage of people speak French in Andorra?",
+            "query": "SELECT l.percentage FROM mondial_language l \nINNER JOIN mondial_country c ON l.country = c.code\nWHERE l.name LIKE '%French%' AND c.name = 'Andorra'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/48.csv"
+                }
+            ]
+        },
+        {
+            "id": "49",
+            "type": "complex",
+            "number_of_results": "151",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Which rivers are longer than 1000 kilometers?",
+            "query": "SELECT name FROM mondial_river WHERE length > 1000",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/49.csv"
+                }
+            ]
+        },
+        {
+            "id": "50",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "Which country had the lowest population growth?",
+            "query": "SELECT c.name FROM mondial_country c \nINNER JOIN mondial_population p ON p.country = c.code \nORDER BY p.population_growth ASC FETCH FIRST 1 ROWS ONLY",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/50.csv"
+                }
+            ]
+        },
+        {
+            "id": "51",
+            "type": "complex",
+            "number_of_results": "64",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the name of capital cities for which we do not have data about the city in located",
+            "query": "SELECT c.capital FROM mondial_country c WHERE c.capital NOT IN (SELECT lo.city FROM mondial_located lo )",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/51.csv"
+                }
+            ]
+        },
+        {
+            "id": "52",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the capital of the provice Andalucía?",
+            "query": "SELECT p.CAPITAL\nFROM MONDIAL_PROVINCE p \nWHERE p.name like '%Andalucía%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/52.csv"
+                }
+            ]
+        },
+        {
+            "id": "53",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the abbreviation for the organization whose name is \"General Confederation of Trade Unions\"?",
+            "query": "SELECT abbreviation FROM mondial_organization WHERE name='General Confederation of Trade Unions'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/53.csv"
+                }
+            ]
+        },
+        {
+            "id": "54",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "In which city is the organization with the abbreviation \"UPU\" ?",
+            "query": "SELECT city FROM mondial_organization WHERE abbreviation='UPU'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/54.csv"
+                }
+            ]
+        },
+        {
+            "id": "55",
+            "type": "complex",
+            "number_of_results": "10",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the names of countries which are members of only one organization",
+            "query": "SELECT c.name\nFROM mondial_country c\nJOIN mondial_ismember m\nON c.code=m.country\nWHERE m.organization=ALL(SELECT organization\nFROM mondial_ismember m\nWHERE\nm.country=c.code)",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/55.csv"
+                }
+            ]
+        },
+        {
+            "id": "56",
+            "type": "complex",
+            "number_of_results": "215",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "List the name of countries which are not a member of NATO.",
+            "query": "SELECT c.name\nFROM mondial_country c\nWHERE c.code NOT IN (SELECT m.country\nFROM mondial_ismember m\nWHERE organization='NATO')",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/56.csv"
+                }
+            ]
+        },
+        {
+            "id": "57",
+            "type": "medium",
+            "number_of_results": "29",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the name of countries which are a member of NATO.",
+            "query": "SELECT c.name\nFROM mondial_country c\nJOIN mondial_ismember m\nON c.code=m.country\nWHERE organization='NATO'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/57.csv"
+                }
+            ]
+        },
+        {
+            "id": "58",
+            "type": "simple",
+            "number_of_results": "17",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the rivers with length less than 50",
+            "query": "SELECT name FROM mondial_river WHERE length < 50",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/58.csv"
+                }
+            ]
+        },
+        {
+            "id": "59",
+            "type": "simple",
+            "number_of_results": "11",
+            "number_of_joins": "3",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "What are the area, elevation and type of lakes in country Italy?",
+            "query": "SELECT l.area, l.elevation, l.type FROM MONDIAL_GEO_LAKE gl , MONDIAL_LAKE l, MONDIAL_COUNTRY c\nWHERE (gl.LAKE = l.NAME)\nAND (gl.COUNTRY = c.CODE)\nAND  c.name = 'Italy'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/59.csv"
+                }
+            ]
+        },
+        {
+            "id": "60",
+            "type": "complex",
+            "number_of_results": "54",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the names of capital cities which are the base for organizations in alphabetical order",
+            "query": "SELECT c.capital\nFROM mondial_country c\nWHERE c.capital IN (SELECT o.city\nFROM mondial_organization o) ORDER BY c.capital ASC",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/60.csv"
+                }
+            ]
+        },
+        {
+            "id": "61",
+            "type": "complex",
+            "number_of_results": "34",
+            "number_of_joins": "1",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "List the name of organizations that do not have countries with an area smaller than 4000 and of the member type",
+            "query": "SELECT o.name\nFROM mondial_organization o\nWHERE NOT EXISTS (SELECT *\nFROM mondial_ismember m\nJOIN mondial_country c\nON m.country=c.code\nWHERE m.organization=o.abbreviation\nAND c.area <=4000\nAND m.type= 'member')",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/61.csv"
+                }
+            ]
+        },
+        {
+            "id": "62",
+            "type": "complex",
+            "number_of_results": "167",
+            "number_of_joins": "1",
+            "number_of_filters": "3",
+            "number_of_aggregations": "0",
+            "question": "List the name of organizations that do not have countries with  an area greater than 10000 and population smaller than 3000 and of the member type",
+            "query": "SELECT o.name\nFROM mondial_organization o\nWHERE NOT EXISTS (SELECT *\nFROM mondial_ismember m\nJOIN mondial_country c\nON m.country=c.code\nWHERE m.organization=o.abbreviation\nAND c.area > 10000\nAND c.population < 3000\nAND m.type= 'member')",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/62.csv"
+                }
+            ]
+        },
+        {
+            "id": "63",
+            "type": "complex",
+            "number_of_results": "5",
+            "number_of_joins": "3",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Show the inflation rate sorted of countries that are washed by the Arabian Sea",
+            "query": "SELECT DISTINCT e.inflation FROM mondial_economy e \nINNER JOIN mondial_country c ON e.country = c.code\nINNER JOIN mondial_geo_sea gs ON gs.country = c.code\nINNER JOIN mondial_sea s ON s.name = gs.sea\nWHERE s.name LIKE '%Arabian Sea%' ORDER BY e.inflation",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/63.csv"
+                }
+            ]
+        },
+        {
+            "id": "64",
+            "type": "medium",
+            "number_of_results": "60",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List all the capitals of the countries that belong to the continent Africa?",
+            "query": "SELECT c.capital FROM mondial_country c\nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE co.name = 'Africa'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/64.csv"
+                }
+            ]
+        },
+        {
+            "id": "65",
+            "type": "complex",
+            "number_of_results": "4",
+            "number_of_joins": "3",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "Show the inflation rate of the countries bathed by the Arabian Sea and there is no inflation with null value",
+            "query": "SELECT DISTINCT e.inflation FROM mondial_economy e \nINNER JOIN mondial_country c ON e.country = c.code\nINNER JOIN mondial_geo_sea gs ON gs.country = c.code\nINNER JOIN mondial_sea s ON s.name = gs.sea\nWHERE s.name LIKE '%Arabian Sea%' AND e.INFLATION IS NOT NULL",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/65.csv"
+                }
+            ]
+        },
+        {
+            "id": "66",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "How many countries are in Africa?",
+            "query": "SELECT count(*) FROM mondial_country c\nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE co.name = 'Africa'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/66.csv"
+                }
+            ]
+        },
+        {
+            "id": "67",
+            "type": "complex",
+            "number_of_results": "244",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "List the name of countries that are not members of NATO and UNESCO",
+            "query": "SELECT name FROM country WHERE code NOT IN (SELECT country FROM ismember WHERE organization = 'NATO')\nINTERSECT SELECT name FROM country WHERE code NOT IN (SELECT country FROM ismember WHERE organization = 'UNESCO')",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/67.csv"
+                }
+            ]
+        },
+        {
+            "id": "68",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the area of the continent Europe?",
+            "query": "SELECT area FROM mondial_continent WHERE name = 'Europe'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/68.csv"
+                }
+            ]
+        },
+        {
+            "id": "69",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the area of continent America?",
+            "query": "SELECT area FROM mondial_continent WHERE name = 'America'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/69.csv"
+                }
+            ]
+        },
+        {
+            "id": "70",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the area of continent Asia?",
+            "query": "SELECT area FROM mondial_continent WHERE name = 'Asia'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/70.csv"
+                }
+            ]
+        },
+        {
+            "id": "71",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the area of Africa?",
+            "query": "SELECT area FROM mondial_continent WHERE name = 'Africa'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/71.csv"
+                }
+            ]
+        },
+        {
+            "id": "72",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "How many countries are in America?",
+            "query": "SELECT count(*) FROM mondial_country c\nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE co.name = 'America'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/72.csv"
+                }
+            ]
+        },
+        {
+            "id": "73",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "What area is the largest continent?",
+            "query": "SELECT max(area) FROM mondial_continent",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/73.csv"
+                }
+            ]
+        },
+        {
+            "id": "74",
+            "type": "complex",
+            "number_of_results": "53",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the countries that belong to the continent with the largest area",
+            "query": "SELECT c.name\nFROM mondial_country c\nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nWHERE e.continent = (\n    SELECT name\n    FROM mondial_continent\n    GROUP BY name\n    ORDER BY MAX(area) DESC\n    FETCH FIRST 1 ROWS ONLY\n);",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/74.csv"
+                }
+            ]
+        },
+        {
+            "id": "75",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "3",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "List the countries that belong to the continent with the largest area and whose language is English",
+            "query": "SELECT c.name\nFROM mondial_country c\nINNER JOIN mondial_encompasses e ON e.country = c.code\nINNER JOIN mondial_continent co ON co.name = e.continent\nINNER JOIN mondial_language l ON l.country = c.code\nWHERE e.continent = (\n    SELECT name\n    FROM mondial_continent\n    GROUP BY name\n    ORDER BY MAX(area) DESC\n    FETCH FIRST 1 ROWS ONLY\n) AND l.name='English';",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/75.csv"
+                }
+            ]
+        },
+        {
+            "id": "76",
+            "type": "medium",
+            "number_of_results": "49",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the names of cities, along with the name of their country for cities with a population greater than 5 million.  Display the results in descending order by population.",
+            "query": "SELECT ci.name AS cityname, c.name AS countryname\nFROM mondial_city ci\nJOIN mondial_country c ON ci.country = c.code\nWHERE ci.population > 5000000\nORDER BY ci.population DESC;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/76.csv"
+                }
+            ]
+        },
+        {
+            "id": "77",
+            "type": "simple",
+            "number_of_results": "7",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Show the name of the deserts in the province of Algeria",
+            "query": "SELECT d.name FROM mondial_desert d \nINNER JOIN mondial_geo_desert gd ON gd.desert = d.name \nWHERE gd.province='Algeria'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/77.csv"
+                }
+            ]
+        },
+        {
+            "id": "78",
+            "type": "simple",
+            "number_of_results": "3",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Show the name and area of the deserts in the province of California",
+            "query": "SELECT d.name, d.area FROM mondial_desert d \nINNER JOIN mondial_geo_desert gd ON gd.desert = d.name \nWHERE gd.province='California'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/78.csv"
+                }
+            ]
+        },
+        {
+            "id": "79",
+            "type": "simple",
+            "number_of_results": "17",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the country names and percentage of use of language where  French are used as languages.",
+            "query": "SELECT c.name, l.percentage FROM mondial_language l INNER JOIN mondial_country c\nON l.country = c.code WHERE l.name = 'French'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/79.csv"
+                }
+            ]
+        },
+        {
+            "id": "80",
+            "type": "medium",
+            "number_of_results": "251",
+            "number_of_joins": "2",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What are the cities where \ufffdPortuguese\ufffd is spoken?",
+            "query": "SELECT ci.name\nFROM mondial_city ci\nINNER JOIN mondial_country co\nON co.code = ci.country\nINNER JOIN mondial_language l\nON l.country = co.code\nWHERE l.name = 'Portuguese';",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/80.csv"
+                }
+            ]
+        },
+        {
+            "id": "81",
+            "type": "complex",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "What is the total area of the provinces in Canada?",
+            "query": "SELECT SUM(p.area)\nFROM mondial_province p\nINNER JOIN mondial_country c\nON p.country = c.code\nWHERE c.name = 'Canada';",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/81.csv"
+                }
+            ]
+        },
+        {
+            "id": "82",
+            "type": "simple",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the length of the Tigres River?",
+            "query": "SELECT length FROM mondial_river WHERE name LIKE '%Tigris%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/82.csv"
+                }
+            ]
+        },
+        {
+            "id": "83",
+            "type": "medium",
+            "number_of_results": "123",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the Airports with elevation more than 1000",
+            "query": "SELECT name\nFROM mondial_airport\nWHERE elevation > 1000.0;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/83.csv"
+                }
+            ]
+        },
+        {
+            "id": "84",
+            "type": "complex",
+            "number_of_results": "72",
+            "number_of_joins": "1",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "List airports in the United States with an elevation below 200 feet",
+            "query": "SELECT a.name\nFROM mondial_airport a\nINNER JOIN mondial_country c\nON c.code = a.country\nWHERE c.name = 'United States' AND a.elevation <200;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/84.csv"
+                }
+            ]
+        },
+        {
+            "id": "85",
+            "type": "medium",
+            "number_of_results": "14",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What are the mountains with altitudes above 8000 meters?",
+            "query": "SELECT name\nFROM mondial_mountain\nWHERE elevation > 8000;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/85.csv"
+                }
+            ]
+        },
+        {
+            "id": "86",
+            "type": "simple",
+            "number_of_results": "3",
+            "number_of_joins": "0",
+            "number_of_filters": "0",
+            "number_of_aggregations": "0",
+            "question": "What are the 3 airports with the largest name?",
+            "query": "SELECT name\nFROM mondial_airport\nORDER BY LENGTH(name) DESC\nFETCH FIRST 3 ROWS ONLY;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/86.csv"
+                }
+            ]
+        },
+        {
+            "id": "87",
+            "type": "medium",
+            "number_of_results": "145",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List lakes with an area of less than 5000 square kilometers.",
+            "query": "SELECT name\nFROM mondial_lake\nWHERE area < 5000;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/87.csv"
+                }
+            ]
+        },
+        {
+            "id": "88",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "What is the total area of the seas with a depth greater than 1000 meters?",
+            "query": "SELECT SUM(area)\nFROM mondial_sea\nWHERE depth > 1000;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/88.csv"
+                }
+            ]
+        },
+        {
+            "id": "89",
+            "type": "complex",
+            "number_of_results": "5",
+            "number_of_joins": "0",
+            "number_of_filters": "2",
+            "number_of_aggregations": "0",
+            "question": "Find the countries whose name starts with the letter \"B\" and have a population greater than 10 million",
+            "query": "SELECT name\nFROM mondial_country\nWHERE name LIKE 'B%' AND population > 10000000;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/89.csv"
+                }
+            ]
+        },
+        {
+            "id": "90",
+            "type": "medium",
+            "number_of_results": "3",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List cities with another name in Brazil",
+            "query": "SELECT cio.othername\nFROM mondial_cityothername cio\nINNER JOIN mondial_country c\nON cio.country = c.code\nWHERE c.name = 'Brazil'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/90.csv"
+                }
+            ]
+        },
+        {
+            "id": "91",
+            "type": "medium",
+            "number_of_results": "797",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List all cities that are at a latitude greater than 45 degrees.",
+            "query": "SELECT name\nFROM mondial_city\nWHERE latitude > 45;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/91.csv"
+                }
+            ]
+        },
+        {
+            "id": "92",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "1",
+            "question": "Show the number of cities with another name in countries with an area greater than 30000",
+            "query": "SELECT count(DISTINCT cio.city)\nFROM mondial_cityothername cio\nINNER JOIN mondial_country c\nON cio.country = c.code\nWHERE c.area >30000",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/92.csv"
+                }
+            ]
+        },
+        {
+            "id": "93",
+            "type": "simple",
+            "number_of_results": "61",
+            "number_of_joins": "0",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "Show the deserts with area greater than 10000",
+            "query": "SELECT name\nFROM mondial_desert\nWHERE area > 10000;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/93.csv"
+                }
+            ]
+        },
+        {
+            "id": "94",
+            "type": "simple",
+            "number_of_results": "39",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List the islands that belong to a lake with an elevation greater than 100",
+            "query": "SELECT island.name \nFROM island \nJOIN lakeonisland ON island.name = lakeonisland.island \nJOIN lake ON lake.name = lakeonisland.lake\nWHERE lake.elevation > 100;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/94.csv"
+                }
+            ]
+        },
+        {
+            "id": "95",
+            "type": "medium",
+            "number_of_results": "71",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "List all mountains located on islands with an area greater than 100,000 square kilometers",
+            "query": "SELECT moi.mountain\nFROM mondial_mountainonisland moi\nINNER JOIN mondial_island isl\nON moi.island = isl.name\nWHERE isl.area > 100000",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/95.csv"
+                }
+            ]
+        },
+        {
+            "id": "96",
+            "type": "simple",
+            "number_of_results": "244",
+            "number_of_joins": "1",
+            "number_of_filters": "0",
+            "number_of_aggregations": "1",
+            "question": "List the countries and the sum of their provincial areas.",
+            "query": "SELECT c.name AS country, SUM(p.area) AS total_province_area\nFROM mondial_country c\nINNER JOIN mondial_province p\nON c.code = p.country\nGROUP BY c.name;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/96.csv"
+                }
+            ]
+        },
+        {
+            "id": "97",
+            "type": "medium",
+            "number_of_results": "244",
+            "number_of_joins": "1",
+            "number_of_filters": "0",
+            "number_of_aggregations": "2",
+            "question": "Show the name of the countries, the average elevation and sum of the population of their cities",
+            "query": "SELECT c.name AS country, AVG(ci.elevation) AS average_city_population, SUM(ci.population) AS total_city_area\nFROM mondial_country c\nINNER JOIN mondial_city ci\nON c.code = ci.country\nGROUP BY c.name;",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/97.csv"
+                }
+            ]
+        },
+        {
+            "id": "98",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What was Germany's inflation?",
+            "query": "SELECT e.inflation FROM mondial_country c JOIN mondial_economy e ON c.code=e.country WHERE c.name LIKE '%Germany%'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/98.csv"
+                }
+            ]
+        },
+        {
+            "id": "99",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What type of government is Iran?",
+            "query": "SELECT p.government\nFROM mondial_country c\nINNER JOIN mondial_politics p\nON p.country = c.code\nWHERE c.name = 'Iran'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/99.csv"
+                }
+            ]
+        },
+        {
+            "id": "100",
+            "type": "medium",
+            "number_of_results": "1",
+            "number_of_joins": "1",
+            "number_of_filters": "1",
+            "number_of_aggregations": "0",
+            "question": "What is the percentage of industries in relation to Japan's economy?",
+            "query": "SELECT e.industry \nFROM mondial_economy e\nINNER JOIN mondial_country c\nON c.code = e.country\nWHERE c.name = 'Japan'",
+            "keywords": "",
+            "answer": [
+                {
+                    "uri": "/results_table/100.csv"
+                }
+            ]
+        }
+    ]
+}

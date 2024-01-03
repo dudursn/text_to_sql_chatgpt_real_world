@@ -1,0 +1,3 @@
+,experiment,simple,medium,complex,total,overall_simple,overall_medium,overall_complex,overall_total,input_tokens,output_tokens,total_tokens,total_cost,total_time
+0,SQLAgent - MONDIAL_GPT - GPT-3.5 - FK,19,11,7,37,0.5758,0.3333,0.2059,0.37,376236,16898,393134,0.6,0:21:35
+1,SQLAgent - MONDIAL_GPT - GPT-3.5 - Passing Database Rows - FK,19,12,4,35,0.5758,0.3636,0.1176,0.35,441785,17939,459724,0.7,0:32:21

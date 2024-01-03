@@ -1,0 +1,3 @@
+,experiment,simple,medium,complex,total,overall_simple,overall_medium,overall_complex,overall_total,input_tokens,output_tokens,total_tokens,total_cost,total_time
+1,C3 - MONDIAL_GPT - GPT-4 - FK,29,25,24,78,0.8788,0.7576,0.7059,0.78,153705,426937,580642,30.23,1:20:06
+0,C3 - MONDIAL_GPT - GPT-3.5 - FK,26,16,13,55,0.7879,0.4848,0.3824,0.55,175298,754619,929917,1.77,1:09:27

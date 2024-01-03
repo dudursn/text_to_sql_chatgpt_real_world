@@ -1,0 +1,32 @@
+{
+    "1": {
+        "completion_tokens": 463,
+        "prompt_tokens": 7855,
+        "total_tokens": 8318,
+        "time_elapsed": 11.72843623161316
+    },
+    "2": {
+        "completion_tokens": 522,
+        "prompt_tokens": 7865,
+        "total_tokens": 8387,
+        "time_elapsed": 12.777130842208862
+    },
+    "3": {
+        "completion_tokens": 0,
+        "prompt_tokens": 0,
+        "total_tokens": 0,
+        "time_elapsed": 0
+    },
+    "4": {
+        "completion_tokens": 0,
+        "prompt_tokens": 0,
+        "total_tokens": 0,
+        "time_elapsed": 0
+    },
+    "5": {
+        "completion_tokens": 0,
+        "prompt_tokens": 0,
+        "total_tokens": 0,
+        "time_elapsed": 0
+    }
+}
