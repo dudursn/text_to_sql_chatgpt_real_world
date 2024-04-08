@@ -250,8 +250,8 @@ class DatasetEvaluator:
         self.need_auth = False
         self.dataset_name = dataset_name
         
-        # Danke
-        self.danke_api_url = db_connection_data['KEYWORD_SEARCH_API_URL']
+        # KWS
+        self.kws_api_url = db_connection_data['KEYWORD_SEARCH_API_URL']
 
         # SQL
         self.db_username = db_connection_data['DB_USER_NAME']
@@ -306,13 +306,13 @@ class DatasetEvaluator:
 
     def run_keyword_query(self, keyword_string: str, row_count: int=100000, user: str="", password: str="") -> pd.DataFrame:
         """
-        Runs a Danke keyword query through the specified API URL (KEYWORD_SEARCH_API_URL).
+        Runs a kws keyword query through the specified API URL (KEYWORD_SEARCH_API_URL).
 
         Args:
             keyword_string (string): Keyword search query string
             row_count (int, optional): Max. number of rows to return. Default = 100000
-            user: (str, optional): Danke username. If left blank, uses username in configuration file, if found.
-            password: (str, optional): Danke password. If left blank, uses password in configuration file, if found.
+            user: (str, optional): kws username. If left blank, uses username in configuration file, if found.
+            password: (str, optional): kws password. If left blank, uses password in configuration file, if found.
 
         Returns:
             pandas.DataFrame: DataFrame containing the results
@@ -323,10 +323,10 @@ class DatasetEvaluator:
 
         if self.need_auth:
             if user == "":
-                user = self.danke_user
-                password = self.danke_pass
+                user = self.kws_user
+                password = self.kws_pass
 
-        login_endpoint = f"{self.danke_api_url}/login"
+        login_endpoint = f"{self.kws_api_url}/login"
         if self.need_auth:
             if self.auth_token is None:
                 response = requests.post(login_endpoint,
@@ -337,9 +337,9 @@ class DatasetEvaluator:
                 self.auth_token = response.headers["Authorization"]
                 self.auth_header = {"Authorization": self.auth_token}
 
-        conceptual_query_endpoint = f"{self.danke_api_url}/search/queries"
-        default_properties_endpoint = f"{self.danke_api_url}/search/query/defaults"
-        conceptual_query_search_endpoint = f"{self.danke_api_url}/exporter/query/results"
+        conceptual_query_endpoint = f"{self.kws_api_url}/search/queries"
+        default_properties_endpoint = f"{self.kws_api_url}/search/query/defaults"
+        conceptual_query_search_endpoint = f"{self.kws_api_url}/exporter/query/results"
 
         # Get conceptual query
         start_time = time.time()
@@ -708,8 +708,8 @@ class DatasetEvaluator:
                        dataset_instance_id: str,
                        query_type: str="keyword",
                        verbose: bool=False,
-                       danke_username: str="",
-                       danke_password: str="",
+                       kws_username: str="",
+                       kws_password: str="",
                        similarity_metric: str="jaccard") -> bool:
         """
         Runs a single query (keyword or sql) and compares the result to ground truth.
@@ -719,8 +719,8 @@ class DatasetEvaluator:
             dataset_instance_id (str): The ID of the corresponding database instance
             query_type (str): The type of query ("keyword" or "sql"). Default: "keyword"
             verbose (bool),
-            danke_username (str),
-            danke_password (str),
+            kws_username (str),
+            kws_password (str),
             similarity_metric (str, optional): Similarity metric to use when comparing columns and tables.
                 Possible values:
                 - "jaccard": Jaccard index (intersection / union)
@@ -742,8 +742,8 @@ class DatasetEvaluator:
                                    ground_truth_sql_query=ground_truth_sql_query,
                                    query_type=query_type,
                                    verbose=verbose,
-                                   danke_username=danke_username,
-                                   danke_password=danke_password,
+                                   kws_username=kws_username,
+                                   kws_password=kws_password,
                                    similarity_metric=similarity_metric)
     
     def evaluate_query(self,
@@ -751,8 +751,8 @@ class DatasetEvaluator:
                        ground_truth_sql_query: str,
                        query_type: str="keyword",
                        verbose: bool=False,
-                       danke_username: str="",
-                       danke_password: str="",
+                       kws_username: str="",
+                       kws_password: str="",
                        similarity_metric: str="jaccard") -> Tuple[bool, float, float]:
         """
         Runs a single query (keyword or sql) and compares the result to ground truth.
@@ -762,8 +762,8 @@ class DatasetEvaluator:
             ground_truth_sql_query (str): The ground truth SQL query
             query_type (str): The type of query ("keyword" or "sql"). Default: "keyword"
             verbose (bool),
-            danke_username (str),
-            danke_password (str),
+            kws_username (str),
+            kws_password (str),
             similarity_metric (str, optional): Similarity metric to use when comparing columns and tables.
                 Possible values:
                 - "jaccard": Jaccard index (intersection / union)
@@ -784,7 +784,7 @@ class DatasetEvaluator:
             print(ground_truth_sql_result)
 
         if query_type == "keyword":
-            result_table = self.run_keyword_query(query_string, user=danke_username, password=danke_password)
+            result_table = self.run_keyword_query(query_string, user=kws_username, password=kws_password)
 
             if verbose:
                 print("Generated query result table:")

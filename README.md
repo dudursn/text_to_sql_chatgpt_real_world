@@ -5,9 +5,8 @@ Text-to-SQL refers to the task defined as “given a relational database D and a
 
 ## Strategies
 
-- Keyword Search Tool 
-    - Danke
-- Manual Prompt + Danke
+- Keyword Search Tool (KWS)
+- Manual Prompt + KWS
 - Langchain
     - SQLQueryChain
     - SQLDatabaseSequentialChain
