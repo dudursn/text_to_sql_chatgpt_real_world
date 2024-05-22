@@ -1303,7 +1303,7 @@
             "number_of_joins": "0",
             "number_of_filters": "1",
             "number_of_aggregations": "0",
-            "question": "What is the length of the Tigres River?",
+            "question": "What is the length of the Tigris River?",
             "query": "SELECT length FROM mondial_river WHERE name LIKE '%Tigris%'",
             "keywords": "",
             "answer": [
