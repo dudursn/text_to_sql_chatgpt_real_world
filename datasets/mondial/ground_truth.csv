@@ -254,7 +254,7 @@ FROM mondial_province p
 INNER JOIN mondial_country c
 ON p.country = c.code
 WHERE c.name = 'Canada';",,1,1,1,1,0,complex
-82,What is the length of the Tigres River?,SELECT length FROM mondial_river WHERE name LIKE '%Tigris%' ,,1,0,1,0,0,simple
+82,What is the length of the Tigris River?,SELECT length FROM mondial_river WHERE name LIKE '%Tigris%' ,,1,0,1,0,0,simple
 83,List the Airports with elevation more than 1000,"SELECT name
 FROM mondial_airport
 WHERE elevation > 1000.0;",,123,0,1,0,0,medium
